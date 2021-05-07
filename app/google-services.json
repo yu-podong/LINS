@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "711015803034",
+    "project_id": "lins-94234",
+    "storage_bucket": "lins-94234.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:711015803034:android:d8627ba16c380d6ec41723",
+        "android_client_info": {
+          "package_name": "com.yupodong.lins"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "711015803034-abm4vv94gfiasra19jvg8h5edi6ljkim.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKfVN1Dj1GrVdN0FByhzg_WOuQeA2zw6U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "711015803034-abm4vv94gfiasra19jvg8h5edi6ljkim.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
