@@ -52,7 +52,7 @@
         android:layout_height="wrap_content"
         android:text="로그인"
         android:textSize="18dp"
-        android:padding="10dp"
+        android:padding="15dp"
         android:textColor="@color/brightModeFont"
         android:backgroundTint="@color/pastelYellow"/>
 
