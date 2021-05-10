@@ -976,6 +976,9 @@ color background_floating_material_light
 color background_material_dark
 color background_material_light
 color black
+color brightModeBack
+color brightModeFont
+color brightModeTopBar
 color bright_foreground_disabled_material_dark
 color bright_foreground_disabled_material_light
 color bright_foreground_inverse_material_dark
@@ -1004,6 +1007,9 @@ color common_google_signin_btn_text_light_disabled
 color common_google_signin_btn_text_light_focused
 color common_google_signin_btn_text_light_pressed
 color common_google_signin_btn_tint
+color darkModeBack
+color darkModeFont
+color darkModeTopBar
 color design_bottom_navigation_shadow_color
 color design_box_stroke_color
 color design_dark_default_color_background
@@ -1139,6 +1145,10 @@ color mtrl_textinput_focused_box_stroke_color
 color mtrl_textinput_hovered_box_stroke_color
 color notification_action_color_filter
 color notification_icon_bg_color
+color pastelDarkBlue
+color pastelRed
+color pastelSkyBlue
+color pastelYellow
 color primary_dark_material_dark
 color primary_dark_material_light
 color primary_material_dark
@@ -1822,8 +1832,6 @@ id browser_actions_menu_item_icon
 id browser_actions_menu_item_text
 id browser_actions_menu_items
 id browser_actions_menu_view
-id button
-id button2
 id buttonPanel
 id cache_measures
 id cancel_button
@@ -1901,6 +1909,7 @@ id fill
 id fill_horizontal
 id fill_vertical
 id filled
+id find
 id fitToContents
 id fixed
 id flip
@@ -1947,6 +1956,7 @@ id line3
 id linear
 id listMode
 id list_item
+id loginBtn
 id masked
 id material_clock_display
 id material_clock_face
@@ -2001,7 +2011,6 @@ id mtrl_picker_text_input_range_start
 id mtrl_picker_title_text
 id mtrl_view_tag_bottom_padding
 id multiply
-id name
 id navigation_header_container
 id never
 id noScroll
@@ -2034,6 +2043,7 @@ id progress_horizontal
 id radio
 id ratio
 id rectangles
+id register
 id reverseSawtooth
 id right
 id rightToLeft
@@ -2116,7 +2126,6 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textTop
-id textView
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
@@ -2129,6 +2138,7 @@ id textinput_suffix_text
 id time
 id title
 id titleDividerNoCustom
+id titleText
 id title_template
 id toggle
 id top
@@ -2216,7 +2226,18 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_commu
+layout activity_commu_list
+layout activity_commu_read
+layout activity_commu_write
+layout activity_find
+layout activity_license_list
+layout activity_license_select
+layout activity_login
 layout activity_main
+layout activity_register
+layout activity_sche
+layout activity_sche_pop
 layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
 layout custom_dialog

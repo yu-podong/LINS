@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="30dp"
+    android:background="@color/brightModeBack"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".LoginActivity">
+
+    <TextView
+        android:id="@+id/titleText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="LINS"
+        android:textSize="48dp"
+        android:textStyle="bold"
+        android:layout_marginBottom="50dp"
+        android:gravity="center"
+        android:textColor="@color/brightModeFont"/>
+
+    <EditText
+        android:id="@+id/id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/brightModeFont"
+        android:textColor="@color/brightModeFont"
+        android:layout_marginBottom="20dp"
+        android:padding="20dp"
+        android:textSize="18dp"
+        android:hint="아이디"
+        android:textColorHint="@color/brightModeFont"/>
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/brightModeFont"
+        android:textColor="@color/brightModeFont"
+        android:layout_marginBottom="40dp"
+        android:padding="20dp"
+        android:textSize="18dp"
+        android:hint="비밀번호"
+        android:textColorHint="@color/brightModeFont"/>
+
+    <Button
+        android:id="@+id/loginBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="로그인"
+        android:textSize="18dp"
+        android:padding="10dp"
+        android:textColor="@color/brightModeFont"
+        android:backgroundTint="@color/pastelYellow"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        >
+
+        <TextView
+            android:id="@+id/register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/brightModeBack"
+            android:text="회원가입"
+            android:textSize="18dp"
+            android:textColor="@color/brightModeTopBar"/>
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/find"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/brightModeBack"
+            android:text="아이디 / 비밀번호 찾기"
+            android:textSize="18dp"
+            android:textColor="@color/brightModeTopBar"/>
+    </LinearLayout>
+
+</LinearLayout>
