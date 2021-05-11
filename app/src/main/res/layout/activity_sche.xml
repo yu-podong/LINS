@@ -5,8 +5,68 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="30dp"
     android:orientation="vertical"
+    android:background="@color/brightModeBack"
     tools:context=".MainActivity">
 
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginTop="610dp"   >
+
+        <ImageButton
+            android:id="@+id/imageButton1"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_margin="7dp"
+            android:background="@android:color/transparent"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/ic_license" />
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_margin="7dp"
+            android:background="@android:color/transparent"
+            android:scaleType="fitXY"
+
+            app:srcCompat="@drawable/ic_calendar" />
+
+        <ImageButton
+            android:id="@+id/imageButton3"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_margin="7dp"
+            android:background="@android:color/transparent"
+            android:scaleType="fitXY"
+
+            app:srcCompat="@drawable/ic_home" />
+
+        <ImageButton
+            android:id="@+id/imageButton4"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_margin="7dp"
+            android:background="@android:color/transparent"
+            android:scaleType="fitXY"
+
+            app:srcCompat="@drawable/ic_community" />
+
+        <ImageButton
+            android:id="@+id/imageButton5"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_margin="7dp"
+            android:background="@android:color/transparent"
+            android:scaleType="fitXY"
+
+            app:srcCompat="@drawable/ic_chalkboard" />
+
+    </LinearLayout>
 </LinearLayout>
+
