@@ -6,11 +6,10 @@ com/yupodong/lins/Lisence/LicenseListActivity.java
  com.yupodong.lins.Lisence.LicenseListActivity
 com/yupodong/lins/Scheduler/SchedulerActivity.java
  com.yupodong.lins.Scheduler.SchedulerActivity
-com/yupodong/lins/DTO/userDTO.java
- com.yupodong.lins.DTO.userDTO
-com/yupodong/lins/MainActivity.java
- com.yupodong.lins.MainActivity
- com.yupodong.lins.MainActivity$1
+com/yupodong/lins/Community/CommuListActivity.java
+ com.yupodong.lins.Community.CommuListActivity
+com/yupodong/lins/Lisence/LicenseActivity.java
+ com.yupodong.lins.Lisence.LicenseActivity
 com/yupodong/lins/Scheduler/SchedulerPopActivity.java
  com.yupodong.lins.Scheduler.SchedulerPopActivity
 com/yupodong/lins/LoginActivity.java
@@ -19,7 +18,11 @@ com/yupodong/lins/BuildConfig.java
  com.yupodong.lins.BuildConfig
 com/yupodong/lins/Community/CommuActivity.java
  com.yupodong.lins.Community.CommuActivity
-com/yupodong/lins/Lisence/LicenseActivity.java
- com.yupodong.lins.Lisence.LicenseActivity
-com/yupodong/lins/Community/CommuListActivity.java
- com.yupodong.lins.Community.CommuListActivity
+com/yupodong/lins/DTO/userDTO.java
+ com.yupodong.lins.DTO.userDTO
+com/yupodong/lins/MainActivity.java
+ com.yupodong.lins.MainActivity
+ com.yupodong.lins.MainActivity$1
+ com.yupodong.lins.MainActivity$1$1
+com/yupodong/lins/DTO/licenseDTO.java
+ com.yupodong.lins.DTO.licenseDTO
