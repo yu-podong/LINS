@@ -1,28 +1,40 @@
 com/yupodong/lins/Community/ReadActivity.java
  com.yupodong.lins.Community.ReadActivity
+com/yupodong/lins/DTO/communication.java
+ com.yupodong.lins.DTO.communication
+com/yupodong/lins/DTO/user.java
+ com.yupodong.lins.DTO.user
+com/yupodong/lins/LoginActivity.java
+ com.yupodong.lins.LoginActivity
+com/yupodong/lins/DTO/question.java
+ com.yupodong.lins.DTO.question
+com/yupodong/lins/Community/CommuActivity.java
+ com.yupodong.lins.Community.CommuActivity
+com/yupodong/lins/DTO/licenseScrap.java
+ com.yupodong.lins.DTO.licenseScrap
+com/yupodong/lins/DTO/comment.java
+ com.yupodong.lins.DTO.comment
+com/yupodong/lins/Community/CommuListActivity.java
+ com.yupodong.lins.Community.CommuListActivity
 com/yupodong/lins/Community/WriteActivity.java
  com.yupodong.lins.Community.WriteActivity
 com/yupodong/lins/Lisence/LicenseListActivity.java
  com.yupodong.lins.Lisence.LicenseListActivity
 com/yupodong/lins/Scheduler/SchedulerActivity.java
  com.yupodong.lins.Scheduler.SchedulerActivity
-com/yupodong/lins/Community/CommuListActivity.java
- com.yupodong.lins.Community.CommuListActivity
-com/yupodong/lins/Lisence/LicenseActivity.java
- com.yupodong.lins.Lisence.LicenseActivity
-com/yupodong/lins/Scheduler/SchedulerPopActivity.java
- com.yupodong.lins.Scheduler.SchedulerPopActivity
-com/yupodong/lins/LoginActivity.java
- com.yupodong.lins.LoginActivity
-com/yupodong/lins/BuildConfig.java
- com.yupodong.lins.BuildConfig
-com/yupodong/lins/Community/CommuActivity.java
- com.yupodong.lins.Community.CommuActivity
-com/yupodong/lins/DTO/userDTO.java
- com.yupodong.lins.DTO.userDTO
 com/yupodong/lins/MainActivity.java
  com.yupodong.lins.MainActivity
  com.yupodong.lins.MainActivity$1
- com.yupodong.lins.MainActivity$1$1
-com/yupodong/lins/DTO/licenseDTO.java
- com.yupodong.lins.DTO.licenseDTO
+ com.yupodong.lins.MainActivity$2
+ com.yupodong.lins.MainActivity$3
+ com.yupodong.lins.MainActivity$4
+com/yupodong/lins/Scheduler/SchedulerPopActivity.java
+ com.yupodong.lins.Scheduler.SchedulerPopActivity
+com/yupodong/lins/DTO/commuScrap.java
+ com.yupodong.lins.DTO.commuScrap
+com/yupodong/lins/DTO/license.java
+ com.yupodong.lins.DTO.license
+com/yupodong/lins/BuildConfig.java
+ com.yupodong.lins.BuildConfig
+com/yupodong/lins/Lisence/LicenseActivity.java
+ com.yupodong.lins.Lisence.LicenseActivity

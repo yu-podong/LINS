@@ -1,130 +1,146 @@
 [
     {
-        "merged": "C:\\Users\\yu01g\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\yu01g\\LINS\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
+        "merged": "C:\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_commu_read.xml.flat",
+        "source": "C:\\LINS\\app\\src\\main\\res\\layout\\activity_commu_read.xml"
     },
     {
-        "merged": "C:\\Users\\yu01g\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\yu01g\\LINS\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+        "merged": "C:\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "C:\\LINS\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\yu01g\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\yu01g\\LINS\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
+        "merged": "C:\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_sche_pop.xml.flat",
+        "source": "C:\\LINS\\app\\src\\main\\res\\layout\\activity_sche_pop.xml"
     },
     {
-        "merged": "C:\\Users\\yu01g\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_launcher_background.png.flat",
-        "source": "C:\\Users\\yu01g\\LINS\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_launcher_background.png"
+        "merged": "C:\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_launcher_background.png.flat",
+        "source": "C:\\LINS\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_launcher_background.png"
     },
     {
-        "merged": "C:\\Users\\yu01g\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_login.xml.flat",
-        "source": "C:\\Users\\yu01g\\LINS\\app\\src\\main\\res\\layout\\activity_login.xml"
+        "merged": "C:\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_login.xml.flat",
+        "source": "C:\\LINS\\app\\src\\main\\res\\layout\\activity_login.xml"
     },
     {
-        "merged": "C:\\Users\\yu01g\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_commu_list.xml.flat",
-        "source": "C:\\Users\\yu01g\\LINS\\app\\src\\main\\res\\layout\\activity_commu_list.xml"
+        "merged": "C:\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\LINS\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\yu01g\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_find.xml.flat",
-        "source": "C:\\Users\\yu01g\\LINS\\app\\src\\main\\res\\layout\\activity_find.xml"
+        "merged": "C:\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_find.xml.flat",
+        "source": "C:\\LINS\\app\\src\\main\\res\\layout\\activity_find.xml"
     },
     {
-        "merged": "C:\\Users\\yu01g\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\yu01g\\LINS\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
+        "merged": "C:\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\drawable_logo3.png.flat",
+        "source": "C:\\LINS\\app\\src\\main\\res\\drawable\\logo3.png"
     },
     {
-        "merged": "C:\\Users\\yu01g\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_commu_write.xml.flat",
-        "source": "C:\\Users\\yu01g\\LINS\\app\\src\\main\\res\\layout\\activity_commu_write.xml"
+        "merged": "C:\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\drawable_logo.png.flat",
+        "source": "C:\\LINS\\app\\src\\main\\res\\drawable\\logo.png"
     },
     {
-        "merged": "C:\\Users\\yu01g\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\yu01g\\LINS\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
+        "merged": "C:\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_launcher_background.png.flat",
+        "source": "C:\\LINS\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_launcher_background.png"
     },
     {
-        "merged": "C:\\Users\\yu01g\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\yu01g\\LINS\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+        "merged": "C:\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_license_list.xml.flat",
+        "source": "C:\\LINS\\app\\src\\main\\res\\layout\\activity_license_list.xml"
     },
     {
-        "merged": "C:\\Users\\yu01g\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_launcher_background.png.flat",
-        "source": "C:\\Users\\yu01g\\LINS\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_launcher_background.png"
+        "merged": "C:\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\LINS\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\yu01g\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "C:\\Users\\yu01g\\LINS\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+        "merged": "C:\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
+        "source": "C:\\LINS\\app\\src\\main\\res\\layout\\activity_main.xml"
     },
     {
-        "merged": "C:\\Users\\yu01g\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_sche.xml.flat",
-        "source": "C:\\Users\\yu01g\\LINS\\app\\src\\main\\res\\layout\\activity_sche.xml"
+        "merged": "C:\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_sche.xml.flat",
+        "source": "C:\\LINS\\app\\src\\main\\res\\layout\\activity_sche.xml"
     },
     {
-        "merged": "C:\\Users\\yu01g\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\yu01g\\LINS\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
+        "merged": "C:\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_launcher_background.png.flat",
+        "source": "C:\\LINS\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_launcher_background.png"
     },
     {
-        "merged": "C:\\Users\\yu01g\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\yu01g\\LINS\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+        "merged": "C:\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_launcher_background.png.flat",
+        "source": "C:\\LINS\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_launcher_background.png"
     },
     {
-        "merged": "C:\\Users\\yu01g\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_sche_pop.xml.flat",
-        "source": "C:\\Users\\yu01g\\LINS\\app\\src\\main\\res\\layout\\activity_sche_pop.xml"
+        "merged": "C:\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "C:\\LINS\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\yu01g\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "C:\\Users\\yu01g\\LINS\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
+        "merged": "C:\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "C:\\LINS\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\yu01g\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_launcher_background.png.flat",
-        "source": "C:\\Users\\yu01g\\LINS\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_launcher_background.png"
+        "merged": "C:\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\LINS\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
     },
     {
-        "merged": "C:\\Users\\yu01g\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_launcher_background.png.flat",
-        "source": "C:\\Users\\yu01g\\LINS\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_launcher_background.png"
+        "merged": "C:\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\LINS\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
     },
     {
-        "merged": "C:\\Users\\yu01g\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
-        "source": "C:\\Users\\yu01g\\LINS\\app\\src\\main\\res\\layout\\activity_main.xml"
+        "merged": "C:\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "C:\\LINS\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\yu01g\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\yu01g\\LINS\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
+        "merged": "C:\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_commu_list.xml.flat",
+        "source": "C:\\LINS\\app\\src\\main\\res\\layout\\activity_commu_list.xml"
     },
     {
-        "merged": "C:\\Users\\yu01g\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_license_select.xml.flat",
-        "source": "C:\\Users\\yu01g\\LINS\\app\\src\\main\\res\\layout\\activity_license_select.xml"
+        "merged": "C:\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_commu.xml.flat",
+        "source": "C:\\LINS\\app\\src\\main\\res\\layout\\activity_commu.xml"
     },
     {
-        "merged": "C:\\Users\\yu01g\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\yu01g\\LINS\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+        "merged": "C:\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\drawable_logo2.png.flat",
+        "source": "C:\\LINS\\app\\src\\main\\res\\drawable\\logo2.png"
     },
     {
-        "merged": "C:\\Users\\yu01g\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_launcher_background.png.flat",
-        "source": "C:\\Users\\yu01g\\LINS\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_launcher_background.png"
+        "merged": "C:\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_launcher_background.xml.flat",
+        "source": "C:\\LINS\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_launcher_background.xml"
     },
     {
-        "merged": "C:\\Users\\yu01g\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_commu.xml.flat",
-        "source": "C:\\Users\\yu01g\\LINS\\app\\src\\main\\res\\layout\\activity_commu.xml"
+        "merged": "C:\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_commu_write.xml.flat",
+        "source": "C:\\LINS\\app\\src\\main\\res\\layout\\activity_commu_write.xml"
     },
     {
-        "merged": "C:\\Users\\yu01g\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_register.xml.flat",
-        "source": "C:\\Users\\yu01g\\LINS\\app\\src\\main\\res\\layout\\activity_register.xml"
+        "merged": "C:\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
+        "source": "C:\\LINS\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
     },
     {
-        "merged": "C:\\Users\\yu01g\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
-        "source": "C:\\Users\\yu01g\\LINS\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
+        "merged": "C:\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_launcher_background.png.flat",
+        "source": "C:\\LINS\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_launcher_background.png"
     },
     {
-        "merged": "C:\\Users\\yu01g\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_commu_read.xml.flat",
-        "source": "C:\\Users\\yu01g\\LINS\\app\\src\\main\\res\\layout\\activity_commu_read.xml"
+        "merged": "C:\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "C:\\LINS\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\yu01g\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_license_list.xml.flat",
-        "source": "C:\\Users\\yu01g\\LINS\\app\\src\\main\\res\\layout\\activity_license_list.xml"
+        "merged": "C:\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_register.xml.flat",
+        "source": "C:\\LINS\\app\\src\\main\\res\\layout\\activity_register.xml"
     },
     {
-        "merged": "C:\\Users\\yu01g\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_launcher_background.xml.flat",
-        "source": "C:\\Users\\yu01g\\LINS\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_launcher_background.xml"
+        "merged": "C:\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_license_select.xml.flat",
+        "source": "C:\\LINS\\app\\src\\main\\res\\layout\\activity_license_select.xml"
     },
     {
-        "merged": "C:\\Users\\yu01g\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_launcher_background.png.flat",
-        "source": "C:\\Users\\yu01g\\LINS\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_launcher_background.png"
+        "merged": "C:\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "C:\\LINS\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\drawable_skyblue_round.xml.flat",
+        "source": "C:\\LINS\\app\\src\\main\\res\\drawable\\skyblue_round.xml"
+    },
+    {
+        "merged": "C:\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\LINS\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "C:\\LINS\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\LINS\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_launcher_background.png.flat",
+        "source": "C:\\LINS\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_launcher_background.png"
     }
 ]
