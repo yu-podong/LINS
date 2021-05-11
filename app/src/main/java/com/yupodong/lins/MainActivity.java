@@ -34,13 +34,38 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button loginBtn = (Button)findViewById(R.id.loginBtn);
+        Button licensebtn = (Button)findViewById(R.id.licensebtn);
+        licensebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               setContentView(R.layout.activity_login);
+            }
+       });
 
-        loginBtn.setOnClickListener(new View.OnClickListener() {
+        Button schebtn = (Button)findViewById(R.id.schebtn);
+       schebtn.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               setContentView(R.layout.activity_login);
+          }
+       });
+
+        Button commubtn= (Button)findViewById(R.id.commubtn);
+        commubtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 setContentView(R.layout.activity_login);
             }
         });
+
+        Button qnabtn = (Button)findViewById(R.id.qnabtn);
+        qnabtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setContentView(R.layout.activity_login);
+            }
+        });
+
+
     }
 }

@@ -1703,6 +1703,9 @@ drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable logo
+drawable logo2
+drawable logo3
 drawable material_cursor_drawable
 drawable material_ic_calendar_black_24dp
 drawable material_ic_clear_black_24dp
@@ -1735,6 +1738,7 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable skyblue_round
 drawable test_custom_background
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
@@ -1854,6 +1858,7 @@ id clip_horizontal
 id clip_vertical
 id clockwise
 id collapseActionView
+id commubtn
 id confirm_button
 id container
 id content
@@ -1937,6 +1942,7 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
+id imageView5
 id info
 id invisible
 id inward
@@ -1950,6 +1956,7 @@ id largeLabel
 id layout
 id left
 id leftToRight
+id licensebtn
 id light
 id line1
 id line3
@@ -2040,6 +2047,7 @@ id position
 id postLayout
 id progress_circular
 id progress_horizontal
+id qnabtn
 id radio
 id ratio
 id rectangles
@@ -2055,6 +2063,7 @@ id save_non_transition_alpha
 id save_overlay_view
 id sawtooth
 id scale
+id schebtn
 id screen
 id scroll
 id scrollIndicatorDown
@@ -2126,6 +2135,7 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textTop
+id textView
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
