@@ -13,7 +13,7 @@ android {
         versionCode 1
         versionName "1.0"
         multiDexEnabled true    // 문제 발생으로 추가
-
+        vectorDrawables.useSupportLibrary = true    // svg를 사용하기 위해 추가
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
