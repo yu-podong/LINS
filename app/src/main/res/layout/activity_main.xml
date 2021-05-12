@@ -6,24 +6,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/brightModeBack"
-    android:gravity="center"
     android:orientation="vertical"
+    android:padding="30px"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="0dp">
 
-        <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="389dp"
-            android:layout_height="282dp"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/logo3" />
-
-    </LinearLayout>
-
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="350dp"
+        android:layout_height="250dp"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/logo3"
+        android:layout_marginBottom="20dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -36,8 +30,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-             android:layout_marginBottom="10dp"
-            android:text="LINS에 오신것을 환영합니다.\n 아래의 메뉴들을 클릭하셔서 원하시는\n 서비스를 이용하시면 됩니다"
+             android:layout_marginBottom="20dp"
+             android:textColor="@color/brightModeFont"
+            android:text="LINS에 오신것을 환영합니다.\n 아래의 메뉴들을 클릭하셔서 원하시는\n 서비스를 이용하시면 됩니다."
              android:textAlignment="center"
              android:gravity="center"
              />
@@ -48,29 +43,41 @@
         android:layout_height="wrap_content"
         android:paddingLeft="30dp"
         android:paddingRight="30dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal"
+        android:id="@+id/firstBtnWrap"
         >
 
         <Button
             android:id="@+id/licensebtn"
-            android:layout_width="150dp"
-            android:layout_height="130dp"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
             android:layout_marginRight="20dp"
             android:layout_weight="1"
-            android:backgroundTint="@color/pastelRed"
+            android:background="@drawable/radius"
+            android:drawableTop="@drawable/ic_license"
+            android:drawableTint="@color/brightModeFont"
             android:gravity="bottom|center"
+            android:padding="13dp"
             android:text="시험일정"
-            android:textColor="@color/brightModeFont" />
+            android:textColor="@color/brightModeFont"
+            android:textSize="20dp"
+            app:backgroundTint="#E2B49A" />
 
         <Button
             android:id="@+id/schebtn"
-            android:layout_width="150dp"
-            android:layout_height="130dp"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
             android:layout_weight="1"
-            android:backgroundTint="@color/pastelYellow"
+            android:background="@drawable/radius"
+            android:drawableTop="@drawable/ic_calendar"
+            android:drawableTint="@color/brightModeFont"
             android:gravity="bottom|center"
+            android:padding="13dp"
             android:text="스케줄러"
-            android:textColor="@color/brightModeFont" />
+            android:textColor="@color/brightModeFont"
+            android:textSize="20dp"
+            app:backgroundTint="#E9C87B" />
     </LinearLayout>
 
         <LinearLayout
@@ -79,28 +86,39 @@
             android:paddingLeft="30dp"
             android:paddingRight="30dp"
             android:layout_marginBottom="10dp"
+            android:id="@+id/secondBtnWrap"
             >
 
             <Button
                 android:id="@+id/commubtn"
-                android:layout_width="150dp"
-                android:layout_height="130dp"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
                 android:layout_marginRight="20dp"
                 android:layout_weight="1"
-                android:backgroundTint="@color/pastelSkyBlue"
-                android:text="커뮤니티"
+                android:background="@drawable/radius"
+                android:drawableTop="@drawable/ic_community"
+                android:drawableTint="@color/brightModeFont"
                 android:gravity="bottom|center"
-                android:textColor="@color/brightModeFont" />
+                android:padding="13dp"
+                android:text="커뮤니티"
+                android:textColor="@color/brightModeFont"
+                android:textSize="20dp"
+                app:backgroundTint="#C3D3E0" />
 
             <Button
                 android:id="@+id/qnabtn"
-                android:layout_width="150dp"
-                android:layout_height="130dp"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
                 android:layout_weight="1"
-                android:backgroundTint="@color/pastelDarkBlue"
-                android:text="문의사항"
+                android:background="@drawable/radius"
+                android:drawableTop="@drawable/ic_chalkboard"
+                android:drawableTint="@color/brightModeFont"
                 android:gravity="bottom|center"
-                android:textColor="@color/brightModeFont" />
+                android:padding="13dp"
+                android:text="문의사항"
+                android:textColor="@color/brightModeFont"
+                android:textSize="20dp"
+                app:backgroundTint="#9BABB8" />
     </LinearLayout>
 
 </LinearLayout>
