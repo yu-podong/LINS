@@ -1,4 +1,12 @@
 package com.yupodong.lins.Community;
 
-public class CommuActivity {
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+
+public class CommuActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 }
