@@ -1720,6 +1720,7 @@ drawable ic_view
 drawable logo
 drawable logo2
 drawable logo3
+drawable logo_back
 drawable material_cursor_drawable
 drawable material_ic_calendar_black_24dp
 drawable material_ic_clear_black_24dp
@@ -1753,7 +1754,6 @@ drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable radius
-drawable skyblue_round
 drawable test_custom_background
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
@@ -1839,6 +1839,7 @@ id auto
 id autoComplete
 id autoCompleteToEnd
 id autoCompleteToStart
+id backBtn
 id barrier
 id baseline
 id beginOnFirstDraw
@@ -1853,12 +1854,14 @@ id browser_actions_menu_items
 id browser_actions_menu_view
 id buttonPanel
 id cache_measures
+id calenBtn
 id cancel_button
 id center
 id center_horizontal
 id center_vertical
 id chain
 id chains
+id chalBtn
 id checkbox
 id checked
 id chip
@@ -1873,6 +1876,7 @@ id clip_horizontal
 id clip_vertical
 id clockwise
 id collapseActionView
+id commBtn
 id commubtn
 id confirm_button
 id container
@@ -1949,6 +1953,7 @@ id header_title
 id hideable
 id home
 id homeAsUp
+id homeBtn
 id honorRequest
 id icon
 id icon_group
@@ -1958,11 +1963,6 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
-id imageButton1
-id imageButton2
-id imageButton3
-id imageButton4
-id imageButton5
 id imageView5
 id info
 id invisible
@@ -1977,6 +1977,7 @@ id largeLabel
 id layout
 id left
 id leftToRight
+id licenBtn
 id licensebtn
 id light
 id line1
@@ -1985,6 +1986,8 @@ id linear
 id listMode
 id list_item
 id loginBtn
+id logo_back
+id logo_back_text
 id masked
 id material_clock_display
 id material_clock_face
@@ -2039,6 +2042,7 @@ id mtrl_picker_text_input_range_start
 id mtrl_picker_title_text
 id mtrl_view_tag_bottom_padding
 id multiply
+id myBtn
 id navigation_header_container
 id never
 id noScroll

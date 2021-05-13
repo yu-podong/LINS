@@ -5,8 +5,139 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="30dp"
     android:orientation="vertical"
+    android:background="@color/brightModeBack"
     tools:context=".MainActivity">
 
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="7dp"
+        android:layout_gravity="center">
+
+        <ImageButton
+            android:id="@+id/backBtn"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="10dp"
+            android:background="@android:color/transparent"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/ic_left_arrow"
+            tools:ignore="VectorDrawableCompat" />
+
+        <RelativeLayout
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:id="@+id/logo_back"
+                android:layout_width="250dp"
+                android:layout_height="100dp"
+                android:gravity="center"
+                android:src="@drawable/logo_back" />
+
+            <TextView
+                android:id="@+id/logo_back_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_alignLeft="@id/logo_back"
+                android:layout_alignTop="@id/logo_back"
+                android:layout_alignRight="@id/logo_back"
+                android:layout_alignBottom="@id/logo_back"
+
+                android:gravity="center"
+                android:text="시험일정"
+                android:textColor="@color/white"
+                android:textSize="40dp"
+                android:textStyle="bold"
+                android:typeface="sans" />
+        </RelativeLayout>
+
+        <ImageButton
+            android:id="@+id/myBtn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="30dp"
+            android:background="@android:color/transparent"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/ic_mybtn_img"
+            tools:ignore="VectorDrawableCompat"/>
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="250dp">
+        <!--여기에 컨텐트 넣기-->
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/licenBtn"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_margin="7dp"
+            android:background="@android:color/transparent"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/ic_license"
+            tools:ignore="VectorDrawableCompat"/>
+
+        <ImageButton
+            android:id="@+id/calenBtn"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_margin="7dp"
+            android:background="@android:color/transparent"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/ic_calendar"
+            tools:ignore="VectorDrawableCompat"/>
+
+        <ImageButton
+            android:id="@+id/homeBtn"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_margin="7dp"
+            android:background="@android:color/transparent"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/ic_home"
+            tools:ignore="VectorDrawableCompat"/>
+
+        <ImageButton
+            android:id="@+id/commBtn"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_margin="7dp"
+            android:background="@android:color/transparent"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/ic_community"
+            tools:ignore="VectorDrawableCompat"/>
+
+        <ImageButton
+            android:id="@+id/chalBtn"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_margin="7dp"
+            android:background="@android:color/transparent"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/ic_chalkboard"
+            tools:ignore="VectorDrawableCompat" />
+
+    </LinearLayout>
 
 </LinearLayout>
