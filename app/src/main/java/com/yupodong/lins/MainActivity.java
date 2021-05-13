@@ -62,8 +62,8 @@ public class MainActivity extends AppCompatActivity {
        schebtn.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
-               // CommuActivity로 전환
-               Intent intent = new Intent(MainActivity.this, CommuActivity.class);
+               // SchedulerActivity로 전환
+               Intent intent = new Intent(MainActivity.this, SchedulerActivity.class);
                startActivity(intent);
           }
        });
@@ -72,8 +72,8 @@ public class MainActivity extends AppCompatActivity {
         commubtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // SchedulerActivity로 전환
-                Intent intent = new Intent(MainActivity.this, SchedulerActivity.class);
+                // CommuActivity로 전환
+                Intent intent = new Intent(MainActivity.this, CommuActivity.class);
                 startActivity(intent);
             }
         });

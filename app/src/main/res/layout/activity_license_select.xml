@@ -8,7 +8,7 @@
     android:padding="30dp"
     android:orientation="vertical"
     android:background="@color/brightModeBack"
-    tools:context=".MainActivity">
+    tools:context=".License.LicenseActivity">
 
 
 
@@ -72,13 +72,72 @@
     </LinearLayout>
 
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="250dp">
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:layout_marginTop="30dp">
         <!--여기에 컨텐트 넣기-->
+        <Button
+            android:id="@+id/license1"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:text="TOEIC"
+            android:textColor="@color/brightModeFont"
+            android:paddingLeft="50px"
+            android:gravity="left|center"
+            android:textSize="20dp"
+            android:background="@drawable/radius"
+            app:backgroundTint="#E2B49A"
+            android:drawableRight="@drawable/ic_right_arrow"
+            android:layout_marginBottom="20dp"/>
 
+        <Button
+            android:id="@+id/license2"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:text="정보처리기사"
+            android:textColor="@color/brightModeFont"
+            android:paddingLeft="50px"
+            android:gravity="left|center"
+            android:textSize="20dp"
+            android:background="@drawable/radius"
+            app:backgroundTint="#E9C87B"
+            android:drawableRight="@drawable/ic_right_arrow"
+            android:layout_marginBottom="20dp"/>
+
+        <Button
+            android:id="@+id/license3"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:text="TOPCIT"
+            android:textColor="@color/brightModeFont"
+            android:paddingLeft="50px"
+            android:gravity="left|center"
+            android:textSize="20dp"
+            android:background="@drawable/radius"
+            app:backgroundTint="#C3D3E0"
+            android:drawableRight="@drawable/ic_right_arrow"
+            android:layout_marginBottom="20dp"/>
+
+        <Button
+            android:id="@+id/license4"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:text="한국사 검정능력시험"
+            android:textColor="@color/brightModeFont"
+            android:paddingLeft="50px"
+            android:gravity="left|center"
+            android:textSize="20dp"
+            app:backgroundTint="#9BABB8"
+            android:background="@drawable/radius"
+            android:drawableRight="@drawable/ic_right_arrow"
+            android:layout_marginBottom="60dp"/>
     </LinearLayout>
 
 
@@ -86,7 +145,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp">
 
         <ImageButton
             android:id="@+id/licenBtn"
@@ -137,7 +197,6 @@
             android:scaleType="fitXY"
             app:srcCompat="@drawable/ic_chalkboard"
             tools:ignore="VectorDrawableCompat" />
-
     </LinearLayout>
 
 </LinearLayout>

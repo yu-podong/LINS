@@ -3,6 +3,7 @@ package com.yupodong.lins.Community;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.yupodong.lins.R;
@@ -14,6 +15,42 @@ public class CommuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_commu);
 
+        Button commu1 = (Button)findViewById(R.id.commu1);
+        Button commu2 = (Button)findViewById(R.id.commu2);
+        Button commu3 = (Button)findViewById(R.id.commu3);
+        Button commu4= (Button)findViewById(R.id.commu4);
+
+
+        commu1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setContentView(R.layout.activity_main);  //다음페이지 아직 없어서  일단 메인으로 이동
+            }
+        });
+
+        commu2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setContentView(R.layout.activity_main);  //다음페이지 아직 없어서  일단 메인으로 이동
+            }
+        });
+
+
+        commu3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setContentView(R.layout.activity_main);  //다음페이지 아직 없어서 일단 메인으로 이동
+            }
+        });
+
+        commu4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setContentView(R.layout.activity_main);  //다음페이지 아직 없어서 일단 메인으로 이동
+            }
+        });
+
+
 
         ImageButton backBtn = (ImageButton)findViewById(R.id.backBtn);
         ImageButton myBtn = (ImageButton)findViewById(R.id.myBtn);
@@ -22,6 +59,7 @@ public class CommuActivity extends AppCompatActivity {
         ImageButton homeBtn = (ImageButton)findViewById(R.id.homeBtn);
         ImageButton commBtn = (ImageButton)findViewById(R.id.commBtn);
         ImageButton chalBtn = (ImageButton)findViewById(R.id.chalBtn);
+
 
 
         backBtn.setOnClickListener(new View.OnClickListener() {  //뒤로 돌아가기
