@@ -45,6 +45,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-database'
     implementation 'com.google.firebase:firebase-auth'
     implementation 'com.google.firebase:firebase-firestore'
+    implementation 'com.prolificinteractive:material-calendarview:1.4.3'  //스케줄러 위해 작성
 }
 
 apply plugin: 'com.google.gms.google-services'  // Google Services plugin

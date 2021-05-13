@@ -1,5 +1,6 @@
 package com.yupodong.lins.Scheduler;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -7,9 +8,14 @@ import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.prolificinteractive.materialcalendarview.CalendarDay;
+import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 import com.yupodong.lins.R;
 
+import java.util.Collections;
+
 public class SchedulerActivity extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +29,21 @@ public class SchedulerActivity extends AppCompatActivity {
         ImageButton homeBtn = (ImageButton)findViewById(R.id.homeBtn);
         ImageButton commBtn = (ImageButton)findViewById(R.id.commBtn);
         ImageButton chalBtn = (ImageButton)findViewById(R.id.chalBtn);
+
+        MaterialCalendarView materialCalendarView;
+        materialCalendarView = findViewById(R.id.calendarView);
+        materialCalendarView.setSelectedDate(CalendarDay.today());
+
+        materialCalendarView.addDecorators(new EventDecorator(Color.RED , Collections.singleton(CalendarDay.today())));
+        OneDayDecorator oneDayDecorator = new OneDayDecorator();
+
+
+        materialCalendarView.addDecorators(
+                new SundayDecorator(),
+                new SaturdayDecorator(),
+                oneDayDecorator
+        );
+
 
 
         backBtn.setOnClickListener(new View.OnClickListener() {  //뒤로 돌아가기
