@@ -1,11 +1,14 @@
 package com.yupodong.lins.Community;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import com.yupodong.lins.MainActivity;
 import com.yupodong.lins.R;
 
 public class CommuActivity extends AppCompatActivity {
@@ -20,18 +23,24 @@ public class CommuActivity extends AppCompatActivity {
         Button commu3 = (Button)findViewById(R.id.commu3);
         Button commu4= (Button)findViewById(R.id.commu4);
 
-
+        Intent intent = new Intent(CommuActivity.this, CommuListActivity.class);
+        // 모든 commu button은 CommuListActivity로 Activity 전환으로 이동
+        // 왜냐하면 뒤로가기 버튼으로 메인에 돌아올 수 있도록 하기 위해
+        // CommuListActivity만 있는 이유 : 해당 skin만 만들어서 firebase에서 data를 가져와서 skin에 보여줄 것임
+        // (skin에다가 data를 보여주는 방법은 DB 담당 팀원이 할 것)
+        // CommuListActivity에는 figma에 있는 예시 화면을 구현해줄 것 (모르겠으면 질문)
+        
         commu1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setContentView(R.layout.activity_main);  //다음페이지 아직 없어서  일단 메인으로 이동
+                startActivity(intent);
             }
         });
 
         commu2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setContentView(R.layout.activity_main);  //다음페이지 아직 없어서  일단 메인으로 이동
+                startActivity(intent);
             }
         });
 
@@ -39,14 +48,14 @@ public class CommuActivity extends AppCompatActivity {
         commu3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setContentView(R.layout.activity_main);  //다음페이지 아직 없어서 일단 메인으로 이동
+                startActivity(intent);
             }
         });
 
         commu4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setContentView(R.layout.activity_main);  //다음페이지 아직 없어서 일단 메인으로 이동
+                startActivity(intent);
             }
         });
 
