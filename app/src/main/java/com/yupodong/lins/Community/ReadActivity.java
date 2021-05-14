@@ -2,11 +2,18 @@ package com.yupodong.lins.Community;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.yupodong.lins.License.LicenseActivity;
+import com.yupodong.lins.MainActivity;
 import com.yupodong.lins.R;
+import com.yupodong.lins.Scheduler.SchedulerActivity;
+
+import java.util.ArrayList;
 
 public class ReadActivity extends AppCompatActivity {
 
@@ -24,17 +31,23 @@ public class ReadActivity extends AppCompatActivity {
         ImageButton commBtn = (ImageButton)findViewById(R.id.commBtn);
         ImageButton chalBtn = (ImageButton)findViewById(R.id.chalBtn);
 
+        // 지금까지 열러있는 Activities들을 List로 가져옴
+        ArrayList<Activity> actList = new ArrayList<Activity>();
 
-        backBtn.setOnClickListener(new View.OnClickListener() {  //커뮤니티 리스트로 이동
+        backBtn.setOnClickListener(new View.OnClickListener() {  //커뮤니티 페이지 이동
             @Override
             public void onClick(View view) {
-                setContentView(R.layout.activity_commu_list);
+                // 현재 Activity를 종료하여 이전 화면으로 돌아가기
+                finish();
             }
         });
 
         myBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // 지금까지 열려있는 Activity들을 모두 종료
+                for(int i = 0; i < actList.size(); i++)
+                    actList.get(i).finish();
                 setContentView(R.layout.activity_main);  //수정페이지 없어서 일단 메인으로 이동
             }
         });
@@ -42,35 +55,76 @@ public class ReadActivity extends AppCompatActivity {
         licenBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setContentView(R.layout.activity_license_list);
+                Intent intent = new Intent(ReadActivity.this, LicenseActivity.class);
+
+                // 지금까지 열려있는 Activity들을 모두 종료
+                for(int i = 0; i < actList.size(); i++)
+                    actList.get(i).finish();
+
+                // LicenseActivity로 이동
+                startActivity(intent);
+                // 현재 Activity 종료 후
+                finish();
             }
         });
 
         calenBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setContentView(R.layout.activity_sche);
+                Intent intent = new Intent(ReadActivity.this, SchedulerActivity.class);
+                // 지금까지 열려있는 Activity들을 모두 종료
+                for(int i = 0; i < actList.size(); i++)
+                    actList.get(i).finish();
+                // SchedulerActivity로 이동
+                startActivity(intent);
+                // 현재 Activity 종료 후
+                finish();
             }
         });
 
         homeBtn.setOnClickListener(new View.OnClickListener() {  //메인페이지 버튼
             @Override
             public void onClick(View view) {
-                setContentView(R.layout.activity_main);
+                Intent intent = new Intent(ReadActivity.this, MainActivity.class);
+                // 지금까지 열려있는 Activity들을 모두 종료
+                for(int i = 0; i < actList.size(); i++)
+                    actList.get(i).finish();
+                // MainActivity로 이동
+                startActivity(intent);
+                // 현재 Activity 종료 후
+                finish();
             }
         });
 
         commBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setContentView(R.layout.activity_commu);
+                Intent intent = new Intent(ReadActivity.this, CommuActivity.class);
+                // 지금까지 열려있는 Activity들을 모두 종료
+                for(int i = 0; i < actList.size(); i++)
+                    actList.get(i).finish();
+
+                // CommuActivity로 이동
+                startActivity(intent);
+                // 현재 Activity 종료 후
+                finish();
             }
         });
 
         chalBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setContentView(R.layout.activity_commu);  //문의사항 페이지 없음 새로 생성해야 함  일단 커뮤로 이동
+                /*
+                Intent intent = new Intent(CommuListActivity.this, LicenseActivity.class);
+                 // 지금까지 열려있는 Activity들을 모두 종료
+                for(int i = 0; i < actList.size(); i++)
+                    actList.get(i).finish();
+
+                // LicenseActivity로 이동
+                startActivity(intent);
+                // 현재 Activity 종료 후
+                finish();
+                 */
             }
         });
     }
