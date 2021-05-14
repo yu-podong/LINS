@@ -17,14 +17,12 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_margin="7dp"
-        android:layout_gravity="center">
+        android:gravity="center">
 
         <ImageButton
             android:id="@+id/backBtn"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginRight="10dp"
             android:background="@android:color/transparent"
             android:scaleType="fitXY"
             app:srcCompat="@drawable/ic_left_arrow"
@@ -64,7 +62,6 @@
             android:id="@+id/myBtn"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginTop="30dp"
             android:background="@android:color/transparent"
             android:scaleType="fitXY"
             app:srcCompat="@drawable/ic_mybtn_img"
