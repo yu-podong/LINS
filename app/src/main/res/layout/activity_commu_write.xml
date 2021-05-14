@@ -17,14 +17,12 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_margin="7dp"
-        android:layout_gravity="center">
+        android:gravity="center">
 
         <ImageButton
             android:id="@+id/backBtn"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginRight="10dp"
             android:background="@android:color/transparent"
             android:scaleType="fitXY"
             app:srcCompat="@drawable/ic_left_arrow"
@@ -40,7 +38,8 @@
                 android:layout_width="600dp"
                 android:layout_height="100dp"
                 android:gravity="center"
-                android:src="@drawable/logo_back" />
+                android:src="@drawable/logo_back"
+                />
 
             <TextView
                 android:id="@+id/logo_back_text"
@@ -64,7 +63,6 @@
             android:id="@+id/myBtn"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginTop="30dp"
             android:background="@android:color/transparent"
             android:scaleType="fitXY"
             app:srcCompat="@drawable/ic_mybtn_img"
@@ -98,10 +96,12 @@
             android:layout_height="370dp"
             android:layout_marginBottom="20dp"
             android:background="@drawable/textborder"
-            android:backgroundTint="@color/brightModeFont"
-            android:gravity="top|center"
+            android:gravity="top"
             android:hint="글 내용을 입력하세요"
             android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
             android:textColor="@color/brightModeFont"
             android:textColorHint="@color/brightModeFont"
             android:textSize="18dp" />
