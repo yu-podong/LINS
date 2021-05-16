@@ -26,6 +26,7 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/Theme.LINS" >
+        <activity android:name="com.yupodong.lins.Login.SignupActivity" />
         <activity android:name="com.yupodong.lins.Scheduler.SchedulerActivity" />
         <activity android:name="com.yupodong.lins.License.LicenseListActivity" />
         <activity android:name="com.yupodong.lins.Community.WriteActivity" />
@@ -33,6 +34,7 @@
         <activity android:name="com.yupodong.lins.Community.CommuListActivity" />
         <activity android:name="com.yupodong.lins.Community.CommuActivity" />
         <activity android:name="com.yupodong.lins.License.LicenseActivity" />
+        <activity android:name="com.yupodong.lins.Login.LoginActivity" />
         <activity android:name="com.yupodong.lins.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="30dp"
+    android:background="@color/brightModeBack"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".Login.SignupActivity">
+
+    <TextView
+        android:id="@+id/titleText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:text="LINS"
+        android:textColor="@color/brightModeFont"
+        android:textSize="48dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/subtitleText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="21dp"
+        android:gravity="center"
+        android:text="Register"
+        android:textColor="@color/brightModeFont"
+        android:textSize="15dp" />
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/brightModeFont"
+        android:textColor="@color/brightModeFont"
+        android:layout_marginBottom="20dp"
+        android:padding="10dp"
+        android:textSize="18dp"
+        android:hint="이름"
+        android:textColorHint="@color/brightModeFont"/>
+
+    <EditText
+        android:id="@+id/phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/brightModeFont"
+        android:textColor="@color/brightModeFont"
+        android:layout_marginBottom="20dp"
+        android:padding="10dp"
+        android:textSize="18dp"
+        android:hint="전화번호"
+        android:textColorHint="@color/brightModeFont"/>
+
+    <EditText
+        android:id="@+id/mail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/brightModeFont"
+        android:textColor="@color/brightModeFont"
+        android:layout_marginBottom="40dp"
+        android:padding="10dp"
+        android:textSize="18dp"
+        android:hint="이메일"
+        android:textColorHint="@color/brightModeFont"/>
+
+    <EditText
+        android:id="@+id/nick"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/brightModeFont"
+        android:textColor="@color/brightModeFont"
+        android:layout_marginBottom="20dp"
+        android:padding="10dp"
+        android:textSize="18dp"
+        android:hint="닉네임"
+        android:textColorHint="@color/brightModeFont"/>
+
+    <EditText
+        android:id="@+id/id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/brightModeFont"
+        android:textColor="@color/brightModeFont"
+        android:layout_marginBottom="20dp"
+        android:padding="10dp"
+        android:textSize="18dp"
+        android:hint="아이디"
+        android:textColorHint="@color/brightModeFont"/>
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/brightModeFont"
+        android:textColor="@color/brightModeFont"
+        android:layout_marginBottom="40dp"
+        android:padding="10dp"
+        android:textSize="18dp"
+        android:hint="비밀번호"
+        android:textColorHint="@color/brightModeFont"/>
+
+    <Button
+        android:id="@+id/sing_up"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="가입하기"
+        android:textSize="18dp"
+        android:padding="15dp"
+        android:textColor="@color/brightModeFont"
+        android:backgroundTint="@color/pastelYellow"/>
+
+
+</LinearLayout>

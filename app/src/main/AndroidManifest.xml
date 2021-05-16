@@ -9,13 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LINS">
-        <activity android:name=".Scheduler.SchedulerActivity"></activity>
+        <activity android:name=".Login.SignupActivity"></activity>
+        <activity android:name=".Scheduler.SchedulerActivity" />
         <activity android:name=".License.LicenseListActivity" />
         <activity android:name=".Community.WriteActivity" />
         <activity android:name=".Community.ReadActivity" />
         <activity android:name=".Community.CommuListActivity" />
         <activity android:name=".Community.CommuActivity" />
         <activity android:name=".License.LicenseActivity" />
+        <activity android:name=".Login.LoginActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
