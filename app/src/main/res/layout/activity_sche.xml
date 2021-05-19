@@ -8,7 +8,7 @@
     android:padding="30dp"
     android:orientation="vertical"
     android:background="@color/brightModeBack"
-    tools:context=".MainActivity">
+    tools:context=".Scheduler.SchedulerActivity">
 
 
 
@@ -71,24 +71,25 @@
             tools:ignore="VectorDrawableCompat"/>
     </LinearLayout>
 
-
-
- <!--   <LinearLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="250dp">
-여기에 컨텐트 넣기
+        android:orientation="vertical">
 
-    </LinearLayout>   -->
+        <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+            android:id="@+id/calendarView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:mcv_selectionColor="@color/brightModeTopBar"
+            app:mcv_showOtherDates="defaults" >
+
+        </com.prolificinteractive.materialcalendarview.MaterialCalendarView>
+    </LinearLayout>
 
 
-    <com.prolificinteractive.materialcalendarview.MaterialCalendarView
-        android:id="@+id/calendarView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        app:mcv_selectionColor="@color/brightModeTopBar"
-        app:mcv_showOtherDates="all" />
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -104,7 +105,8 @@
             android:background="@android:color/transparent"
             android:scaleType="fitXY"
             app:srcCompat="@drawable/ic_license"
-            tools:ignore="VectorDrawableCompat"/>
+            tools:ignore="OnClick,VectorDrawableCompat"
+            android:onClick="onClick"/>
 
         <ImageButton
             android:id="@+id/calenBtn"
@@ -114,7 +116,8 @@
             android:background="@android:color/transparent"
             android:scaleType="fitXY"
             app:srcCompat="@drawable/ic_calendar"
-            tools:ignore="VectorDrawableCompat"/>
+            tools:ignore="OnClick,VectorDrawableCompat"
+            android:onClick="onClick"/>
 
         <ImageButton
             android:id="@+id/homeBtn"
@@ -124,7 +127,8 @@
             android:background="@android:color/transparent"
             android:scaleType="fitXY"
             app:srcCompat="@drawable/ic_home"
-            tools:ignore="VectorDrawableCompat"/>
+            tools:ignore="OnClick,VectorDrawableCompat"
+            android:onClick="onClick"/>
 
         <ImageButton
             android:id="@+id/commBtn"
@@ -134,7 +138,8 @@
             android:background="@android:color/transparent"
             android:scaleType="fitXY"
             app:srcCompat="@drawable/ic_community"
-            tools:ignore="VectorDrawableCompat"/>
+            tools:ignore="OnClick,VectorDrawableCompat"
+            android:onClick="onClick"/>
 
         <ImageButton
             android:id="@+id/chalBtn"
@@ -144,7 +149,8 @@
             android:background="@android:color/transparent"
             android:scaleType="fitXY"
             app:srcCompat="@drawable/ic_chalkboard"
-            tools:ignore="VectorDrawableCompat" />
+            tools:ignore="OnClick,VectorDrawableCompat"
+            android:onClick="onClick"/>
 
     </LinearLayout>
 
