@@ -39,13 +39,15 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     //Firebase
     // Import the Firebase BoM
-    implementation platform('com.google.firebase:firebase-bom:27.0.0')
+    implementation platform('com.google.firebase:firebase-bom:27.1.0')
     // Declare the dependency for the Firebase SDK for Google Analytics
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-database'
     implementation 'com.google.firebase:firebase-auth'
     implementation 'com.google.firebase:firebase-firestore'
     implementation 'com.prolificinteractive:material-calendarview:1.4.3'  //스케줄러 위해 작성
+    // Crawling
+    implementation 'org.jsoup:jsoup:1.13.1'
 }
 
 apply plugin: 'com.google.gms.google-services'  // Google Services plugin
