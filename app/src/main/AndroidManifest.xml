@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.yupodong.lins">
-
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -10,8 +9,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.LINS"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true"
+        android:theme="@style/Theme.LINS">
+        <activity android:name=".Login.SignupActivity"></activity>
         <activity android:name=".Scheduler.SchedulerActivity" />
         <activity android:name=".License.LicenseListActivity" />
         <activity android:name=".Community.WriteActivity" />
@@ -19,6 +19,7 @@
         <activity android:name=".Community.CommuListActivity" />
         <activity android:name=".Community.CommuActivity" />
         <activity android:name=".License.LicenseActivity" />
+        <activity android:name=".Login.LoginActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,6 +27,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Scheduler.SchepopActivity"></activity>
     </application>
 
 </manifest>

@@ -9,7 +9,7 @@
     android:background="@color/brightModeBack"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".LoginActivity">
+    tools:context=".Login.LoginActivity">
 
     <TextView
         android:id="@+id/titleText"
@@ -62,8 +62,8 @@
         android:padding="10dp"
         >
 
-        <TextView
-            android:id="@+id/register"
+        <Button
+            android:id="@+id/singnup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/brightModeBack"

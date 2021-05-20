@@ -6,7 +6,60 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    android:gravity="center"
+    android:background="@color/brightModeBack"
+    tools:context=".Scheduler.SchepopActivity">
+
+
+    <LinearLayout
+        android:id="@+id/shcedule"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:background="@color/brightModeTopBar">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/schepop">
+
+            <ImageButton
+                android:id="@+id/schepop_back"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@color/white"
+                android:gravity="right"
+                android:scaleType="fitXY"
+                app:srcCompat="@drawable/ic_left_arrow"
+                tools:ignore="VectorDrawableCompat" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/schepop_date"
+                    android:layout_width="288dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="날짜"
+                    android:textSize="30dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/sche_listview"/>
+
+    </LinearLayout>
 
 
 </LinearLayout>

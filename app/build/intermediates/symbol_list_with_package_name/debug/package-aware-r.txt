@@ -2028,9 +2028,11 @@ id line3
 id linear
 id listMode
 id list_item
+id log
 id loginBtn
 id logo_back
 id logo_back_text
+id mail
 id masked
 id match_parent
 id material_clock_display
@@ -2091,8 +2093,10 @@ id mtrl_picker_title_text
 id mtrl_view_tag_bottom_padding
 id multiply
 id myBtn
+id name
 id navigation_header_container
 id never
+id nick
 id noScroll
 id none
 id normal
@@ -2117,6 +2121,7 @@ id path
 id pathRelative
 id peekHeight
 id percent
+id phone
 id pin
 id position
 id postLayout
@@ -2126,7 +2131,6 @@ id qnabtn
 id radio
 id ratio
 id rectangles
-id register
 id reverseSawtooth
 id right
 id rightToLeft
@@ -2165,6 +2169,8 @@ id showCustom
 id showHome
 id showTitle
 id sin
+id sing_up
+id singnup
 id skipCollapsed
 id slide
 id smallLabel
@@ -2193,6 +2199,7 @@ id stop
 id stretch
 id submenuarrow
 id submit_area
+id subtitleText
 id sunday
 id tabMode
 id tag_accessibility_actions
@@ -2332,6 +2339,7 @@ layout activity_main
 layout activity_register
 layout activity_sche
 layout activity_sche_pop
+layout activity_signup
 layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
 layout custom_dialog

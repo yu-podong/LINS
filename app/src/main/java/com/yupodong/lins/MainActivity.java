@@ -29,6 +29,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import com.yupodong.lins.Community.CommuActivity;
 import com.yupodong.lins.DTO.*;
 import com.yupodong.lins.License.LicenseActivity;
+import com.yupodong.lins.Login.LoginActivity;
 import com.yupodong.lins.Scheduler.SchedulerActivity;
 
 import org.w3c.dom.Text;
@@ -47,6 +48,16 @@ public class MainActivity extends AppCompatActivity {
         LinearLayout secondBtnWrap = findViewById(R.id.secondBtnWrap);
     
         // APP에서 뒤로가기를 지원하기 위해 Activity이동으로 바꿈 (login만 setContentView 사용)
+
+        Button login = (Button)findViewById(R.id.log);
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // LicenseActivity로 전환
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
         
         Button licensebtn = (Button)firstBtnWrap.findViewById(R.id.licensebtn);
         licensebtn.setOnClickListener(new View.OnClickListener() {
