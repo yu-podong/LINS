@@ -75,7 +75,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-<!--        android:layout_margin="250dp">-->
+        <!--        android:layout_margin="250dp">-->
         <!--여기에 컨텐트 넣기-->
 
         <EditText
@@ -96,7 +96,7 @@
             android:layout_height="370dp"
             android:layout_marginBottom="20dp"
             android:background="@drawable/textborder"
-            android:gravity="top"
+            android:gravity="top|center"
             android:hint="글 내용을 입력하세요"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"

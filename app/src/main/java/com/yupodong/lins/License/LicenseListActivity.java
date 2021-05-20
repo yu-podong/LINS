@@ -7,22 +7,38 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ListView;
 
+import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.yupodong.lins.Community.CommuActivity;
 import com.yupodong.lins.MainActivity;
 import com.yupodong.lins.R;
 import com.yupodong.lins.Scheduler.SchedulerActivity;
-
 import java.util.ArrayList;
 
 public class LicenseListActivity extends AppCompatActivity {
+    // 지금까지 item들을 List로 가져옴
+    ListView licenseview;
+    LicenseAdapter licenseAdapter;
+    ArrayList<licenselist> licenselistArrayList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_license_list);
+        licenseview = (ListView)findViewById(R.id.licenselistview);
+        licenselistArrayList = new ArrayList<licenselist>();
 
+        for(int i=0;i<5;i++){
+            licenselistArrayList.add(
+                    new licenselist("2021.06.01","613회차","|","군포고등학교",R.drawable.ic_scrap)  //임의로 내용 지정
+            );
+        }
 
+        licenseAdapter = new LicenseAdapter(LicenseListActivity.this,licenselistArrayList);
+        licenseview.setAdapter(licenseAdapter);
+
+        // 하단 이미지 버튼
         ImageButton backBtn = (ImageButton)findViewById(R.id.backBtn);
         ImageButton myBtn = (ImageButton)findViewById(R.id.myBtn);
         ImageButton licenBtn = (ImageButton)findViewById(R.id.licenBtn);
@@ -31,9 +47,8 @@ public class LicenseListActivity extends AppCompatActivity {
         ImageButton commBtn = (ImageButton)findViewById(R.id.commBtn);
         ImageButton chalBtn = (ImageButton)findViewById(R.id.chalBtn);
 
-        // 지금까지 열러있는 Activities들을 List로 가져옴
+        // 페이지 이동
         ArrayList<Activity> actList = new ArrayList<Activity>();
-
         backBtn.setOnClickListener(new View.OnClickListener() {  //커뮤니티 페이지 이동
             @Override
             public void onClick(View view) {
