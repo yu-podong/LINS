@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ListView;
 
 import com.yupodong.lins.License.LicenseActivity;
 import com.yupodong.lins.MainActivity;
@@ -17,10 +18,26 @@ import java.util.ArrayList;
 
 public class CommuListActivity extends AppCompatActivity {
 
+    ListView commuview;
+    CommuAdapter commuAdapter;
+    ArrayList<CommuList> commuListArrayList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_commu_list);
+        commuview=(ListView)findViewById(R.id.commulistview);
+        commuListArrayList = new ArrayList<CommuList>();
+
+        for(int i=0;i<5;i++){
+            commuListArrayList.add(
+                    new CommuList("토익시험후기","닉네임","|","2021.05.08",R.drawable.ic_view,"613",R.drawable.ic_comment,"10")
+            );
+        }
+
+        commuAdapter=new CommuAdapter(CommuListActivity.this,commuListArrayList);
+        commuview.setAdapter(commuAdapter);
+
 
 
         ImageButton backBtn = (ImageButton)findViewById(R.id.backBtn);

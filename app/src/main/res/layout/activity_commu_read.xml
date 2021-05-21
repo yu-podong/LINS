@@ -32,31 +32,19 @@
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center">
-
-            <ImageView
-                android:id="@+id/logo_back"
-                android:layout_width="250dp"
-                android:layout_height="100dp"
-                android:gravity="center"
-                android:src="@drawable/logo_back" />
-
             <TextView
                 android:id="@+id/logo_back_text"
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-
-                android:layout_alignLeft="@id/logo_back"
-                android:layout_alignTop="@id/logo_back"
-                android:layout_alignRight="@id/logo_back"
-                android:layout_alignBottom="@id/logo_back"
-
                 android:gravity="center"
-                android:text="커뮤니티"
-                android:textColor="@color/white"
+                android:text="커뮤니티 제목"
+                android:textColor="@color/brightModeFont"
                 android:textSize="40dp"
                 android:textStyle="bold"
                 android:typeface="sans" />
+
         </RelativeLayout>
+
 
         <ImageButton
             android:id="@+id/myBtn"

@@ -8,15 +8,20 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ListView;
 
+import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.yupodong.lins.License.LicenseActivity;
 import com.yupodong.lins.MainActivity;
 import com.yupodong.lins.R;
 import com.yupodong.lins.Scheduler.SchedulerActivity;
+import com.yupodong.lins.Scheduler.list_item;
 
 import java.util.ArrayList;
 
-public class CommuActivity extends AppCompatActivity {
+public class CommuActivity extends Activity {
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

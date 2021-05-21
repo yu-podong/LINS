@@ -139,14 +139,14 @@ public class LicenseActivity extends AppCompatActivity {
         license1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setContentView(R.layout.activity_main);  //다음페이지 아직 없어서  일단 메인으로 이동
+                setContentView(R.layout.activity_license_list);
             }
         });
 
         license2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setContentView(R.layout.activity_main);  //다음페이지 아직 없어서  일단 메인으로 이동
+                setContentView(R.layout.activity_license_list);
             }
         });
 
@@ -154,14 +154,14 @@ public class LicenseActivity extends AppCompatActivity {
         license3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setContentView(R.layout.activity_main);  //다음페이지 아직 없어서 일단 메인으로 이동
+                setContentView(R.layout.activity_license_list);
             }
         });
 
         license4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setContentView(R.layout.activity_main);  //다음페이지 아직 없어서 일단 메인으로 이동
+                setContentView(R.layout.activity_license_list);
             }
         });
 
