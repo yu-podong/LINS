@@ -1,5 +1,6 @@
 package com.yupodong.lins.Login;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +15,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -29,7 +31,6 @@ public class SignupActivity<auth> extends AppCompatActivity {
 
         EditText name = (EditText)findViewById(R.id.name);
         EditText phone = (EditText)findViewById(R.id.phone);
-        EditText mail = (EditText)findViewById(R.id.mail);
         EditText nick = (EditText)findViewById(R.id.nick);
         EditText id = (EditText)findViewById(R.id.id);
         EditText password = (EditText)findViewById(R.id.password);
@@ -44,29 +45,49 @@ public class SignupActivity<auth> extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // user class 사용 (앞으로 collection = table = DTO이름)
-                user user;
-                user = new user(id.getText().toString(), password.getText().toString(),name.getText().toString(),nick.getText().toString(),phone.getText().toString(),mail.getText().toString(),0);
 
-                // firebase에 컬랙션 이름, 문서 이름 지정 -> data 삽입 (아래의 형식으로 데이터 삽입할 것)
-                firestore.collection("User").document(name.getText().toString()).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        // 데이터 삽입 성공 시, Toast 메세지 띄움
-                        Toast.makeText(SignupActivity.this,"Success",Toast.LENGTH_SHORT).show();
-                    }
-                });
+                String input_id = id.getText().toString();
 
-                firebaseAuth.createUserWithEmailAndPassword(id.getText().toString(),password.getText().toString())
-                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                firestore.collection("User").document(input_id).get()
+                        .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>()  {
                             @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) {
-                                    Toast.makeText(SignupActivity.this, "Success", Toast.LENGTH_SHORT).show();}
-                                else {
-                                    Toast.makeText(SignupActivity.this, "Fail", Toast.LENGTH_SHORT).show();
+                            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                DocumentSnapshot Document = task.getResult();
+                                if(Document.exists()) {
+                                    Toast.makeText(SignupActivity.this, "이미 존재하는 ID입니다.", Toast.LENGTH_SHORT).show();
                                 }
-                            }
+                                else
+                                {
+                                    user user;
+                                    user = new user(id.getText().toString(), password.getText().toString(),name.getText().toString(),nick.getText().toString(),phone.getText().toString(),0);
+
+                                    // firebase에 컬랙션 이름, 문서 이름 지정 -> data 삽입 (아래의 형식으로 데이터 삽입할 것)
+                                    firestore.collection("User").document(id.getText().toString()).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void aVoid) {
+                                            // 데이터 삽입 성공 시, Toast 메세지 띄움
+                                            Toast.makeText(SignupActivity.this,"Success",Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+
+                                    firebaseAuth.createUserWithEmailAndPassword(id.getText().toString(),password.getText().toString())
+                                            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                                    if (task.isSuccessful()) {  //아이디 생성완료시
+                                                        Toast.makeText(SignupActivity.this, "Success", Toast.LENGTH_SHORT).show();}
+
+                                                    else { //생성 실패시
+                                                        Toast.makeText(SignupActivity.this, "Fail", Toast.LENGTH_SHORT).show();
+                                                    }
+                                                }
+                                            });
+
+                                }
+                        }
                         });
+
+
             }
         });
 
