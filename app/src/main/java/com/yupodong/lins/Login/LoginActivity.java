@@ -13,6 +13,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.yupodong.lins.R;
 
+import org.w3c.dom.Text;
+
 public class LoginActivity<auth> extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +36,7 @@ public class LoginActivity<auth> extends AppCompatActivity {
 
 
         //회원가입페이지로 넘어가는 부분
-        Button signup= (Button)findViewById(R.id.singnup);
+        TextView signup= (TextView)findViewById(R.id.singnup);
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
