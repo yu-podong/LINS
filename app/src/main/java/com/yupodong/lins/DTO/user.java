@@ -7,7 +7,6 @@ public class user {
     private String name;
     private String nickName;
     private String phoneNum;
-    private String email;
     private Integer accessLevel; // 접근권한 레벨, 관리자 : 10, 사용자 : 1(사용자와 관리자의 접근권한을 달리 부여하기 위함)
 
     // 생성자
@@ -17,16 +16,14 @@ public class user {
         this.name = "";
         this.nickName = "";
         this.phoneNum = "";
-        this.email = "";
         this.accessLevel = 0;
     }
-    public user(String id, String password, String name, String nickName, String phoneNum, String email, Integer accessLevel) {
+    public user(String id, String password, String name, String nickName, String phoneNum, Integer accessLevel) {
         this.id = id;
         this.password = password;
         this.name = name;
         this.nickName = nickName;
         this.phoneNum = phoneNum;
-        this.email = email;
         this.accessLevel = accessLevel;
     }
 
@@ -47,9 +44,6 @@ public class user {
     public void setPhoneNum(String phoneNum) {
         this.phoneNum = phoneNum;
     }
-    public void setEmail(String email) {
-        this.email = email;
-    }
     public void setAccessLevel(Integer accessLevel) {
         this.accessLevel = accessLevel;
     }
@@ -69,9 +63,6 @@ public class user {
     }
     public String getPhoneNum() {
         return this.phoneNum;
-    }
-    public String getEmail(){
-        return this.email;
     }
     public Integer getAccessLevel() {
         return this.accessLevel;

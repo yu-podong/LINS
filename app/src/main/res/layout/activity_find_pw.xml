@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="30dp"
+    android:background="@color/brightModeBack"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".Login.FindPwActivity">
+
+    <TextView
+        android:id="@+id/titleText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="LINS"
+        android:textSize="48dp"
+        android:textStyle="bold"
+        android:layout_marginBottom="0dp"
+        android:gravity="center"
+        android:textColor="@color/brightModeFont"/>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/gofindidBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:layout_gravity="center"
+            android:layout_marginLeft="70dp"
+            android:backgroundTint="@color/brightModeBack"
+            android:padding="0dp"
+            android:text="ID 찾기"
+            android:shadowRadius="0"
+            android:stateListAnimator="@null"
+            android:textColor="@color/brightModeTopBar"
+            android:textSize="18dp" />
+
+        <Button
+            android:id="@+id/gofindpwBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_column="1"
+            android:layout_gravity="left"
+            android:backgroundTint="@color/brightModeBack"
+            android:text="| 비밀번호 찾기"
+            android:shadowRadius="0"
+            android:stateListAnimator="@null"
+            android:textColor="@color/brightModeFont"
+            android:textSize="18dp"
+            android:padding="0dp"/>
+        />
+    </GridLayout>
+
+
+    <EditText
+        android:id="@+id/id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/brightModeFont"
+        android:textColor="@color/brightModeFont"
+        android:layout_marginBottom="20dp"
+        android:padding="20dp"
+        android:textSize="18dp"
+        android:hint="아이디"
+        android:textColorHint="@color/brightModeFont"/>
+
+    <EditText
+        android:id="@+id/phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/brightModeFont"
+        android:textColor="@color/brightModeFont"
+        android:layout_marginBottom="40dp"
+        android:padding="20dp"
+        android:textSize="18dp"
+        android:hint="핸드폰번호"
+        android:textColorHint="@color/brightModeFont"/>
+
+    <Button
+        android:id="@+id/findpwBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="비밀번호 찾기"
+        android:textSize="18dp"
+        android:padding="15dp"
+        android:textColor="@color/brightModeFont"
+        android:backgroundTint="@color/pastelYellow"/>
+
+    <Button
+        android:id="@+id/loginBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/brightModeBack"
+        android:text="로그인"
+        android:shadowRadius="0"
+        android:stateListAnimator="@null"
+        android:layout_gravity="left"
+        android:textColor="@color/brightModeTopBar"
+        android:textSize="18dp"
+        android:padding="0dp"/>
+
+</LinearLayout>

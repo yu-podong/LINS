@@ -11,7 +11,9 @@
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.LINS">
-        <activity android:name=".Login.SignupActivity"></activity>
+        <activity android:name=".Login.FindPwActivity"></activity>
+        <activity android:name=".Login.FindIdActivity"></activity>
+        <activity android:name=".Login.SignupActivity" />
         <activity android:name=".Scheduler.SchedulerActivity" />
         <activity android:name=".License.LicenseListActivity" />
         <activity android:name=".Community.WriteActivity" />
