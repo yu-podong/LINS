@@ -11,6 +11,7 @@ import android.widget.ImageButton;
 
 import com.yupodong.lins.Community.CommuActivity;
 import com.yupodong.lins.Community.WriteActivity;
+import com.yupodong.lins.Login.LoginActivity;
 import com.yupodong.lins.MainActivity;
 import com.yupodong.lins.R;
 import com.yupodong.lins.Scheduler.SchedulerActivity;
@@ -139,14 +140,16 @@ public class LicenseActivity extends AppCompatActivity {
         license1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setContentView(R.layout.activity_license_list);
+                Intent intent = new Intent(LicenseActivity.this, LicenseListActivity.class);
+                startActivity(intent);
             }
         });
 
         license2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setContentView(R.layout.activity_license_list);
+                Intent intent = new Intent(LicenseActivity.this, LicenseListActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -154,14 +157,16 @@ public class LicenseActivity extends AppCompatActivity {
         license3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setContentView(R.layout.activity_license_list);
+                Intent intent = new Intent(LicenseActivity.this, LicenseListActivity.class);
+                startActivity(intent);
             }
         });
 
         license4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setContentView(R.layout.activity_license_list);
+                Intent intent = new Intent(LicenseActivity.this, LicenseListActivity.class);
+                startActivity(intent);
             }
         });
 

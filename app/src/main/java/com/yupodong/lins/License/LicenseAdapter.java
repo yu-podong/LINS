@@ -49,14 +49,12 @@ public class LicenseAdapter extends BaseAdapter{
            convertView = LayoutInflater.from(context).inflate(R.layout.licenselist_layout, null);
            day_view = (TextView) convertView.findViewById(R.id.day);
            number_view = (TextView) convertView.findViewById(R.id.applyDate);
-           line_view = (TextView) convertView.findViewById(R.id.line);
            scrap_view = (ImageButton) convertView.findViewById(R.id.scrap);
        }
         day_view.setText(licenselistArrayList.get(position).getLicense_day());
         number_view.setText(licenselistArrayList.get(position).getLicense_number());
-        place_view.setText(licenselistArrayList.get(position).getLicense_place());
-        line_view.setText(licenselistArrayList.get(position).getLicense_line());
         scrap_view.setImageResource(licenselistArrayList.get(position).getLicense_scrap());
+
        return convertView;
     }
 }
