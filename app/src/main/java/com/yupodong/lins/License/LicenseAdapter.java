@@ -48,8 +48,7 @@ public class LicenseAdapter extends BaseAdapter{
        if(convertView==null) {
            convertView = LayoutInflater.from(context).inflate(R.layout.licenselist_layout, null);
            day_view = (TextView) convertView.findViewById(R.id.day);
-           number_view = (TextView) convertView.findViewById(R.id.number);
-           place_view = (TextView) convertView.findViewById(R.id.place);
+           number_view = (TextView) convertView.findViewById(R.id.applyDate);
            line_view = (TextView) convertView.findViewById(R.id.line);
            scrap_view = (ImageButton) convertView.findViewById(R.id.scrap);
        }

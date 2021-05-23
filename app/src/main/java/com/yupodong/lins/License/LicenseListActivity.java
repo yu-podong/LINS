@@ -1,5 +1,6 @@
 package com.yupodong.lins.License;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
@@ -8,12 +9,21 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.yupodong.lins.Community.CommuActivity;
 import com.yupodong.lins.MainActivity;
 import com.yupodong.lins.R;
 import com.yupodong.lins.Scheduler.SchedulerActivity;
+
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 public class LicenseListActivity extends AppCompatActivity {
@@ -26,6 +36,25 @@ public class LicenseListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_license_list);
+        // Firebase를 사용하기 위해 작성함
+        FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+
+        firestore.collection("TOIEC").get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            String test = "";
+                            // getId() : document 이름, getData() : document에 들어있는 data들
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                test += document.getId() + " : " + document.getData() + "\n";
+                            }
+                        } else {
+                            // do something..
+                        }
+                    }
+                });
+
         licenseview = (ListView)findViewById(R.id.licenselistview);
         licenselistArrayList = new ArrayList<licenselist>();
 
@@ -46,6 +75,10 @@ public class LicenseListActivity extends AppCompatActivity {
         ImageButton homeBtn = (ImageButton)findViewById(R.id.homeBtn);
         ImageButton commBtn = (ImageButton)findViewById(R.id.commBtn);
         ImageButton chalBtn = (ImageButton)findViewById(R.id.chalBtn);
+        TextView licenseTitle = (TextView)findViewById(R.id.test_title);
+
+        //조금 더 고민해보는거루 ><
+        //licenseTitle.setText("TOEIC");
 
         // 페이지 이동
         ArrayList<Activity> actList = new ArrayList<Activity>();
