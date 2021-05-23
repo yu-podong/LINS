@@ -1,20 +1,28 @@
 package com.yupodong.lins.Crawler;
 
+import android.widget.Toast;
+
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.yupodong.lins.DTO.crawling;
+import com.yupodong.lins.MainActivity;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class TOEIC {
-    public static void main(String[] args) {
-        try{
-            // 크롤링할 TOEIC 시험일정 URL 
+    protected List<crawling> TOEICList;
+
+    public List<crawling> crawlingToeic() {
+        try {
+            TOEICList = new ArrayList<crawling>();
+
+            // 크롤링할 TOEIC 시험일정 URL
             String url = "https://exam.toeic.co.kr/receipt/examSchList.php";
             // TOEIC의 시험일을 담을 List
             List<String> licenseDate = new ArrayList<String>();
@@ -32,11 +40,11 @@ public class TOEIC {
                 // 시험일정이 있는 tag의 text 가져오기
                 licenseDate.add(elements.get(i).select("td:nth-child(2)").text());
                 applyPeriod.add(elements.get(i).select("td:nth-child(4)").text());
-                
+
                 // 특별 추가접수가 진행되는 일정 부분 삭제하기
                 splitEndIndex = applyPeriod.get(i).indexOf("특별추가 : ");
-                applyPeriod.set(i, applyPeriod.get(i).substring(splitEndIndex));
-                
+                applyPeriod.set(i, applyPeriod.get(i).substring(0, splitEndIndex-1));
+
                 // `정기접수 : ` 문자열 제거하기
                 applyPeriod.set(i, applyPeriod.get(i).replace("정기접수 : ", ""));
             }
@@ -48,29 +56,23 @@ public class TOEIC {
                 System.out.println("-------------------------------------------------------------------------------------------------------------------");
             }
 
-            /* Firebase에 해당 정보를 저장하기 위한 부분 */
-            FirebaseFirestore firestore = FirebaseFirestore.getInstance();
-            crawling toeic = new crawling();
-
             for(int i = 0; i < licenseDate.size(); i++ ) {
+                // 각 시험일정을 저장할 임시 객체 생성
+                crawling newItem = new crawling();
                 // i번째 자격증 일정을 toeic 객체에 저장
-                toeic.setLicenseName("TOEIC");
-                toeic.setLicenseDate(licenseDate.get(i));
-                toeic.setApplyPeriod(applyPeriod.get(i));
-                toeic.setLicenseLink(url);
+                newItem.setLicenseName("TOEIC");
+                newItem.setLicenseDate(licenseDate.get(i));
+                newItem.setApplyPeriod(applyPeriod.get(i));
+                newItem.setLicenseLink(url);
 
-                firestore.collection("TOEIC").document(Integer.toString(i)).set(toeic)
-                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void aVoid) {
-                                System.out.println("성공");
-                            }
-                });
+                // 각 시험일정 객체를 toeic에 추가
+                TOEICList.add(newItem);
             }
-
         }
-        catch(Exception exception) {
+        catch(Exception exception){
             exception.printStackTrace();
         }
+
+        return TOEICList;
     }
 }
