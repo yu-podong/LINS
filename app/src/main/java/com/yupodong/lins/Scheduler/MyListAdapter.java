@@ -48,8 +48,7 @@ public class MyListAdapter extends BaseAdapter {
         if(view == null){
             view = LayoutInflater.from(context).inflate(R.layout.item,null);  //item.xml 불러오기
 
-            schelist = (TextView)view.findViewById(R.id.schelist);
-            scheDate = (TextView)view.findViewById(R.id.schelist_date);
+            schelist = (TextView)view.findViewById(R.id.licensNameSche);
             color_image = (ImageView)view.findViewById(R.id.colorImage);
         }
 
