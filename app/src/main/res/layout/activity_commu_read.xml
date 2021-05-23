@@ -10,53 +10,58 @@
     android:background="@color/brightModeBack"
     tools:context=".MainActivity">
 
-
-
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_margin="7dp"
-        android:gravity="center">
+        android:layout_margin="7dp">
 
         <ImageButton
             android:id="@+id/backBtn"
             android:layout_width="30dp"
             android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
             android:background="@android:color/transparent"
             android:scaleType="fitXY"
             app:srcCompat="@drawable/ic_left_arrow"
             tools:ignore="VectorDrawableCompat" />
 
-        <RelativeLayout
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center">
-            <TextView
-                android:id="@+id/logo_back_text"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="커뮤니티 제목"
-                android:textColor="@color/brightModeFont"
-                android:textSize="40dp"
-                android:textStyle="bold"
-                android:typeface="sans" />
-
-        </RelativeLayout>
-
-
         <ImageButton
             android:id="@+id/myBtn"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
             android:background="@android:color/transparent"
             android:scaleType="fitXY"
             app:srcCompat="@drawable/ic_mybtn_img"
             tools:ignore="VectorDrawableCompat"/>
-    </LinearLayout>
+    </RelativeLayout>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+        <TextView
+            android:id="@+id/logo_back_text"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="커뮤니티 제목"
+            android:textColor="@color/brightModeFont"
+            android:textSize="40dp"
+            android:textStyle="bold"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:typeface="sans" />
 
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -66,7 +71,10 @@
 
     </LinearLayout>
 
-
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

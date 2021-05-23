@@ -29,7 +29,7 @@ public class CommuListActivity extends AppCompatActivity {
         commuview=(ListView)findViewById(R.id.commulistview);
         commuListArrayList = new ArrayList<CommuList>();
 
-        for(int i=0;i<5;i++){
+        for(int i=0;i<10;i++){
             commuListArrayList.add(
                     new CommuList("토익시험후기","닉네임","|","2021.05.08",R.drawable.ic_view,"613",R.drawable.ic_comment,"10")
             );
