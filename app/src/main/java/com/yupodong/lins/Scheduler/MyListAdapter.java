@@ -19,7 +19,6 @@ public class MyListAdapter extends BaseAdapter {
     ArrayList<list_item> list_itemArrayList;
 
     TextView schelist;
-    TextView scheDate;
     ImageView color_image;
 
 
@@ -53,7 +52,6 @@ public class MyListAdapter extends BaseAdapter {
         }
 
         schelist.setText(list_itemArrayList.get(positon).getSchelist());
-        scheDate.setText(list_itemArrayList.get(positon).getScheDate());
         color_image.setImageResource(list_itemArrayList.get(positon).getColor_image());
         return view;
     }
