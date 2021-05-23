@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
         // APP에서 뒤로가기를 지원하기 위해 Activity이동으로 바꿈 (login만 setContentView 사용)
 
-        Button login = (Button) findViewById(R.id.log);
+        TextView login = (TextView) findViewById(R.id.log);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -182,5 +182,4 @@ public class MainActivity extends AppCompatActivity {
             }
         }.start();
     }
-
 }
