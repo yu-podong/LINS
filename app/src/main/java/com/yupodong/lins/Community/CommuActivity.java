@@ -19,9 +19,7 @@ import com.yupodong.lins.Scheduler.list_item;
 
 import java.util.ArrayList;
 
-public class CommuActivity extends Activity {
-
-
+public class CommuActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
