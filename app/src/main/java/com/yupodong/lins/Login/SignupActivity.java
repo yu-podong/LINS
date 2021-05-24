@@ -66,7 +66,9 @@ public class SignupActivity<auth> extends AppCompatActivity {
                                         @Override
                                         public void onSuccess(Void aVoid) {
                                             // 데이터 삽입 성공 시, Toast 메세지 띄움
-                                            Toast.makeText(SignupActivity.this,"Success",Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(SignupActivity.this,"환영합니다, " + name.getText().toString() + "님!",Toast.LENGTH_SHORT).show();
+                                            // 현재 회원가입 Activity 종료 (로그인 화면으로 넘어감)
+                                            finish();
                                         }
                                     });
 
@@ -75,10 +77,10 @@ public class SignupActivity<auth> extends AppCompatActivity {
                                                 @Override
                                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                                     if (task.isSuccessful()) {  //아이디 생성완료시
-                                                        Toast.makeText(SignupActivity.this, "Success", Toast.LENGTH_SHORT).show();}
+                                                        Toast.makeText(SignupActivity.this, "환영합니다, " + name.getText().toString() + "님!", Toast.LENGTH_SHORT).show();}
 
                                                     else { //생성 실패시
-                                                        Toast.makeText(SignupActivity.this, "Fail", Toast.LENGTH_SHORT).show();
+                                                        Toast.makeText(SignupActivity.this, "회원가입에 실패했습니다.", Toast.LENGTH_SHORT).show();
                                                     }
                                                 }
                                             });
