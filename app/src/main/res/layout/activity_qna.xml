@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="30dp"
+    android:weightSum="2"
+    android:orientation="vertical"
+    android:background="@color/brightModeBack"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="7dp">
+
+        <ImageButton
+            android:id="@+id/backBtn"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:background="@android:color/transparent"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/ic_left_arrow"
+            tools:ignore="VectorDrawableCompat" />
+
+        <ImageButton
+            android:id="@+id/myBtn"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:background="@android:color/transparent"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/ic_mybtn_img"
+            tools:ignore="VectorDrawableCompat"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <ImageView
+            android:id="@+id/logo_back"
+            android:layout_width="250dp"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:src="@drawable/logo_back" />
+
+        <TextView
+            android:id="@+id/logo_back_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_alignLeft="@id/logo_back"
+            android:layout_alignTop="@id/logo_back"
+            android:layout_alignRight="@id/logo_back"
+            android:layout_alignBottom="@id/logo_back"
+
+            android:gravity="center"
+            android:text="문의사항"
+            android:textColor="@color/white"
+            android:textSize="40dp"
+            android:textStyle="bold"
+            android:typeface="sans" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+        <!--여기에 컨텐트 넣기-->
+        <ListView
+            android:id="@+id/qnalistview"
+            android:layout_width="match_parent"
+            android:layout_height="500dp">
+        </ListView>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/licenBtn"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_margin="7dp"
+            android:background="@android:color/transparent"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/ic_license"
+            tools:ignore="VectorDrawableCompat"/>
+
+        <ImageButton
+            android:id="@+id/calenBtn"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_margin="7dp"
+            android:background="@android:color/transparent"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/ic_calendar"
+            tools:ignore="VectorDrawableCompat"/>
+
+        <ImageButton
+            android:id="@+id/homeBtn"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_margin="7dp"
+            android:background="@android:color/transparent"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/ic_home"
+            tools:ignore="VectorDrawableCompat"/>
+
+        <ImageButton
+            android:id="@+id/commBtn"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_margin="7dp"
+            android:background="@android:color/transparent"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/ic_community"
+            tools:ignore="VectorDrawableCompat"/>
+
+        <ImageButton
+            android:id="@+id/chalBtn"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_margin="7dp"
+            android:background="@android:color/transparent"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/ic_chalkboard"
+            tools:ignore="VectorDrawableCompat" />
+
+    </LinearLayout>
+
+</LinearLayout>
