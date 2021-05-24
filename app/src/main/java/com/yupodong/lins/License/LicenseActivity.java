@@ -141,6 +141,8 @@ public class LicenseActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(LicenseActivity.this, LicenseListActivity.class);
+                // LicenseListActivity로 자격증 이름 전달하기
+                intent.putExtra("licenseName", "TOEIC");
                 startActivity(intent);
             }
         });
@@ -149,6 +151,8 @@ public class LicenseActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(LicenseActivity.this, LicenseListActivity.class);
+                // LicenseListActivity로 자격증 이름 전달하기
+                intent.putExtra("licenseName", "EIP");
                 startActivity(intent);
             }
         });
@@ -158,6 +162,8 @@ public class LicenseActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(LicenseActivity.this, LicenseListActivity.class);
+                // LicenseListActivity로 자격증 이름 전달하기
+                intent.putExtra("licenseName", "TOPCIT");
                 startActivity(intent);
             }
         });
@@ -166,6 +172,8 @@ public class LicenseActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(LicenseActivity.this, LicenseListActivity.class);
+                // LicenseListActivity로 자격증 이름 전달하기
+                intent.putExtra("licenseName", "hisotryExam");
                 startActivity(intent);
             }
         });
