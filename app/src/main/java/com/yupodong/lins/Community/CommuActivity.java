@@ -41,6 +41,7 @@ public class CommuActivity extends AppCompatActivity {
         commu1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                intent.putExtra("licenseName", "TOEIC");
                 startActivity(intent);
             }
         });
@@ -48,6 +49,7 @@ public class CommuActivity extends AppCompatActivity {
         commu2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                intent.putExtra("licenseName", "EIP");
                 startActivity(intent);
             }
         });
@@ -56,6 +58,7 @@ public class CommuActivity extends AppCompatActivity {
         commu3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                intent.putExtra("licenseName", "TOPCIT");
                 startActivity(intent);
             }
         });
@@ -63,6 +66,7 @@ public class CommuActivity extends AppCompatActivity {
         commu4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                intent.putExtra("licenseName", "historyExam");
                 startActivity(intent);
             }
         });
