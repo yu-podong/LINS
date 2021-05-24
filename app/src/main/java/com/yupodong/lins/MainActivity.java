@@ -122,11 +122,11 @@ public class MainActivity extends AppCompatActivity {
                 FirebaseFirestore firestore = FirebaseFirestore.getInstance();
 
                 for(int i = 0; i < toeicList.size(); i++) {
-                    firestore.collection("TOEIC").document(Integer.toString(i+1)).set(toeicList.get(i))
+                    firestore.collection("TOEIC").document().set(toeicList.get(i))
                             .addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
-                                    Toast.makeText(MainActivity.this, "성공했습니다.", Toast.LENGTH_SHORT).show();
+                                    //Toast.makeText(MainActivity.this, "성공했습니다.", Toast.LENGTH_SHORT).show();
                                 }
                             });
                 }
@@ -145,11 +145,11 @@ public class MainActivity extends AppCompatActivity {
                 FirebaseFirestore firestore = FirebaseFirestore.getInstance();
 
                 for (int i = 0; i < eipList.size(); i++) {
-                    firestore.collection("EIP").document(Integer.toString(i+1)).set(eipList.get(i))
+                    firestore.collection("EIP").document().set(eipList.get(i))
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
-                                Toast.makeText(MainActivity.this, "성공했습니다.", Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(MainActivity.this, "성공했습니다.", Toast.LENGTH_SHORT).show();
                             }
                         });
                 }
@@ -172,11 +172,11 @@ public class MainActivity extends AppCompatActivity {
                 topcit.setLicenseDate("2021.05.22 오전 09:30~12:00");
                 FirebaseFirestore firestore = FirebaseFirestore.getInstance();
 
-                firestore.collection("TOPCIT").document("1").set(topcit)
+                firestore.collection("TOPCIT").document().set(topcit)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
-                                Toast.makeText(MainActivity.this, "성공했습니다.", Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(MainActivity.this, "성공했습니다.", Toast.LENGTH_SHORT).show();
                             }
                         });
             }
