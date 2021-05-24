@@ -22,6 +22,7 @@
         <activity android:name=".Community.CommuActivity" />
         <activity android:name=".License.LicenseActivity" />
         <activity android:name=".Login.LoginActivity" />
+        <activity android:name=".Qna.QnaActivity"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
