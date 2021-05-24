@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,11 +39,16 @@ import org.w3c.dom.Text;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
-public class SchedulerActivity extends AppCompatActivity  {
+public class SchedulerActivity extends AppCompatActivity{
+
+    private Map<CalendarDay, Integer> dayInstanceMap;
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -64,17 +70,58 @@ public class SchedulerActivity extends AppCompatActivity  {
         materialCalendarView = findViewById(R.id.calendarView);
         materialCalendarView.setSelectedDate(CalendarDay.today());  //오늘날짜 선택하기
 
-        materialCalendarView.addDecorators(new EventDecorator(Color.RED , Collections.singleton(CalendarDay.today())));  //오늘날짜에 빨간 점 찍기
+        //materialCalendarView.addDecorators(new EventDecorator(Color.RED , Collections.singleton(CalendarDay.today())));  //오늘날짜에 빨간 점 찍기
         OneDayDecorator oneDayDecorator = new OneDayDecorator();
+
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.MONTH, -2);
+        ArrayList<CalendarDay> dates = new ArrayList<>();
+        for (int i = 0; i < 30; i++) {    // 이부분 달력에 날짜 여러개 포함하는 부분
+            CalendarDay day = CalendarDay.from(calendar);
+            dates.add(day);
+            calendar.add(Calendar.DATE, 5);
+        }
+        ArrayList<CalendarDay> date = new ArrayList<>();
+
+
+        for (int i=1;i<5;i++){// 시험 일정 수 만큼 반복하기
+            CalendarDay day = CalendarDay.from(2021,4,i);  //시험 날짜를 받아와서
+                //데이터의 갯수 저장
+                EventDecorator[] decorator = new EventDecorator[3/*데이터의 수*/];  //시험일정이 있는 날짜에 시험 수 만큼 객체 생성 후
+                for (int j = 0; j < decorator.length; j++) {
+                    decorator[j] = new EventDecorator(Color.RED, 5, j); //그 수 만큼 점 찍기
+                    decorator[j].addDate(day);  //해당 날짜를 event 객체에 저장하고
+                    materialCalendarView.addDecorators(decorator[j]);  //달력에 표시
+
+            }
+        }
+
+        EventDecorator[] decoratorArray = new EventDecorator[4]; //Max 4 dots
+        for(int i = 0; i<decoratorArray.length; i++){
+                decoratorArray[i] = new EventDecorator(Color.YELLOW,5,i);
+                decoratorArray[i].addDate(CalendarDay.today());
+                materialCalendarView.addDecorators(decoratorArray[i]);  //달력에 표시
+        }
+
 
 
         materialCalendarView.addDecorators(  //달력 커스텀
                 new SundayDecorator(),
                 new SaturdayDecorator(),
+              // new EventDecorator(Color.BLUE, Collections.singleton(CalendarDay.today())),
+              // new EventDecorator(Color.RED, dates),
+                /*decoratorArray[0],
+                decoratorArray[1],
+                decoratorArray[2],
+                decoratorArray[3],*/
+
                 oneDayDecorator
         );
 
         Intent intent = new Intent(this, SchepopActivity.class);  //팝업창 정보 전달 객체
+
+
 
         materialCalendarView.setOnDateChangedListener(new OnDateSelectedListener() {  //날짜 선택시 팝업창 띄우기
 
