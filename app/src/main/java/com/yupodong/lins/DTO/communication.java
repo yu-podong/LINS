@@ -4,7 +4,6 @@ public class communication {
     private Integer writingID;  // 게시글 ID
     private String category;    // 커뮤니티 종류 (토익, 정보처리 기사..)
     private String title;       // 게시글 제목
-    private String userID;      // 작성한 유저ID
     private String nickName;    // 작성한 유저 nickname
     private String writeDate;   // 작성된 날짜 
     private String content;     // 게시글 내용
@@ -18,7 +17,6 @@ public class communication {
         this.writingID = 0;
         this.category = "";
         this.title = "";
-        this.userID = "";
         this.nickName = "";
         this.writeDate = "";
         this.content = "";
@@ -27,12 +25,11 @@ public class communication {
         this.viewCount = 0;
         this.commentCount = 0;
     }
-    public communication(Integer writingID, String category, String title, String userID, String nickName, String writeDate,
+    public communication(Integer writingID, String category, String title, String nickName, String writeDate,
                          String content, String image, Integer scrapCount, Integer viewCount, Integer commentCount) {
         this.writingID = writingID;
         this.category = category;
         this.title = title;
-        this.userID = userID;
         this.nickName = nickName;
         this.writeDate = writeDate;
         this.content = content;
@@ -52,9 +49,6 @@ public class communication {
     }
     public void setTitle(String title) {
         this.title = title;
-    }
-    public void setUserID(String userID) {
-        this.userID = userID;
     }
     public void setNickName(String nickName) {
         this.nickName = nickName;
@@ -87,9 +81,6 @@ public class communication {
     }
     public String getTitle() {
         return this.title;
-    }
-    public String getUserID() {
-        return this.userID;
     }
     public String getNickName() {
         return this.nickName;
