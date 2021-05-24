@@ -45,7 +45,7 @@
         android:layout_gravity="center">
 
         <TextView
-            android:id="@+id/test_title"
+            android:id="@+id/licenseName"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
