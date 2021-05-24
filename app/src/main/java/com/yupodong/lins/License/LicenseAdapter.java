@@ -1,6 +1,7 @@
 package com.yupodong.lins.License;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,7 +64,7 @@ public class LicenseAdapter extends BaseAdapter{
         scrap_view.setImageResource(licenselistArrayList.get(position).getLicense_scrap());
 
         // 각 시험일정 안에 들어있는 스크랩 버튼
-        ImageButton scrapBtn = (ImageButton) convertView.findViewById(R.id.scrap);
+        ImageView scrapBtn = (ImageView) convertView.findViewById(R.id.scrap);
         // 스크랩 버튼 clickListener
         scrapBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,6 +88,13 @@ public class LicenseAdapter extends BaseAdapter{
                             Toast.makeText(context, "스크랩에 저장했습니다.", Toast.LENGTH_SHORT).show();
                         }
                     });
+                    // click되었다면, 스크랩 버튼을 노락색으로 change
+                    if (scrapBtn.isClickable() == true ) {
+                        scrapBtn.setColorFilter(Color.parseColor("#E9C87B"));
+                    }
+                    else {
+                        scrapBtn.setColorFilter(Color.parseColor("#9D9D9D"));
+                    }
                 }
                 // LINS를 로그인을 하지 않고 사용할 경우
                 else {

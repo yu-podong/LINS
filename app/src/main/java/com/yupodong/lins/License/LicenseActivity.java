@@ -173,7 +173,7 @@ public class LicenseActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(LicenseActivity.this, LicenseListActivity.class);
                 // LicenseListActivity로 자격증 이름 전달하기
-                intent.putExtra("licenseName", "hisotryExam");
+                intent.putExtra("licenseName", "historyExam");
                 startActivity(intent);
             }
         });
