@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="30dp"
-    android:weightSum="2"
+    android:weightSum="3"
     android:orientation="vertical"
     android:background="@color/brightModeBack"
     tools:context=".MainActivity">
@@ -63,16 +63,31 @@
         android:layout_height="0dp"
         android:layout_weight="1"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:backgroundTint="@color/pastelYellow"
+        android:textColor="@color/brightModeFont"
+        android:id="@+id/writeBtn"
+        android:text="글쓰기"
+
+        />
+    <View
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical">
+
         <!--여기에 컨텐트 넣기-->
         <ListView
             android:id="@+id/commulistview"
             android:layout_width="match_parent"
-            android:layout_height="500dp">
+            android:layout_height="450dp">
         </ListView>
     </LinearLayout>
 

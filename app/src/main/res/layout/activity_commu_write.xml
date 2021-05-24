@@ -95,7 +95,7 @@
             android:layout_height="370dp"
             android:layout_marginBottom="20dp"
             android:background="@drawable/textborder"
-            android:gravity="top|center"
+            android:gravity="left"
             android:hint="글 내용을 입력하세요"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
@@ -111,6 +111,7 @@
         android:layout_height="wrap_content">
 
         <Button
+            android:id="@+id/sendBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="글쓰기"
