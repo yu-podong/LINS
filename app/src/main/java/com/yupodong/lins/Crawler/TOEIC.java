@@ -60,6 +60,7 @@ public class TOEIC {
                 // 각 시험일정을 저장할 임시 객체 생성
                 crawling newItem = new crawling();
                 // i번째 자격증 일정을 toeic 객체에 저장
+                newItem.setLicenseID(i+1);
                 newItem.setLicenseName("TOEIC");
                 newItem.setLicenseDate(licenseDate.get(i));
                 newItem.setApplyPeriod(applyPeriod.get(i));

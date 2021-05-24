@@ -49,6 +49,7 @@ public class EIP {
                 crawling newItem = new crawling();
                 
                 // i번째 자격증 일정을 toeic 객체에 저장
+                newItem.setLicenseID(i+1);
                 newItem.setLicenseName("TOEIC");
                 newItem.setLicenseDate(licenseDateEIP.get(i));
                 newItem.setApplyPeriod(applyPeriodEIP.get(i));
