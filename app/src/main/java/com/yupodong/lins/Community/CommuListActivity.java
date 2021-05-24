@@ -1,44 +1,102 @@
 package com.yupodong.lins.Community;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+import com.yupodong.lins.Crawler.EIP;
+import com.yupodong.lins.DTO.communication;
+import com.yupodong.lins.DTO.crawling;
 import com.yupodong.lins.License.LicenseActivity;
+import com.yupodong.lins.License.LicenseListActivity;
 import com.yupodong.lins.MainActivity;
 import com.yupodong.lins.R;
 import com.yupodong.lins.Scheduler.SchedulerActivity;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class CommuListActivity extends AppCompatActivity {
-
     ListView commuview;
     CommuAdapter commuAdapter;
     ArrayList<CommuList> commuListArrayList;
+    List<communication> listCommu = new ArrayList<communication>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_commu_list);
+
+        //------------------------------- 클릭한 license로 Activity title 바꾸기 -----------------------
+        TextView commuTitle = (TextView)findViewById(R.id.commu_title);
+
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        // 이전 액티비티에서 전달한 값을 저장
+        String clickLicenseName = bundle.getString("licenseName");
+
+        commuTitle.setText(clickLicenseName);
+
+        //-------------------------------- 글쓰기 버튼을 클릭하면, writeActivity로 이동 ----------------
+        Button writeBtn = (Button)findViewById(R.id.writeBtn);
+        writeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CommuListActivity.this, WriteActivity.class);
+                intent.putExtra("licenseName",clickLicenseName);
+                startActivity(intent);
+            }
+        });
+
+        //---------------------------- 클릭한 license의 게시글 가져오기 (미완성)-------------------------
         commuview=(ListView)findViewById(R.id.commulistview);
         commuListArrayList = new ArrayList<CommuList>();
 
-        for(int i=0;i<10;i++){
-            commuListArrayList.add(
-                    new CommuList("토익시험후기","닉네임","|","2021.05.08",R.drawable.ic_view,"613",R.drawable.ic_comment,"10")
-            );
-        }
+        FirebaseFirestore firestore = FirebaseFirestore.getInstance();
 
-        commuAdapter=new CommuAdapter(CommuListActivity.this,commuListArrayList);
-        commuview.setAdapter(commuAdapter);
+        // data 가져오기
+        firestore.collection("Commu").whereEqualTo("category",clickLicenseName).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if(task.isSuccessful()) {
+                    int i = 0;
+                    // 현재 Commu에 들어있는 게시글 중에 선택한 자격증에 해당하는 글들만 list에 저장하기
+                    for(QueryDocumentSnapshot documentSnapshot : task.getResult()){
+                        listCommu.add(documentSnapshot.toObject(communication.class));
+                        i++;
+                    }
+                    // Adapter로 보내기 위한 작업
+                    for(int j = 0; j < listCommu.size(); j++){
+                        commuListArrayList.add(
+                                new CommuList(listCommu.get(j).getTitle(),listCommu.get(j).getNickName(),"|",listCommu.get(j).getWriteDate(),R.drawable.ic_view, listCommu.get(j).getViewCount(),R.drawable.ic_comment,listCommu.get(j).getCommentCount())
+                        );
+                    }
+                    // ListView에 보여지기 위한 작업
+                    commuAdapter=new CommuAdapter(CommuListActivity.this,commuListArrayList);
+                    commuview.setAdapter(commuAdapter);
 
-
+                }
+                else {
+                    Toast.makeText(CommuListActivity.this, "해당 게시판의 게시글을 가져오는데 실패했습니다.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
         ImageButton backBtn = (ImageButton)findViewById(R.id.backBtn);
         ImageButton myBtn = (ImageButton)findViewById(R.id.myBtn);
