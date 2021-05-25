@@ -45,6 +45,9 @@ public class WriteActivity extends AppCompatActivity {
         // 이전 액티비티에서 전달한 값을 저장
         String clickLicenseName = bundle.getString("licenseName");
 
+        EditText title = (EditText)findViewById(R.id.title);
+        EditText content = (EditText)findViewById(R.id.content);
+
         //----------------------------- 작성한 글을 firebase에 저장하는 부분 -----------------------------
         // 글쓰기 버튼
         Button sendBtn = (Button)findViewById(R.id.sendBtn);
@@ -54,14 +57,13 @@ public class WriteActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // 제목, 내용을 입력한 component
-                EditText title = (EditText)findViewById(R.id.title);
-                EditText content = (EditText)findViewById(R.id.content);
+
                 // 입력한 제목과 내용을 가져옴
                 String inputTitle = title.getText().toString();
                 String inputContent = content.getText().toString();
-
+                System.out.println(inputContent);
                 // 입력하지 않은 내용이 있을 때
-                if (inputContent == "" || inputTitle == "") {
+                if (inputContent == "글 내용을 입력하세요" || inputTitle == "제목") {
                     Toast.makeText(WriteActivity.this, "제목 또는 내용이 작성되지 않았습니다.", Toast.LENGTH_SHORT).show();
                 }
                 // 모두 입력했을 때 (정상)
@@ -117,6 +119,7 @@ public class WriteActivity extends AppCompatActivity {
                                                                 @Override
                                                                 public void onSuccess(Void aVoid) {
                                                                     Toast.makeText(WriteActivity.this, "작성된 글이 업로드되었습니다.", Toast.LENGTH_SHORT).show();
+                                                                    finish();
                                                                 }
                                                             });
                                                 } else {

@@ -68,7 +68,7 @@ public class CommuListActivity extends AppCompatActivity {
             }
         });
 
-        //---------------------------- 클릭한 license의 게시글 가져오기 (미완성)-------------------------
+        //---------------------------- 클릭한 license의 게시글 가져오기 -------------------------
         commuview=(ListView)findViewById(R.id.commulistview);
         commuListArrayList = new ArrayList<CommuList>();
 
@@ -215,24 +215,22 @@ public class CommuListActivity extends AppCompatActivity {
         });
     }
     // 액티비티를 다시 시작할 때 ( 뒤로가기를 통해 다시 실행될 때 - 실시간 업데이트를 위해 )
-
     @Override
     protected void onRestart() {
         super.onRestart();
         TextView noWritingComment = (TextView)findViewById(R.id.noWritingComment);
         commuview=(ListView)findViewById(R.id.commulistview);
-        commuListArrayList.clear();
-
 
         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
         CollectionReference collectionReference = firestore.collection("Commu");
         // data 가져오기
-        collectionReference.orderBy("writingID").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        collectionReference.whereGreaterThan("writingID", listCommu.size()).orderBy("writingID").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if(task.isSuccessful()) {
                     int i = 0;
-                    int preListCount = listCommu.size();
+                    listCommu.clear();
+
                     // 현재 Commu에 들어있는 게시글 중에 선택한 자격증에 해당하는 글들만 list에 저장하기
                     for(QueryDocumentSnapshot documentSnapshot : task.getResult()){
                         listCommu.add(documentSnapshot.toObject(communication.class));
@@ -246,14 +244,16 @@ public class CommuListActivity extends AppCompatActivity {
                     }
 
                     // 최신 글이 상단에 보이도록 하기위해 reverse
-                    Collections.reverse(listCommu);
+                    Collections.reverse(commuListArrayList);
 
                     // Adapter로 보내기 위한 작업
-                    for(int j = preListCount + 1; j < listCommu.size(); j++){
+                    for(int j = 0; j < i; j++){
                         commuListArrayList.add(
                                 new CommuList(listCommu.get(j).getTitle(),listCommu.get(j).getNickName(),"|",listCommu.get(j).getWriteDate(),R.drawable.ic_view, listCommu.get(j).getViewCount(),R.drawable.ic_comment,listCommu.get(j).getCommentCount())
                         );
                     }
+                    Collections.reverse(commuListArrayList);
+
                     // ListView에 보여지기 위한 작업
                     commuAdapter=new CommuAdapter(CommuListActivity.this,commuListArrayList);
                     commuview.setAdapter(commuAdapter);
