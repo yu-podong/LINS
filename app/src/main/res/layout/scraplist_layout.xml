@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dp"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/layout1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/s_day"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="날짜"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/s_applyDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="접수일정"
+                android:textSize="13dp" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/s_scrap"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@android:color/transparent"
+            android:clickable="false"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/ic_star"
+            app:tint="@color/brightModeTopBar"
+            tools:ignore="VectorDrawableCompat" />
+
+    </RelativeLayout>
+</LinearLayout>

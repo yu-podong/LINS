@@ -23,6 +23,9 @@
         <activity android:name=".License.LicenseActivity" />
         <activity android:name=".Login.LoginActivity" />
         <activity android:name=".Qna.QnaActivity"/>
+        <activity android:name=".Mypage.ScrapActivity"/>
+        <activity android:name=".Mypage.ChangeActivity"/>
+        <activity android:name=".Mypage.SecessionActivity"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
