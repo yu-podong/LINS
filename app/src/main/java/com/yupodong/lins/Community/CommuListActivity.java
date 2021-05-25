@@ -15,7 +15,9 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.yupodong.lins.Crawler.EIP;
@@ -30,6 +32,7 @@ import com.yupodong.lins.Scheduler.SchedulerActivity;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class CommuListActivity extends AppCompatActivity {
@@ -45,6 +48,7 @@ public class CommuListActivity extends AppCompatActivity {
 
         //------------------------------- 클릭한 license로 Activity title 바꾸기 -----------------------
         TextView commuTitle = (TextView)findViewById(R.id.commu_title);
+        TextView noWritingComment = (TextView)findViewById(R.id.noWritingComment);
 
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
@@ -69,9 +73,9 @@ public class CommuListActivity extends AppCompatActivity {
         commuListArrayList = new ArrayList<CommuList>();
 
         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
-
+        CollectionReference collectionReference = firestore.collection("Commu");
         // data 가져오기
-        firestore.collection("Commu").whereEqualTo("category",clickLicenseName).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        collectionReference.orderBy("writingID").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if(task.isSuccessful()) {
@@ -81,6 +85,13 @@ public class CommuListActivity extends AppCompatActivity {
                         listCommu.add(documentSnapshot.toObject(communication.class));
                         i++;
                     }
+                    if(i == 0) {
+                        noWritingComment.setVisibility(View.VISIBLE);
+                    }
+
+                    // 최신 글이 상단에 보이도록 하기위해 reverse
+                    Collections.reverse(listCommu);
+
                     // Adapter로 보내기 위한 작업
                     for(int j = 0; j < listCommu.size(); j++){
                         commuListArrayList.add(
@@ -93,7 +104,7 @@ public class CommuListActivity extends AppCompatActivity {
 
                 }
                 else {
-                    Toast.makeText(CommuListActivity.this, "해당 게시판의 게시글을 가져오는데 실패했습니다.", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(CommuListActivity.this, "해당 게시판의 게시글을 가져오는데 실패했습니다.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -200,6 +211,57 @@ public class CommuListActivity extends AppCompatActivity {
                 // 현재 Activity 종료 후
                 finish();
                  */
+            }
+        });
+    }
+    // 액티비티를 다시 시작할 때 ( 뒤로가기를 통해 다시 실행될 때 - 실시간 업데이트를 위해 )
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        TextView noWritingComment = (TextView)findViewById(R.id.noWritingComment);
+        commuview=(ListView)findViewById(R.id.commulistview);
+        commuListArrayList.clear();
+
+
+        FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+        CollectionReference collectionReference = firestore.collection("Commu");
+        // data 가져오기
+        collectionReference.orderBy("writingID").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if(task.isSuccessful()) {
+                    int i = 0;
+                    int preListCount = listCommu.size();
+                    // 현재 Commu에 들어있는 게시글 중에 선택한 자격증에 해당하는 글들만 list에 저장하기
+                    for(QueryDocumentSnapshot documentSnapshot : task.getResult()){
+                        listCommu.add(documentSnapshot.toObject(communication.class));
+                        i++;
+                    }
+                    if(i == 0) {
+                        noWritingComment.setVisibility(View.VISIBLE);
+                    }
+                    else {
+                        noWritingComment.setVisibility(View.GONE);
+                    }
+
+                    // 최신 글이 상단에 보이도록 하기위해 reverse
+                    Collections.reverse(listCommu);
+
+                    // Adapter로 보내기 위한 작업
+                    for(int j = preListCount + 1; j < listCommu.size(); j++){
+                        commuListArrayList.add(
+                                new CommuList(listCommu.get(j).getTitle(),listCommu.get(j).getNickName(),"|",listCommu.get(j).getWriteDate(),R.drawable.ic_view, listCommu.get(j).getViewCount(),R.drawable.ic_comment,listCommu.get(j).getCommentCount())
+                        );
+                    }
+                    // ListView에 보여지기 위한 작업
+                    commuAdapter=new CommuAdapter(CommuListActivity.this,commuListArrayList);
+                    commuview.setAdapter(commuAdapter);
+
+                }
+                else {
+                    //Toast.makeText(CommuListActivity.this, "해당 게시판의 게시글을 가져오는데 실패했습니다.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

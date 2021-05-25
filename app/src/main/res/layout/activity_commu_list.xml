@@ -77,11 +77,20 @@
     android:layout_width="match_parent"
     android:layout_height="0dp"
     android:layout_weight="1"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/noWritingComment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="아직 등록된 게시글이 없습니다! \n `글쓰기` 버튼을 눌러서 첫 게시글을 작성해주세요😊"
+            android:gravity="center"
+            android:visibility="gone"/>
 
         <!--여기에 컨텐트 넣기-->
         <ListView
