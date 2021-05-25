@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     android:padding="30dp"
     android:orientation="vertical"
+    android:weightSum="11"
     android:background="@color/brightModeBack"
     tools:context=".MainActivity">
 
@@ -14,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_margin="7dp">
+        android:layout_marginBottom="5dp">
 
         <ImageButton
             android:id="@+id/backBtn"
@@ -38,47 +39,270 @@
             app:srcCompat="@drawable/ic_mybtn_img"
             tools:ignore="VectorDrawableCompat"/>
     </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="11"
+        >
+        <!-- 게시글 헤더 -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <!-- 게시글 작성자 정보 -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/nickName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="사용자 닉네임"
+                        android:textColor="@color/brightModeFont"/>
+
+                    <TextView
+                        android:id="@+id/writingDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:text="작성날짜"
+                        android:textColor="@color/brightModeFont"/>
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="게시글 제목"
+                    android:textSize="30dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/brightModeFont"
+                    />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginTop="10dp">
+                    <!-- view -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:layout_marginRight="20dp">
+                        <ImageView
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            app:srcCompat="@drawable/ic_view"
+                            android:layout_marginRight="5dp"
+                            app:tint="@color/brightModeFont" />
+                        <TextView
+                            android:id="@+id/viewCount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1,203"
+                            android:textSize="13dp"
+                            android:textColor="@color/brightModeFont"/>
+
+                    </LinearLayout>
+                    <!-- comment -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:layout_marginRight="20dp">
+                        <ImageView
+                            android:layout_width="13dp"
+                            android:layout_height="13dp"
+                            app:srcCompat="@drawable/ic_comment"
+                            android:layout_marginRight="5dp"
+                            app:tint="@color/brightModeFont"/>
+                        <TextView
+                            android:id="@+id/commentCount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1,203"
+                            android:textSize="13dp"
+                            android:textColor="@color/brightModeFont"/>
+
+                    </LinearLayout>
+                    <!-- scrap -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:layout_marginRight="20dp">
+                        <ImageView
+                            android:layout_width="13dp"
+                            android:layout_height="13dp"
+                            app:srcCompat="@drawable/ic_star"
+                            android:layout_marginRight="5dp"
+                            app:tint="@color/brightModeTopBar"
+                            />
+                        <TextView
+                            android:id="@+id/scrapCount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1,203"
+                            android:textSize="13dp"
+                            android:textColor="@color/brightModeFont"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/brightModeTopBar"
+                android:layout_marginTop="10dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="350dp">
+                <!--여기에 컨텐트 넣기-->
+                <TextView
+                    android:id="@+id/content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="게시글 내용\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/brightModeTopBar"
+                android:layout_marginBottom="10dp"/>
+
+            <!-- comment 부분 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:layout_marginBottom="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="사용자 닉네임"
+                            android:textStyle="bold"
+                            android:textSize="15dp"
+                            android:layout_marginRight="10dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="12dp"
+                            android:text="2021.03.12"/>
+                    </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:paddingLeft="10dp"
+                        android:text="완전 좋은 정보네요 :) 감사합니다😊"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="사용자 닉네임"
+                            android:textStyle="bold"
+                            android:textSize="15dp"
+                            android:layout_marginRight="10dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="12dp"
+                            android:text="2021.03.12"/>
+                    </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:paddingLeft="10dp"
+                        android:text="완전 좋은 정보네요 :) 감사합니다😊"/>
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center">
-        <TextView
-            android:id="@+id/logo_back_text"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="커뮤니티 제목"
-            android:textColor="@color/brightModeFont"
-            android:textSize="40dp"
-            android:textStyle="bold"
-            android:paddingTop="20dp"
-            android:paddingBottom="20dp"
-            android:typeface="sans" />
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/editConmment"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="댓글을 입력하세요"
+            android:textSize="15dp"
+            android:padding="15dp"/>
 
+        <TextView
+            android:id="@+id/sendBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="2dp"
+            android:text="전송"
+            android:gravity="center"
+            android:background="@color/pastelYellow"
+            android:layout_marginRight="10dp"/>
     </RelativeLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="250dp">
-        <!--여기에 컨텐트 넣기-->
-
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_gravity="end"
         android:orientation="horizontal">
 
         <ImageButton
@@ -134,3 +358,4 @@
     </LinearLayout>
 
 </LinearLayout>
+
