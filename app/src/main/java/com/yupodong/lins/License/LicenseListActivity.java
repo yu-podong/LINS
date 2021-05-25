@@ -68,8 +68,8 @@ public class LicenseListActivity extends AppCompatActivity {
         licenseName.setText(clickLicenseName);
         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
 
-        // data 가져오기
-        firestore.collection(clickLicenseName.toString()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        // data 가져오기 (내림차순으로 - orderBy)
+        firestore.collection(clickLicenseName).orderBy("licenseID").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if(task.isSuccessful()) {
@@ -93,15 +93,6 @@ public class LicenseListActivity extends AppCompatActivity {
                 }
             }
         });
-
-        licenseview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
-
-            }
-        });
-        
 
         //----------------------------- 상단 및 하단 버튼들 clickListener 등록--------------------------------
         // 상단 버튼
