@@ -69,7 +69,6 @@ public class WriteActivity extends AppCompatActivity {
                     FirebaseFirestore firestore = FirebaseFirestore.getInstance();
                     FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
                     communication commuWrite = new communication();
-                    
 
                     // 현재 로그인되어있는 사용자의 nickName 구하기
                     firestore.collection("User").whereEqualTo("id", currentUser.getEmail()).get()
@@ -96,37 +95,35 @@ public class WriteActivity extends AppCompatActivity {
                                                     // 각각의 field를 가져오면서 count 증가
                                                     for (QueryDocumentSnapshot document : task.getResult()) {
                                                         test++;
-
                                                     }
-                                                    listCount = test;
+                                                    // 현재 시간 구하기 (writeDate)
+                                                    SimpleDateFormat format1 = new SimpleDateFormat ( "yyyy-MM-dd HH:mm:ss");
+                                                    Date time = new Date();
+                                                    String time1 = format1.format(time);
+
+                                                    // 필요한 내용을 DTO class에 삽입
+                                                    commuWrite.setWritingID(test+1);
+                                                    commuWrite.setCategory(clickLicenseName);
+                                                    commuWrite.setTitle(inputTitle);
+                                                    commuWrite.setNickName(current.getNickName());
+                                                    commuWrite.setWriteDate(time1);
+                                                    commuWrite.setContent(inputContent);
+                                                    commuWrite.setScrapCount(0);
+                                                    commuWrite.setViewCount(0);
+                                                    commuWrite.setCommentCount(0);
+                                                    // firebase에 저장하기
+                                                    firestore.collection("Commu").document().set(commuWrite)
+                                                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                                @Override
+                                                                public void onSuccess(Void aVoid) {
+                                                                    Toast.makeText(WriteActivity.this, "작성된 글이 업로드되었습니다.", Toast.LENGTH_SHORT).show();
+                                                                }
+                                                            });
                                                 } else {
                                                     // do something..
                                                 }
                                             }
                                         });
-                                        // 현재 시간 구하기 (writeDate)
-                                        SimpleDateFormat format1 = new SimpleDateFormat ( "yyyy-MM-dd HH:mm:ss");
-                                        Date time = new Date();
-                                        String time1 = format1.format(time);
-
-                                        // 필요한 내용을 DTO class에 삽입
-                                        commuWrite.setWritingID(listCount+1);     // 여기가 안먹음
-                                        commuWrite.setCategory(clickLicenseName);
-                                        commuWrite.setTitle(inputTitle);
-                                        commuWrite.setNickName(current.getNickName());
-                                        commuWrite.setWriteDate(time1);
-                                        commuWrite.setContent(inputContent);
-                                        commuWrite.setScrapCount(0);
-                                        commuWrite.setViewCount(0);
-                                        commuWrite.setCommentCount(0);
-
-                                        firestore.collection("Commu").document().set(commuWrite)
-                                                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                                    @Override
-                                                    public void onSuccess(Void aVoid) {
-                                                        Toast.makeText(WriteActivity.this, "작성된 글이 업로드되었습니다.", Toast.LENGTH_SHORT).show();
-                                                    }
-                                                });
                                     }
                                     else {
                                         // do something...
