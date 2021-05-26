@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="30dp"
-    android:weightSum="2"
+    android:weightSum="3"
     android:orientation="vertical"
     android:background="@color/brightModeBack"
     tools:context=".MyPage">
@@ -30,35 +30,21 @@
 
     </RelativeLayout>
 
-    <RelativeLayout
-        android:layout_width="250dp"
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <TextView
+        android:id="@+id/logo_back_text"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center">
-
-        <ImageView
-            android:id="@+id/logo_back"
-            android:layout_width="250dp"
-            android:layout_height="100dp"
-            android:gravity="center"
-            android:src="@drawable/logo_back" />
-
-        <TextView
-            android:id="@+id/logo_back_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:layout_alignLeft="@id/logo_back"
-            android:layout_alignTop="@id/logo_back"
-            android:layout_alignRight="@id/logo_back"
-            android:layout_alignBottom="@id/logo_back"
-
-            android:gravity="center"
-            android:text="My Page"
-            android:textColor="@color/white"
-            android:textSize="40dp"
-            android:textStyle="bold"
-            android:typeface="sans" />
-    </RelativeLayout>
+        android:gravity="center"
+        android:text="My Page"
+        android:textColor="@color/brightModeFont"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:typeface="sans" />
 
     <View
         android:layout_width="match_parent"
@@ -68,210 +54,216 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="10dp">
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            app:srcCompat="@drawable/ic_launcher_background"
-            android:scaleType="fitXY"
-            android:layout_gravity="center"/>
-
+        android:orientation="vertical">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:orientation="vertical"
-            android:layout_marginLeft="30dp"
-            android:scaleType="fitXY"
-            >
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_margin="10dp">
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:srcCompat="@drawable/ic_launcher_background"
+                android:scaleType="fitXY"
+                android:layout_gravity="center"/>
 
-            <TextView
-                android:id="@+id/nicknametxt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:text="nickname"
-                android:textSize="25dp" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:layout_marginLeft="30dp"
+                android:scaleType="fitXY"
                 >
 
                 <TextView
-                    android:id="@+id/nametxt"
+                    android:id="@+id/nicknametxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="name"
+                    android:textStyle="bold"
+                    android:text="nickname"
                     android:textSize="20dp" />
 
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="25dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginBottom="0dp"
-                    android:background="@color/brightModeFont"
-                    android:paddingBottom="0dp" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+
+                    <TextView
+                        android:id="@+id/nametxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="name | userID"
+                        android:textSize="20dp" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/brightModeFont"
+            android:layout_margin="3dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_margin="10dp"
+            android:id="@+id/changeInfotxt">
+
+            <TextView
+                android:id="@+id/infotxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="개인정보"
+                android:textSize="20dp"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="50dp">
 
                 <TextView
-                    android:id="@+id/userIDtxt"
+                    android:id="@+id/pwFindtxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="userID"
-                    android:textSize="20dp" />
+                    android:text="비밀번호 변경"
+                    android:textSize="17dp"
+                    android:layout_marginBottom="5dp"/>
+                <TextView
+                    android:id="@+id/emailFindtxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="이메일 변경"
+                    android:textSize="17dp" />
             </LinearLayout>
 
 
         </LinearLayout>
-    </LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/brightModeFont"
-        android:layout_margin="3dp"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_margin="10dp"
-        android:id="@+id/changeInfotxt">
 
-        <TextView
-            android:id="@+id/infotxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:text="개인정보"
-            android:textSize="25dp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/brightModeFont"
+            android:layout_margin="3dp"/>
+
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginLeft="50dp">
+            android:layout_margin="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:id="@+id/scrapchecktxt">
 
             <TextView
-                android:id="@+id/pwFindtxt"
+                android:id="@+id/checktxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="비밀번호 변경"
-                android:textSize="20dp" />
-            <TextView
-                android:id="@+id/emailFindtxt"
+                android:textStyle="bold"
+                android:text="스크랩 확인"
+                android:textSize="20dp"/>
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="이메일 변경"
-                android:textSize="20dp" />
-        </LinearLayout>
+                android:orientation="vertical"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="50dp">
 
+                <TextView
+                    android:id="@+id/examtxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="시험일정"
+                    android:layout_marginBottom="5dp"
+                    android:textSize="17dp" />
+                <TextView
+                    android:id="@+id/commutxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="커뮤니티"
+                    android:textSize="17dp" />
+            </LinearLayout>
 
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/brightModeFont"
-        android:layout_margin="3dp"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_margin="10dp"
-        android:id="@+id/scrapchecktxt">
-
-        <TextView
-            android:id="@+id/checktxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:text="스크랩 확인"
-            android:textSize="25dp"/>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginLeft="50dp">
-
-            <TextView
-                android:id="@+id/examtxt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="시험일정"
-                android:textSize="20dp" />
-            <TextView
-                android:id="@+id/commutxt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="커뮤니티"
-                android:textSize="20dp" />
-        </LinearLayout>
-
-
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/brightModeFont"
-        android:layout_margin="3dp"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_margin="10dp"
-        android:id="@+id/write">
-
-        <TextView
-            android:id="@+id/writetxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:text="작성한 게시글"
-            android:textSize="25dp"/>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginLeft="50dp">
-
-            <TextView
-                android:id="@+id/writecommtxt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="커뮤니티"
-                android:textSize="20dp" />
 
         </LinearLayout>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/brightModeFont"
+            android:layout_margin="3dp"/>
 
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/brightModeFont"
-        android:layout_margin="3dp"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_margin="10dp"
-        android:id="@+id/secessionktxt">
-
-        <TextView
-            android:id="@+id/secessiontxt"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:text="회원 탈퇴"
-            android:textSize="25dp"/>
+            android:orientation="vertical"
+            android:layout_margin="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:id="@+id/write">
+
+            <TextView
+                android:id="@+id/writetxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="작성한 게시글"
+                android:textSize="20dp"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="50dp">
+
+                <TextView
+                    android:id="@+id/writecommtxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="커뮤니티"
+                    android:textSize="17dp" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/brightModeFont"
+            android:layout_margin="3dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:id="@+id/secessionktxt">
+
+            <TextView
+                android:id="@+id/secessiontxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="회원 탈퇴"
+                android:textSize="20dp"/>
+        </LinearLayout>
     </LinearLayout>
 
 
