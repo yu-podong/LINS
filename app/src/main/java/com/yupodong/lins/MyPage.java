@@ -1,4 +1,4 @@
-package com.yupodong.lins.Community;
+package com.yupodong.lins;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,72 +6,21 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ListView;
+import android.widget.LinearLayout;
 
-import com.prolificinteractive.materialcalendarview.CalendarDay;
+import com.yupodong.lins.Community.CommuActivity;
 import com.yupodong.lins.License.LicenseActivity;
-import com.yupodong.lins.MainActivity;
-import com.yupodong.lins.R;
 import com.yupodong.lins.Scheduler.SchedulerActivity;
-import com.yupodong.lins.Scheduler.list_item;
 
 import java.util.ArrayList;
 
-public class CommuActivity extends AppCompatActivity {
+public class MyPage extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_commu);
-
-        Button commu1 = (Button)findViewById(R.id.commu1);
-        Button commu2 = (Button)findViewById(R.id.commu2);
-        Button commu3 = (Button)findViewById(R.id.commu3);
-        Button commu4= (Button)findViewById(R.id.commu4);
-
-        Intent intent = new Intent(CommuActivity.this, CommuListActivity.class);
-        // 모든 commu button은 CommuListActivity로 Activity 전환으로 이동
-        // 왜냐하면 뒤로가기 버튼으로 메인에 돌아올 수 있도록 하기 위해
-        // CommuListActivity만 있는 이유 : 해당 skin만 만들어서 firebase에서 data를 가져와서 skin에 보여줄 것임
-        // (skin에다가 data를 보여주는 방법은 DB 담당 팀원이 할 것)
-        // CommuListActivity에는 figma에 있는 예시 화면을 구현해줄 것 (모르겠으면 질문)
-        
-        commu1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                intent.putExtra("licenseName", "TOEIC");
-                startActivity(intent);
-            }
-        });
-
-        commu2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                intent.putExtra("licenseName", "EIP");
-                startActivity(intent);
-            }
-        });
-
-
-        commu3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                intent.putExtra("licenseName", "TOPCIT");
-                startActivity(intent);
-            }
-        });
-
-        commu4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                intent.putExtra("licenseName", "historyExam");
-                startActivity(intent);
-            }
-        });
-
-
+        setContentView(R.layout.activity_my_page);
 
         ImageButton backBtn = (ImageButton)findViewById(R.id.backBtn);
         ImageButton myBtn = (ImageButton)findViewById(R.id.myBtn);
@@ -81,7 +30,6 @@ public class CommuActivity extends AppCompatActivity {
         ImageButton commBtn = (ImageButton)findViewById(R.id.commBtn);
         ImageButton chalBtn = (ImageButton)findViewById(R.id.chalBtn);
 
-        // 지금까지 열러있는 Activities들을 List로 가져옴
         ArrayList<Activity> actList = new ArrayList<Activity>();
 
         backBtn.setOnClickListener(new View.OnClickListener() {  //커뮤니티 페이지 이동
@@ -98,14 +46,14 @@ public class CommuActivity extends AppCompatActivity {
                 // 지금까지 열려있는 Activity들을 모두 종료
                 for(int i = 0; i < actList.size(); i++)
                     actList.get(i).finish();
-                setContentView(R.layout.activity_my_page);  //수정페이지 없어서 일단 메인으로 이동
+                setContentView(R.layout.activity_main);  //수정페이지 없어서 일단 메인으로 이동
             }
         });
 
         licenBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(CommuActivity.this, LicenseActivity.class);
+                Intent intent = new Intent(MyPage.this, LicenseActivity.class);
 
                 // 지금까지 열려있는 Activity들을 모두 종료
                 for(int i = 0; i < actList.size(); i++)
@@ -121,7 +69,7 @@ public class CommuActivity extends AppCompatActivity {
         calenBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(CommuActivity.this, SchedulerActivity.class);
+                Intent intent = new Intent(MyPage.this, SchedulerActivity.class);
                 // 지금까지 열려있는 Activity들을 모두 종료
                 for(int i = 0; i < actList.size(); i++)
                     actList.get(i).finish();
@@ -135,7 +83,7 @@ public class CommuActivity extends AppCompatActivity {
         homeBtn.setOnClickListener(new View.OnClickListener() {  //메인페이지 버튼
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(CommuActivity.this, MainActivity.class);
+                Intent intent = new Intent(MyPage.this, MainActivity.class);
                 // 지금까지 열려있는 Activity들을 모두 종료
                 for(int i = 0; i < actList.size(); i++)
                     actList.get(i).finish();
@@ -149,7 +97,7 @@ public class CommuActivity extends AppCompatActivity {
         commBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(CommuActivity.this, CommuActivity.class);
+                Intent intent = new Intent(MyPage.this, CommuActivity.class);
                 // 지금까지 열려있는 Activity들을 모두 종료
                 for(int i = 0; i < actList.size(); i++)
                     actList.get(i).finish();
@@ -177,5 +125,9 @@ public class CommuActivity extends AppCompatActivity {
                  */
             }
         });
+
+
     }
+
+
 }
