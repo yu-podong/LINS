@@ -9,7 +9,7 @@
     android:weightSum="3"
     android:orientation="vertical"
     android:background="@color/brightModeBack"
-    tools:context=".MyPage">
+    tools:context=".Mypage.MyPage">
 
     <RelativeLayout
         android:layout_width="match_parent"
