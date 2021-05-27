@@ -26,6 +26,8 @@ import com.yupodong.lins.DTO.crawling;
 import com.yupodong.lins.License.LicenseActivity;
 import com.yupodong.lins.License.LicenseListActivity;
 import com.yupodong.lins.MainActivity;
+import com.yupodong.lins.Mypage.MyPage;
+import com.yupodong.lins.Qna.QnaActivity;
 import com.yupodong.lins.R;
 import com.yupodong.lins.Scheduler.SchedulerActivity;
 
@@ -95,7 +97,9 @@ public class CommuListActivity extends AppCompatActivity {
                     // Adapter로 보내기 위한 작업
                     for(int j = 0; j < listCommu.size(); j++){
                         commuListArrayList.add(
-                                new CommuList(listCommu.get(j).getTitle(),listCommu.get(j).getNickName(),"|",listCommu.get(j).getWriteDate(),R.drawable.ic_view, listCommu.get(j).getViewCount(),R.drawable.ic_comment,listCommu.get(j).getCommentCount())
+                                new CommuList(listCommu.get(j).getTitle(),listCommu.get(j).getNickName(),"|",listCommu.get(j).getWriteDate(),
+                                        R.drawable.ic_view, listCommu.get(j).getViewCount(),R.drawable.ic_comment,listCommu.get(j).getCommentCount(),
+                                        listCommu.get(j).getCategory(), listCommu.get(j).getWritingID())
                         );
                     }
                     // ListView에 보여지기 위한 작업
@@ -109,6 +113,7 @@ public class CommuListActivity extends AppCompatActivity {
             }
         });
 
+        //--------------------------------------- 하단 및 상단 버튼 listener----------------------------------
         ImageButton backBtn = (ImageButton)findViewById(R.id.backBtn);
         ImageButton myBtn = (ImageButton)findViewById(R.id.myBtn);
         ImageButton licenBtn = (ImageButton)findViewById(R.id.licenBtn);
@@ -131,10 +136,16 @@ public class CommuListActivity extends AppCompatActivity {
         myBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(CommuListActivity.this, MyPage.class);
+
                 // 지금까지 열려있는 Activity들을 모두 종료
                 for(int i = 0; i < actList.size(); i++)
                     actList.get(i).finish();
-                setContentView(R.layout.activity_main);  //수정페이지 없어서 일단 메인으로 이동
+
+                // 현재 Activity 종료 후
+                finish();
+                // LicenseActivity로 이동
+                startActivity(intent);
             }
         });
 
@@ -200,8 +211,7 @@ public class CommuListActivity extends AppCompatActivity {
         chalBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*
-                Intent intent = new Intent(CommuListActivity.this, LicenseActivity.class);
+                Intent intent = new Intent(CommuListActivity.this, QnaActivity.class);
                  // 지금까지 열려있는 Activity들을 모두 종료
                 for(int i = 0; i < actList.size(); i++)
                     actList.get(i).finish();
@@ -210,7 +220,6 @@ public class CommuListActivity extends AppCompatActivity {
                 startActivity(intent);
                 // 현재 Activity 종료 후
                 finish();
-                 */
             }
         });
     }
@@ -249,7 +258,9 @@ public class CommuListActivity extends AppCompatActivity {
                     // Adapter로 보내기 위한 작업
                     for(int j = 0; j < i; j++){
                         commuListArrayList.add(
-                                new CommuList(listCommu.get(j).getTitle(),listCommu.get(j).getNickName(),"|",listCommu.get(j).getWriteDate(),R.drawable.ic_view, listCommu.get(j).getViewCount(),R.drawable.ic_comment,listCommu.get(j).getCommentCount())
+                                new CommuList(listCommu.get(j).getTitle(),listCommu.get(j).getNickName(),"|",listCommu.get(j).getWriteDate(),
+                                        R.drawable.ic_view, listCommu.get(j).getViewCount(),R.drawable.ic_comment,listCommu.get(j).getCommentCount(),
+                                        listCommu.get(j).getCategory(), listCommu.get(j).getWritingID())
                         );
                     }
                     Collections.reverse(commuListArrayList);

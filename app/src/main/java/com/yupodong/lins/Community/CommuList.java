@@ -10,9 +10,11 @@ public class CommuList {
     private Integer viewnum; // 조회수
     private int comment_icon; // 댓글 아이콘
     private Integer commenttnum; // 댓글수
+    String commuName;
+    Integer writingID;
 
 
-    public CommuList(String commu_title, String commu_nickname, String line, String commu_date, int view_icon, Integer viewnum, int comment_icon,Integer commenttnum) {
+    public CommuList(String commu_title, String commu_nickname, String line, String commu_date, int view_icon, Integer viewnum, int comment_icon,Integer commenttnum, String commuName, Integer writingID) {
         this.commu_title = commu_title;
         this.commu_nickname = commu_nickname;
         this.line = line;
@@ -21,7 +23,8 @@ public class CommuList {
         this.viewnum = viewnum;
         this.comment_icon = comment_icon;
         this.commenttnum = commenttnum;
-
+        this.commuName = commuName;
+        this.writingID = writingID;
     }
 
 
@@ -88,5 +91,20 @@ public class CommuList {
     public void setLine(String line) {
         this.line = line;
     }
+
+    public void setCommuName(String commuName) {
+        this.commuName = commuName;
+    }
+    public String getCommuName() {
+        return this.commuName;
+    }
+
+    public void setWritingID(Integer writingID) {
+        this.writingID = writingID;
+    }
+    public Integer getWritingID() {
+        return this.writingID;
+    }
+
 }
 

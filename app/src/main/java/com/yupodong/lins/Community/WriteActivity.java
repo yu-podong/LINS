@@ -114,7 +114,7 @@ public class WriteActivity extends AppCompatActivity {
                                                     commuWrite.setViewCount(0);
                                                     commuWrite.setCommentCount(0);
                                                     // firebase에 저장하기
-                                                    firestore.collection("Commu").document().set(commuWrite)
+                                                    firestore.collection("Commu").document(Integer.toString(test+1)).set(commuWrite)
                                                             .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                                 @Override
                                                                 public void onSuccess(Void aVoid) {
