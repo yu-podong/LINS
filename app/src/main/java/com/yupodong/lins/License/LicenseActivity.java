@@ -13,6 +13,8 @@ import com.yupodong.lins.Community.CommuActivity;
 import com.yupodong.lins.Community.WriteActivity;
 import com.yupodong.lins.Login.LoginActivity;
 import com.yupodong.lins.MainActivity;
+import com.yupodong.lins.Mypage.MyPage;
+import com.yupodong.lins.Qna.QnaActivity;
 import com.yupodong.lins.R;
 import com.yupodong.lins.Scheduler.SchedulerActivity;
 
@@ -48,10 +50,16 @@ public class LicenseActivity extends AppCompatActivity {
         myBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(LicenseActivity.this, MyPage.class);
+
                 // 지금까지 열려있는 Activity들을 모두 종료
                 for(int i = 0; i < actList.size(); i++)
                     actList.get(i).finish();
-                setContentView(R.layout.activity_main);  //수정페이지 없어서 일단 메인으로 이동
+
+                // LicenseActivity로 이동
+                startActivity(intent);
+                // 현재 Activity 종료 후
+                finish();
             }
         });
 
@@ -117,8 +125,8 @@ public class LicenseActivity extends AppCompatActivity {
         chalBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*
-                Intent intent = new Intent(CommuListActivity.this, LicenseActivity.class);
+
+                Intent intent = new Intent(LicenseActivity.this, QnaActivity.class);
                  // 지금까지 열려있는 Activity들을 모두 종료
                 for(int i = 0; i < actList.size(); i++)
                     actList.get(i).finish();
@@ -127,7 +135,7 @@ public class LicenseActivity extends AppCompatActivity {
                 startActivity(intent);
                 // 현재 Activity 종료 후
                 finish();
-                 */
+
             }
         });
 
