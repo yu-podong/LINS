@@ -1,13 +1,16 @@
 package com.yupodong.lins.Qna;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.yupodong.lins.R;
 
 import java.util.ArrayList;
@@ -56,7 +59,21 @@ public class QnaAdapter extends BaseAdapter {
         Qna_title.setText(qnaListArrayList.get(position).getQ_title());
         Qna_day.setText(qnaListArrayList.get(position).getQ_day());
         Qna_icon.setImageResource(qnaListArrayList.get(position).getQ_comment_icon());
-        Qna_comment.setText(qnaListArrayList.get(position).getQ_comment_num());
+        Qna_comment.setText(Integer.toString(qnaListArrayList.get(position).getQ_comment_num()));
+
+        // 문의사항 중 하나를 클릭하면 ReadActivity로 넘어감
+        LinearLayout oneList = (LinearLayout) convertView.findViewById(R.id.oneList);
+        
+        oneList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, QnaReadActivity.class);
+                intent.putExtra("QID", qnaListArrayList.get(position).getQID());
+
+                context.startActivity(intent);
+            }
+        });
+
         return convertView;
     }
 }
