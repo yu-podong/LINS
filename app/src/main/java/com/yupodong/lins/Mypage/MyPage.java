@@ -26,7 +26,6 @@ public class MyPage extends AppCompatActivity {
         setContentView(R.layout.activity_my_page);
 
         ImageButton backBtn = (ImageButton)findViewById(R.id.backBtn);
-        ImageButton myBtn = (ImageButton)findViewById(R.id.myBtn);
         ImageButton licenBtn = (ImageButton)findViewById(R.id.licenBtn);
         ImageButton calenBtn = (ImageButton)findViewById(R.id.calenBtn);
         ImageButton homeBtn = (ImageButton)findViewById(R.id.homeBtn);
@@ -44,21 +43,6 @@ public class MyPage extends AppCompatActivity {
             }
         });
 
-        myBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MyPage.this, MyPage.class);
-
-                // 지금까지 열려있는 Activity들을 모두 종료
-                for(int i = 0; i < actList.size(); i++)
-                    actList.get(i).finish();
-
-                // 현재 Activity 종료 후
-                finish();
-                // LicenseActivity로 이동
-                startActivity(intent);
-            }
-        });
 
         licenBtn.setOnClickListener(new View.OnClickListener() {
             @Override
