@@ -60,14 +60,16 @@ public class FindPwActivity extends AppCompatActivity {
 
         EditText id = (EditText)findViewById(R.id.id);
         EditText phone = (EditText)findViewById(R.id.phone);
-        Button find_pw= (Button)findViewById(R.id.findpwBtn);
+        Button findpw= (Button)findViewById(R.id.findpwBtn);
 
 
-        find_pw.setOnClickListener(new View.OnClickListener() {
-            String input_id = id.getText().toString();
-            String input_phone = phone.getText().toString();
+        findpw.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                String input_id = id.getText().toString();
+                String input_phone = phone.getText().toString();
+
                 firestore.collection("User").whereEqualTo("id",input_id).get()
                         .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                             @Override
