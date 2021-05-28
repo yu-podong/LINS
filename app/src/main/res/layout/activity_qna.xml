@@ -80,6 +80,15 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical">
+
+        <Button
+            android:id="@+id/writeBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="문의 작성하기"
+            android:backgroundTint="@color/pastelYellow"
+            android:textColor="@color/brightModeFont"
+            android:layout_gravity="right"/>
         <!--여기에 컨텐트 넣기-->
         <ListView
             android:id="@+id/qnalistview"
