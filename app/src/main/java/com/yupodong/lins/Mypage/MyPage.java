@@ -1,4 +1,4 @@
-package com.yupodong.lins;
+package com.yupodong.lins.Mypage;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,10 +7,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
 
 import com.yupodong.lins.Community.CommuActivity;
+import com.yupodong.lins.Community.CommuListActivity;
 import com.yupodong.lins.License.LicenseActivity;
+import com.yupodong.lins.MainActivity;
+import com.yupodong.lins.Qna.QnaActivity;
+import com.yupodong.lins.R;
 import com.yupodong.lins.Scheduler.SchedulerActivity;
 
 import java.util.ArrayList;
@@ -30,6 +33,7 @@ public class MyPage extends AppCompatActivity {
         ImageButton commBtn = (ImageButton)findViewById(R.id.commBtn);
         ImageButton chalBtn = (ImageButton)findViewById(R.id.chalBtn);
 
+        // 지금까지 열러있는 Activities들을 List로 가져옴
         ArrayList<Activity> actList = new ArrayList<Activity>();
 
         backBtn.setOnClickListener(new View.OnClickListener() {  //커뮤니티 페이지 이동
@@ -43,10 +47,16 @@ public class MyPage extends AppCompatActivity {
         myBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(MyPage.this, MyPage.class);
+
                 // 지금까지 열려있는 Activity들을 모두 종료
                 for(int i = 0; i < actList.size(); i++)
                     actList.get(i).finish();
-                setContentView(R.layout.activity_main);  //수정페이지 없어서 일단 메인으로 이동
+
+                // 현재 Activity 종료 후
+                finish();
+                // LicenseActivity로 이동
+                startActivity(intent);
             }
         });
 
@@ -59,10 +69,10 @@ public class MyPage extends AppCompatActivity {
                 for(int i = 0; i < actList.size(); i++)
                     actList.get(i).finish();
 
-                // LicenseActivity로 이동
-                startActivity(intent);
                 // 현재 Activity 종료 후
                 finish();
+                // LicenseActivity로 이동
+                startActivity(intent);
             }
         });
 
@@ -112,9 +122,8 @@ public class MyPage extends AppCompatActivity {
         chalBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*
-                Intent intent = new Intent(CommuListActivity.this, LicenseActivity.class);
-                 // 지금까지 열려있는 Activity들을 모두 종료
+                Intent intent = new Intent(MyPage.this, QnaActivity.class);
+                // 지금까지 열려있는 Activity들을 모두 종료
                 for(int i = 0; i < actList.size(); i++)
                     actList.get(i).finish();
 
@@ -122,7 +131,6 @@ public class MyPage extends AppCompatActivity {
                 startActivity(intent);
                 // 현재 Activity 종료 후
                 finish();
-                 */
             }
         });
 
