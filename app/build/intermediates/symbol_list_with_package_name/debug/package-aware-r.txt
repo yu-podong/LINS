@@ -1906,12 +1906,17 @@ id clip_horizontal
 id clip_vertical
 id clockwise
 id collapseActionView
+id colorImage
 id commBtn
+id comment_icon
+id comment_num
 id commu1
 id commu2
 id commu3
 id commu4
+id commu_title
 id commubtn
+id commulistview
 id confirm_button
 id container
 id content
@@ -1925,6 +1930,7 @@ id customPanel
 id cut
 id dark
 id date_picker_actions
+id day
 id decelerate
 id decelerateAndComplete
 id decor_content_parent
@@ -1971,6 +1977,8 @@ id fill_horizontal
 id fill_vertical
 id filled
 id find
+id findidBtn
+id findpwBtn
 id firstBtnWrap
 id fitToContents
 id fixed
@@ -1980,6 +1988,8 @@ id forever
 id friday
 id ghost_view
 id ghost_view_holder
+id gofindidBtn
+id gofindpwBtn
 id gone
 id graph
 id graph_wrap
@@ -2014,6 +2024,7 @@ id labelGroup
 id labeled
 id largeLabel
 id layout
+id layout1
 id left
 id leftToRight
 id licenBtn
@@ -2022,7 +2033,9 @@ id license2
 id license3
 id license4
 id licensebtn
+id licenselistview
 id light
+id line
 id line1
 id line3
 id linear
@@ -2032,7 +2045,6 @@ id log
 id loginBtn
 id logo_back
 id logo_back_text
-id mail
 id masked
 id match_parent
 id material_clock_display
@@ -2097,12 +2109,14 @@ id name
 id navigation_header_container
 id never
 id nick
+id nickname
 id noScroll
 id none
 id normal
 id notification_background
 id notification_main_column
 id notification_main_column_container
+id number
 id off
 id on
 id other_months
@@ -2123,6 +2137,7 @@ id peekHeight
 id percent
 id phone
 id pin
+id place
 id position
 id postLayout
 id progress_circular
@@ -2143,7 +2158,14 @@ id save_non_transition_alpha
 id save_overlay_view
 id sawtooth
 id scale
+id sche_listview
 id schebtn
+id schelist
+id schelist_date
+id schepop
+id schepop_back
+id schepop_date
+id scrap
 id screen
 id scroll
 id scrollIndicatorDown
@@ -2164,6 +2186,7 @@ id secondBtnWrap
 id select_dialog_listview
 id selected
 id selection_type
+id shcedule
 id shortcut
 id showCustom
 id showHome
@@ -2214,6 +2237,7 @@ id test_checkbox_android_button_tint
 id test_checkbox_app_button_tint
 id test_radiobutton_android_button_tint
 id test_radiobutton_app_button_tint
+id test_title
 id text
 id text2
 id textEnd
@@ -2256,7 +2280,9 @@ id unlabeled
 id up
 id useLogo
 id vertical
+id view_num
 id view_offset_helper
+id views
 id visible
 id wednesday
 id week
@@ -2265,6 +2291,8 @@ id withText
 id withinBounds
 id wrap
 id wrap_content
+id write_day
+id write_title
 id zero_corner_chip
 integer abc_config_activityDefaultDur
 integer abc_config_activityShortDur
@@ -2332,6 +2360,8 @@ layout activity_commu_list
 layout activity_commu_read
 layout activity_commu_write
 layout activity_find
+layout activity_find_id
+layout activity_find_pw
 layout activity_license_list
 layout activity_license_select
 layout activity_login
@@ -2342,6 +2372,7 @@ layout activity_sche_pop
 layout activity_signup
 layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
+layout commulist_layout
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -2358,6 +2389,8 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout item
+layout licenselist_layout
 layout material_chip_input_combo
 layout material_clock_display
 layout material_clock_display_divider

@@ -8,10 +8,11 @@
         android:minSdkVersion="16"
         android:targetSdkVersion="30" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <!-- Although the *SdkVersion is captured in gradle build files, this is required for non gradle builds -->
     <!-- <uses-sdk android:minSdkVersion="14"/> -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
 
@@ -25,7 +26,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:testOnly="true"
-        android:theme="@style/Theme.LINS" >
+        android:theme="@style/Theme.LINS"
+        android:usesCleartextTraffic="true" >
+        <activity android:name="com.yupodong.lins.Login.FindPwActivity" />
+        <activity android:name="com.yupodong.lins.Login.FindIdActivity" />
         <activity android:name="com.yupodong.lins.Login.SignupActivity" />
         <activity android:name="com.yupodong.lins.Scheduler.SchedulerActivity" />
         <activity android:name="com.yupodong.lins.License.LicenseListActivity" />
@@ -42,6 +46,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.yupodong.lins.Scheduler.SchepopActivity" />
 
         <service
             android:name="com.google.firebase.components.ComponentDiscoveryService"
