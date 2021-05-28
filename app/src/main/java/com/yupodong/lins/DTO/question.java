@@ -7,6 +7,7 @@ public class question {
     private String content;     // 문의 내용
     private String image;       // 문의사항에 업로드한 image
     private String quesDate;    // 문의사항 작성 날짜
+    private Integer commentCount;
     private Boolean answer;     // 문의사항 답변 여부
 
     // 생성자
@@ -19,13 +20,14 @@ public class question {
         this.quesDate = "";
         this.answer = false;
     }
-    public question(Integer QID, String nickName, String title, String content, String image, String quesDate, Boolean answer) {
+    public question(Integer QID, String nickName, String title, String content, String image, String quesDate, Integer commentCount, Boolean answer) {
         this.QID = QID;
         this.nickName = nickName;
         this.title = title;
         this.content = content;
         this.image = image;
         this.quesDate = quesDate;
+        this.commentCount = commentCount;
         this.answer = answer;
     }
 
@@ -49,6 +51,7 @@ public class question {
     public void setQuesDate(String quesDate) {
         this.quesDate = quesDate;
     }
+    public void setCommentCount(Integer commentCount) { this.commentCount = commentCount; }
     public void setAnswer(Boolean answer) {
         this.answer = answer;
     }
@@ -72,6 +75,7 @@ public class question {
     public String getQuesDate() {
         return this.quesDate;
     }
+    public Integer getCommentCount() { return this.commentCount; }
     public Boolean getAnswer() {
         return this.answer;
     }
