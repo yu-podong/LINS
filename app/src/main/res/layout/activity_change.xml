@@ -8,7 +8,7 @@
     android:padding="30dp"
     android:orientation="vertical"
     android:background="@color/brightModeBack"
-    tools:context=".Community.CommuActivity">
+    tools:context=".MainActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -26,125 +26,133 @@
             android:scaleType="fitXY"
             app:srcCompat="@drawable/ic_left_arrow"
             tools:ignore="VectorDrawableCompat" />
-
-        <ImageButton
-            android:id="@+id/myBtn"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
-            android:background="@android:color/transparent"
-            android:scaleType="fitXY"
-            app:srcCompat="@drawable/ic_mybtn_img"
-            tools:ignore="VectorDrawableCompat"/>
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center">
-
-        <ImageView
-            android:id="@+id/logo_back"
-            android:layout_width="250dp"
-            android:layout_height="100dp"
-            android:gravity="center"
-            android:src="@drawable/logo_back" />
-
-        <TextView
-            android:id="@+id/logo_back_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:layout_alignLeft="@id/logo_back"
-            android:layout_alignTop="@id/logo_back"
-            android:layout_alignRight="@id/logo_back"
-            android:layout_alignBottom="@id/logo_back"
-
-            android:gravity="center"
-            android:text="커뮤니티"
-            android:textColor="@color/white"
-            android:textSize="40dp"
-            android:textStyle="bold"
-            android:typeface="sans" />
     </RelativeLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:layout_marginTop="30dp">
-        <!--여기에 컨텐트 넣기-->
-        <Button
-            android:id="@+id/commu1"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+        <TextView
+            android:id="@+id/changepw"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:background="@drawable/radius"
-            app:backgroundTint="#E2B49A"
-            android:drawableRight="@drawable/ic_right_arrow"
-            android:gravity="left|center"
-            android:paddingLeft="50px"
-            android:text="TOEIC"
+            android:gravity="center"
+            android:text="비밀번호 변경"
             android:textColor="@color/brightModeFont"
-            android:textSize="20dp" />
+            android:textSize="35dp"
+            android:textStyle="bold"
+            android:paddingTop="20dp"
+            android:paddingBottom="10dp"
+            android:typeface="sans" />
+        </RelativeLayout>
+
+
+        <EditText
+            android:id="@+id/c_pw"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/brightModeFont"
+            android:textColor="@color/brightModeFont"
+            android:layout_marginBottom="10dp"
+            android:padding="20dp"
+            android:textSize="18dp"
+            android:hint="새로운 비밀번호"
+            android:textColorHint="@color/brightModeFont"/>
+
+        <EditText
+            android:id="@+id/c_check_pw"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/brightModeFont"
+            android:textColor="@color/brightModeFont"
+            android:layout_marginBottom="10dp"
+            android:padding="20dp"
+            android:textSize="18dp"
+            android:hint="새로운 비밀번호 확인"
+            android:textColorHint="@color/brightModeFont"/>
 
         <Button
-            android:id="@+id/commu2"
+            android:id="@+id/changeBtn"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/radius"
-            android:drawableRight="@drawable/ic_right_arrow"
-            android:gravity="left|center"
-            android:paddingLeft="50px"
-            android:text="정보처리기사"
-
+            android:layout_height="wrap_content"
+            android:text="변경"
+            android:textSize="18dp"
+            android:padding="10dp"
             android:textColor="@color/brightModeFont"
-            android:textSize="20dp"
-            app:backgroundTint="#E9C87B" />
-
-        <Button
-            android:id="@+id/commu3"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/radius"
-            android:drawableRight="@drawable/ic_right_arrow"
-            android:gravity="left|center"
-            android:paddingLeft="50px"
-            android:text="TOPCIT"
-
-            android:textColor="@color/brightModeFont"
-            android:textSize="20dp"
-            app:backgroundTint="#C3D3E0" />
-
-        <Button
-            android:id="@+id/commu4"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_marginBottom="80dp"
-            android:background="@drawable/radius"
-            android:drawableRight="@drawable/ic_right_arrow"
-            android:gravity="left|center"
-            android:paddingLeft="50px"
-            android:text="한국사 검정능력시험"
-            android:textColor="@color/brightModeFont"
-            android:textSize="20dp"
-            app:backgroundTint="#9BABB8" />
-
+            android:backgroundTint="@color/pastelYellow"/>
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <TextView
+                android:id="@+id/changeemail"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:gravity="center"
+                android:text="이메일 변경"
+                android:textColor="@color/brightModeFont"
+                android:textSize="35dp"
+                android:textStyle="bold"
+                android:paddingTop="30dp"
+                android:typeface="sans" />
+        </RelativeLayout>
+
+
+        <EditText
+            android:id="@+id/c_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/brightModeFont"
+            android:textColor="@color/brightModeFont"
+            android:layout_marginBottom="10dp"
+            android:padding="20dp"
+            android:textSize="18dp"
+            android:hint="이메일"
+            android:textColorHint="@color/brightModeFont"/>
+
+        <Button
+            android:id="@+id/change_emailBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="변경"
+            android:textSize="18dp"
+            android:padding="10dp"
+            android:textColor="@color/brightModeFont"
+            android:backgroundTint="@color/pastelYellow"/>
+    </LinearLayout>
+
+
+
+
 
     <View
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
-    </View>
+        android:layout_weight="1"
+        />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="bottom"
+        android:layout_gravity="center"
         android:orientation="horizontal">
 
         <ImageButton

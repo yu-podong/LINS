@@ -6,43 +6,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         tools:layout_editor_absoluteX="89dp"
         tools:layout_editor_absoluteY="59dp"
-        android:layout_gravity = "center"
-        android:background="@color/brightModeTopBar">
+        android:layout_gravity="center">
 
         <ImageView
             android:id="@+id/colorImage"
             android:layout_width="27dp"
             android:layout_height="23dp"
-            app:srcCompat="@drawable/ic_launcher_background"
+            android:background="@drawable/circle"
             android:scaleType="fitXY"
             android:layout_gravity ="center"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/licensNameSche"
+            android:layout_gravity="center"
+            android:layout_marginLeft="15dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:textSize="20dp"
+            android:text="license Name"/>
 
-            <TextView
-                android:id="@+id/schelist"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView"
-                android:textSize="15dp"
-                android:gravity ="center"/>
-
-            <TextView
-                android:id="@+id/schelist_date"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView"
-                android:textSize="10dp"
-                android:gravity ="right"/>
-        </LinearLayout>
-
-    </RelativeLayout>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

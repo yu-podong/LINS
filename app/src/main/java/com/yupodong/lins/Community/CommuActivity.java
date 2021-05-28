@@ -19,9 +19,7 @@ import com.yupodong.lins.Scheduler.list_item;
 
 import java.util.ArrayList;
 
-public class CommuActivity extends Activity {
-
-
+public class CommuActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +41,7 @@ public class CommuActivity extends Activity {
         commu1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                intent.putExtra("licenseName", "TOEIC");
                 startActivity(intent);
             }
         });
@@ -50,6 +49,7 @@ public class CommuActivity extends Activity {
         commu2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                intent.putExtra("licenseName", "EIP");
                 startActivity(intent);
             }
         });
@@ -58,6 +58,7 @@ public class CommuActivity extends Activity {
         commu3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                intent.putExtra("licenseName", "TOPCIT");
                 startActivity(intent);
             }
         });
@@ -65,6 +66,7 @@ public class CommuActivity extends Activity {
         commu4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                intent.putExtra("licenseName", "historyExam");
                 startActivity(intent);
             }
         });
@@ -96,7 +98,7 @@ public class CommuActivity extends Activity {
                 // 지금까지 열려있는 Activity들을 모두 종료
                 for(int i = 0; i < actList.size(); i++)
                     actList.get(i).finish();
-                setContentView(R.layout.activity_main);  //수정페이지 없어서 일단 메인으로 이동
+                setContentView(R.layout.activity_my_page);  //수정페이지 없어서 일단 메인으로 이동
             }
         });
 

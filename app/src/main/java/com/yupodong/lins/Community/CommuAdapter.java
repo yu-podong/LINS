@@ -66,9 +66,9 @@ public class CommuAdapter extends BaseAdapter{
             Line.setText(commuListArrayList.get(position).getLine());
             Commu_date.setText(commuListArrayList.get(position).getCommu_date());
             View_icon.setImageResource(commuListArrayList.get(position).getView_icon());
-            Viewnum.setText(commuListArrayList.get(position).getViewnum());
+            Viewnum.setText(Integer.toString(commuListArrayList.get(position).getViewnum()));
             Comment_icon.setImageResource(commuListArrayList.get(position).getComment_icon());
-            Commenttnum.setText(commuListArrayList.get(position).getCommenttnum());
+            Commenttnum.setText(Integer.toString(commuListArrayList.get(position).getCommenttnum()));
             return convertView;
     }
 }

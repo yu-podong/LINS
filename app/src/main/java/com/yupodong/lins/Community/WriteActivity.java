@@ -1,28 +1,144 @@
 package com.yupodong.lins.Community;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.firestore.auth.User;
+import com.yupodong.lins.DTO.communication;
+import com.yupodong.lins.DTO.user;
 import com.yupodong.lins.License.LicenseActivity;
 import com.yupodong.lins.MainActivity;
 import com.yupodong.lins.R;
 import com.yupodong.lins.Scheduler.SchedulerActivity;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class WriteActivity extends AppCompatActivity {
-
+    Integer listCount = 0;
+    user current = new user();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_commu);
+        setContentView(R.layout.activity_commu_write);
 
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        // 이전 액티비티에서 전달한 값을 저장
+        String clickLicenseName = bundle.getString("licenseName");
 
+        EditText title = (EditText)findViewById(R.id.title);
+        EditText content = (EditText)findViewById(R.id.content);
+
+        //----------------------------- 작성한 글을 firebase에 저장하는 부분 -----------------------------
+        // 글쓰기 버튼
+        Button sendBtn = (Button)findViewById(R.id.sendBtn);
+
+        // 글쓰기 버튼 clickListener 등록
+        sendBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // 제목, 내용을 입력한 component
+
+                // 입력한 제목과 내용을 가져옴
+                String inputTitle = title.getText().toString();
+                String inputContent = content.getText().toString();
+                System.out.println(inputContent);
+                // 입력하지 않은 내용이 있을 때
+                if (inputContent == "글 내용을 입력하세요" || inputTitle == "제목") {
+                    Toast.makeText(WriteActivity.this, "제목 또는 내용이 작성되지 않았습니다.", Toast.LENGTH_SHORT).show();
+                }
+                // 모두 입력했을 때 (정상)
+                else {
+                    FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+                    FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+                    communication commuWrite = new communication();
+
+                    // 현재 로그인되어있는 사용자의 nickName 구하기
+                    firestore.collection("User").whereEqualTo("id", currentUser.getEmail()).get()
+                            .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                @Override
+                                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                    // 해당 id를 사용하는 사용자의 닉네임을 찾았다면
+                                    if(task.isSuccessful()) {
+                                        Integer commuLength;
+                                        // 닉네임을 저장
+                                        for(QueryDocumentSnapshot queryDocumentSnapshot:task.getResult()){
+                                            current = queryDocumentSnapshot.toObject(user.class);
+                                            break;
+                                        }
+
+                                        // 현재 들어있는 커뮤니티 개수 구하기 (writing ID를 부여하기 위해 만들었는데 error 발생 - 수정중!)
+                                        firestore.collection("Commu").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+
+                                                // Commu에 있는 field들을 가져왔다면
+                                                if (task.isSuccessful()) {
+                                                    Integer test = 0;
+                                                    // 각각의 field를 가져오면서 count 증가
+                                                    for (QueryDocumentSnapshot document : task.getResult()) {
+                                                        test++;
+                                                    }
+                                                    // 현재 시간 구하기 (writeDate)
+                                                    SimpleDateFormat format1 = new SimpleDateFormat ( "yyyy-MM-dd HH:mm:ss");
+                                                    Date time = new Date();
+                                                    String time1 = format1.format(time);
+
+                                                    // 필요한 내용을 DTO class에 삽입
+                                                    commuWrite.setWritingID(test+1);
+                                                    commuWrite.setCategory(clickLicenseName);
+                                                    commuWrite.setTitle(inputTitle);
+                                                    commuWrite.setNickName(current.getNickName());
+                                                    commuWrite.setWriteDate(time1);
+                                                    commuWrite.setContent(inputContent);
+                                                    commuWrite.setScrapCount(0);
+                                                    commuWrite.setViewCount(0);
+                                                    commuWrite.setCommentCount(0);
+                                                    // firebase에 저장하기
+                                                    firestore.collection("Commu").document().set(commuWrite)
+                                                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                                @Override
+                                                                public void onSuccess(Void aVoid) {
+                                                                    Toast.makeText(WriteActivity.this, "작성된 글이 업로드되었습니다.", Toast.LENGTH_SHORT).show();
+                                                                    finish();
+                                                                }
+                                                            });
+                                                } else {
+                                                    // do something..
+                                                }
+                                            }
+                                        });
+                                    }
+                                    else {
+                                        // do something...
+                                    }
+                                }
+                    });
+
+                }
+            }
+        });
+
+        //--------------------------- 바로가기 버튼 및 상단 버튼 clickListener 등록--------------------------------------
         ImageButton backBtn = (ImageButton)findViewById(R.id.backBtn);
         ImageButton myBtn = (ImageButton)findViewById(R.id.myBtn);
         ImageButton licenBtn = (ImageButton)findViewById(R.id.licenBtn);

@@ -1,29 +1,40 @@
-package com.yupodong.lins.License;
+package com.yupodong.lins.Qna;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
-
+import android.widget.ListView;
 import com.yupodong.lins.Community.CommuActivity;
-import com.yupodong.lins.Community.WriteActivity;
-import com.yupodong.lins.Login.LoginActivity;
+import com.yupodong.lins.License.LicenseActivity;
 import com.yupodong.lins.MainActivity;
 import com.yupodong.lins.R;
 import com.yupodong.lins.Scheduler.SchedulerActivity;
 
 import java.util.ArrayList;
 
-public class LicenseActivity extends AppCompatActivity {
+public class QnaActivity extends AppCompatActivity {
+    ListView qnaview;
+    QnaAdapter qnaAdapter;
+    ArrayList<QnaList> qnaListArrayList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_license_select);
+        setContentView(R.layout.activity_qna);
+        qnaview=(ListView)findViewById(R.id.qnalistview);
+        qnaListArrayList = new ArrayList<QnaList>();
+
+        for(int i=0;i<6;i++){
+            qnaListArrayList.add(
+                    new QnaList("컴활도 메뉴에 추가해주세요","2021년 5월 24일",R.drawable.ic_comment,"7")
+            );
+        }
+
+        qnaAdapter=new QnaAdapter(QnaActivity.this,qnaListArrayList);
+        qnaview.setAdapter(qnaAdapter);
 
 
         ImageButton backBtn = (ImageButton)findViewById(R.id.backBtn);
@@ -58,7 +69,7 @@ public class LicenseActivity extends AppCompatActivity {
         licenBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LicenseActivity.this, LicenseActivity.class);
+                Intent intent = new Intent(QnaActivity.this, LicenseActivity.class);
 
                 // 지금까지 열려있는 Activity들을 모두 종료
                 for(int i = 0; i < actList.size(); i++)
@@ -74,7 +85,7 @@ public class LicenseActivity extends AppCompatActivity {
         calenBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LicenseActivity.this, SchedulerActivity.class);
+                Intent intent = new Intent(QnaActivity.this, SchedulerActivity.class);
                 // 지금까지 열려있는 Activity들을 모두 종료
                 for(int i = 0; i < actList.size(); i++)
                     actList.get(i).finish();
@@ -88,7 +99,7 @@ public class LicenseActivity extends AppCompatActivity {
         homeBtn.setOnClickListener(new View.OnClickListener() {  //메인페이지 버튼
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LicenseActivity.this, MainActivity.class);
+                Intent intent = new Intent(QnaActivity.this, MainActivity.class);
                 // 지금까지 열려있는 Activity들을 모두 종료
                 for(int i = 0; i < actList.size(); i++)
                     actList.get(i).finish();
@@ -102,7 +113,7 @@ public class LicenseActivity extends AppCompatActivity {
         commBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LicenseActivity.this, CommuActivity.class);
+                Intent intent = new Intent(QnaActivity.this, CommuActivity.class);
                 // 지금까지 열려있는 Activity들을 모두 종료
                 for(int i = 0; i < actList.size(); i++)
                     actList.get(i).finish();
@@ -130,53 +141,6 @@ public class LicenseActivity extends AppCompatActivity {
                  */
             }
         });
-
-        Button license1 = (Button)findViewById(R.id.license1);
-        Button license2 = (Button)findViewById(R.id.license2);
-        Button license3 = (Button)findViewById(R.id.license3);
-        Button license4= (Button)findViewById(R.id.license4);
-
-
-        license1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(LicenseActivity.this, LicenseListActivity.class);
-                // LicenseListActivity로 자격증 이름 전달하기
-                intent.putExtra("licenseName", "TOEIC");
-                startActivity(intent);
-            }
-        });
-
-        license2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(LicenseActivity.this, LicenseListActivity.class);
-                // LicenseListActivity로 자격증 이름 전달하기
-                intent.putExtra("licenseName", "EIP");
-                startActivity(intent);
-            }
-        });
-
-
-        license3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(LicenseActivity.this, LicenseListActivity.class);
-                // LicenseListActivity로 자격증 이름 전달하기
-                intent.putExtra("licenseName", "TOPCIT");
-                startActivity(intent);
-            }
-        });
-
-        license4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(LicenseActivity.this, LicenseListActivity.class);
-                // LicenseListActivity로 자격증 이름 전달하기
-                intent.putExtra("licenseName", "historyExam");
-                startActivity(intent);
-            }
-        });
-
     }
 }
+

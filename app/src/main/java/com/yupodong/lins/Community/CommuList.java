@@ -7,12 +7,12 @@ public class CommuList {
     private String line; // 구분선
     private String commu_date; // 작성날짜
     private int view_icon; // 조회수 아이콘
-    private String viewnum; // 조회수
+    private Integer viewnum; // 조회수
     private int comment_icon; // 댓글 아이콘
-    private String commenttnum; // 댓글수
+    private Integer commenttnum; // 댓글수
 
 
-    public CommuList(String commu_title, String commu_nickname, String line, String commu_date, int view_icon, String viewnum, int comment_icon,String commenttnum) {
+    public CommuList(String commu_title, String commu_nickname, String line, String commu_date, int view_icon, Integer viewnum, int comment_icon,Integer commenttnum) {
         this.commu_title = commu_title;
         this.commu_nickname = commu_nickname;
         this.line = line;
@@ -49,19 +49,19 @@ public class CommuList {
         this.commu_date = commu_date;
     }
 
-    public String getViewnum() {
+    public Integer getViewnum() {
         return viewnum;
     }
 
-    public void setViewnum(String viewnum) {
+    public void setViewnum(Integer viewnum) {
         this.viewnum = viewnum;
     }
 
-    public String getCommenttnum() {
+    public Integer getCommenttnum() {
         return commenttnum;
     }
 
-    public void setCommenttnum(String commenttnum) {
+    public void setCommenttnum(Integer commenttnum) {
         this.commenttnum = commenttnum;
     }
 

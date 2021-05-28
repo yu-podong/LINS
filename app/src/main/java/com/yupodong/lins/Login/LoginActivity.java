@@ -19,6 +19,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.yupodong.lins.MainActivity;
 import com.yupodong.lins.R;
 
+import org.w3c.dom.Text;
+
 public class LoginActivity<auth> extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +33,7 @@ public class LoginActivity<auth> extends AppCompatActivity {
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
 
         //회원가입페이지로 넘어가는 부분
-        Button signup= (Button)findViewById(R.id.singnup);
+        TextView signup= (TextView)findViewById(R.id.singnup);
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -61,20 +63,23 @@ public class LoginActivity<auth> extends AppCompatActivity {
 
                 String input_id = id.getText().toString();
                 String input_pw = password.getText().toString();
-
+                
+                // 입력하지 않은 EditText가 있으면
+                if (input_id == "" || input_pw == "") {
+                    Toast.makeText(LoginActivity.this, "아이디 또는 비밀번호를 입력하지 않았습니다.", Toast.LENGTH_SHORT).show();
+                }
+                // 실제 firebase에 관할하는 code
                 firebaseAuth.signInWithEmailAndPassword(input_id,input_pw)
                         .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {  //로그인 성공시
-                                    Toast.makeText(LoginActivity.this, "Login Success", Toast.LENGTH_SHORT).show();
-
-                                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                                    startActivity(intent);
+                                    Toast.makeText(LoginActivity.this, "로그인 완료", Toast.LENGTH_SHORT).show();
+                                    // 메인화면으로 넘어감
+                                    finish();
                                 }
-
                                 else { //로그인 실패시
-                                    Toast.makeText(LoginActivity.this, "Login Fail", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(LoginActivity.this, "아이디 또는 비밀번호가 틀렸습니다.", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });

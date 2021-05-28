@@ -19,7 +19,6 @@ public class MyListAdapter extends BaseAdapter {
     ArrayList<list_item> list_itemArrayList;
 
     TextView schelist;
-    TextView scheDate;
     ImageView color_image;
 
 
@@ -48,13 +47,11 @@ public class MyListAdapter extends BaseAdapter {
         if(view == null){
             view = LayoutInflater.from(context).inflate(R.layout.item,null);  //item.xml 불러오기
 
-            schelist = (TextView)view.findViewById(R.id.schelist);
-            scheDate = (TextView)view.findViewById(R.id.schelist_date);
+            schelist = (TextView)view.findViewById(R.id.licensNameSche);
             color_image = (ImageView)view.findViewById(R.id.colorImage);
         }
 
         schelist.setText(list_itemArrayList.get(positon).getSchelist());
-        scheDate.setText(list_itemArrayList.get(positon).getScheDate());
         color_image.setImageResource(list_itemArrayList.get(positon).getColor_image());
         return view;
     }

@@ -41,9 +41,9 @@ public class SchepopActivity extends Activity {
         listView = (ListView)findViewById(R.id.sche_listview);  //리스트 구현 연결 및 객체생성
         list_itemArrayList = new ArrayList<list_item>();
 
-        for(int i=0;i<5;i++){
+        for(int i=0;i<5;i++){  //해당 날짜의 일정 수 만큼 반복
             list_itemArrayList.add(
-                    new list_item("1",String.valueOf(CalendarDay.today()),R.mipmap.ic_launcher)  //임의로 내용 지정
+                    new list_item("1"/*시험 이름 저장*/,String.valueOf(CalendarDay.today()),R.mipmap.ic_launcher_round)  //임의로 내용 지정
             );
         }
 //        list_itemArrayList.add(
@@ -77,11 +77,11 @@ public class SchepopActivity extends Activity {
         return true;
     }
 
-    @Override
+ /*   @Override
     public void onBackPressed() {
         //안드로이드 백버튼 막기
         return;
-    }
+    }*/
 
 
 }

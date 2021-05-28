@@ -6,9 +6,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="30dp"
+    android:weightSum="2"
     android:orientation="vertical"
     android:background="@color/brightModeBack"
-    tools:context=".Community.CommuActivity">
+    tools:context=".MainActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -62,89 +63,40 @@
             android:layout_alignBottom="@id/logo_back"
 
             android:gravity="center"
-            android:text="커뮤니티"
+            android:text="문의사항"
             android:textColor="@color/white"
             android:textSize="40dp"
             android:textStyle="bold"
             android:typeface="sans" />
     </RelativeLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="vertical"
-        android:layout_marginTop="30dp">
+        android:orientation="vertical">
         <!--여기에 컨텐트 넣기-->
-        <Button
-            android:id="@+id/commu1"
+        <ListView
+            android:id="@+id/qnalistview"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/radius"
-            app:backgroundTint="#E2B49A"
-            android:drawableRight="@drawable/ic_right_arrow"
-            android:gravity="left|center"
-            android:paddingLeft="50px"
-            android:text="TOEIC"
-            android:textColor="@color/brightModeFont"
-            android:textSize="20dp" />
-
-        <Button
-            android:id="@+id/commu2"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/radius"
-            android:drawableRight="@drawable/ic_right_arrow"
-            android:gravity="left|center"
-            android:paddingLeft="50px"
-            android:text="정보처리기사"
-
-            android:textColor="@color/brightModeFont"
-            android:textSize="20dp"
-            app:backgroundTint="#E9C87B" />
-
-        <Button
-            android:id="@+id/commu3"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/radius"
-            android:drawableRight="@drawable/ic_right_arrow"
-            android:gravity="left|center"
-            android:paddingLeft="50px"
-            android:text="TOPCIT"
-
-            android:textColor="@color/brightModeFont"
-            android:textSize="20dp"
-            app:backgroundTint="#C3D3E0" />
-
-        <Button
-            android:id="@+id/commu4"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_marginBottom="80dp"
-            android:background="@drawable/radius"
-            android:drawableRight="@drawable/ic_right_arrow"
-            android:gravity="left|center"
-            android:paddingLeft="50px"
-            android:text="한국사 검정능력시험"
-            android:textColor="@color/brightModeFont"
-            android:textSize="20dp"
-            app:backgroundTint="#9BABB8" />
-
+            android:layout_height="500dp">
+        </ListView>
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
-    </View>
+        android:layout_weight="1"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="bottom"
+        android:layout_gravity="center"
         android:orientation="horizontal">
 
         <ImageButton
