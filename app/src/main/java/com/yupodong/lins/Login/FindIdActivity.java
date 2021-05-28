@@ -73,7 +73,6 @@ public class FindIdActivity extends AppCompatActivity {
                                                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                                                         if(task.isSuccessful()){
                                                             for (QueryDocumentSnapshot document : task.getResult()) {
-                                                                check.set_check();
                                                                 Toast.makeText(FindIdActivity.this, document.getId(), Toast.LENGTH_SHORT).show();
                                                             }
                                                         } else {
