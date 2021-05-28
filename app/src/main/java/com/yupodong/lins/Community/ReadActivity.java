@@ -5,18 +5,23 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.yupodong.lins.DTO.commuScrap;
 import com.yupodong.lins.DTO.communication;
 import com.yupodong.lins.License.LicenseActivity;
 import com.yupodong.lins.MainActivity;
@@ -25,6 +30,9 @@ import com.yupodong.lins.Qna.QnaActivity;
 import com.yupodong.lins.R;
 import com.yupodong.lins.Scheduler.SchedulerActivity;
 
+import org.w3c.dom.Text;
+
+import java.time.temporal.TemporalAmount;
 import java.util.ArrayList;
 
 public class ReadActivity extends AppCompatActivity {
@@ -34,10 +42,10 @@ public class ReadActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_commu_read);
-        //------------------------------------ CommuList의 Adapter에서 전달한 값을 넘겨받음-------------------
+        //------------------------------------ CommuList의 Adapter에서 전달한 값을 넘겨받음 -------------------
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
-        String category = bundle.getString("category");
+        String writingCate = bundle.getString("category");
         Integer writingID = bundle.getInt("writingID");
 
         //------------------------------------- 클릭한 commulist의 내용을 가져와서 보여줌----------------------
@@ -47,6 +55,7 @@ public class ReadActivity extends AppCompatActivity {
         TextView title = (TextView)findViewById(R.id.title);
         TextView viewCount = (TextView)findViewById(R.id.viewCount);
         TextView commentCount= (TextView)findViewById(R.id.commentCount);
+        ImageView scrapBtn = (ImageView) findViewById(R.id.scrapBtn);
         TextView scrapCount = (TextView)findViewById(R.id.scrapCount);
         TextView content = (TextView)findViewById(R.id.content);
 
@@ -74,6 +83,76 @@ public class ReadActivity extends AppCompatActivity {
                         }
                     }
                 });
+        
+        //------------------------ scrap 버튼을 눌렀을 때, scrap에 추가 및 count 증가 -------------------------
+        scrapBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+                Integer scrapNum = Integer.parseInt((String) scrapCount.getText());
+                // 로그인된 사용자일 때
+                if(currentUser != null) {
+                    // Firebase로 넘길 data 생성
+                    commuScrap scrap = new commuScrap();
+                    scrap.setWritingCate(writingCate);
+                    scrap.setWritingID(writingID);
+                    scrap.setUserID(currentUser.getEmail());
+
+                    // scrap에 추가한 거라면
+                    if (scrapBtn.isClickable() == true ) {
+                        // 사용자에게 보여지는 scrapCount 수정
+                        scrapCount.setText(Integer.toString(scrapNum + 1));
+                        scrapBtn.setColorFilter(Color.parseColor("#E9C87B"));
+
+                        // 클릭한 commuWriting의 ID와 현재 로그인중인 사용자의 id를 commuScrap에 저장
+                        firestore.collection("CommuScrap").document(Integer.toString(scrap.getWritingID())).set(scrap)
+                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void aVoid) {
+                                        // 해당 writingID의 scrapCount를 update
+                                        firestore.collection("Commu").document(Integer.toString(scrap.getWritingID()))
+                                                .update("scrapCount", scrapNum+1)
+                                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                    @Override
+                                                    public void onComplete(@NonNull Task<Void> task) {
+                                                        Toast.makeText(ReadActivity.this, "해당 게시글이 스크랩에 저장되었습니다.", Toast.LENGTH_SHORT).show();
+                                                    }
+                                                });
+                                    }
+                        });
+                    }
+                    // scrap을 취소한 거라면
+                    else {
+                        // 사용자에게 보여지는 scrapCount 수정
+                        scrapCount.setText(Integer.toString(scrapNum - 1));
+                        scrapBtn.setColorFilter(Color.parseColor("#9D9D9D"));
+                        // commuScrap에서 해당 writingID를 찾아서 삭제
+                        firestore.collection("CommuScrap").document(Integer.toString(scrap.getWritingID()))
+                                .delete()
+                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void aVoid) {
+                                        // Commu에서 해당 writingID의 scrapCount--
+                                        firestore.collection("Commu").document(Integer.toString(scrap.getWritingID()))
+                                                .update("scrapCount", scrapNum-1)
+                                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                    @Override
+                                                    public void onSuccess(Void aVoid) {
+                                                        Toast.makeText(ReadActivity.this, "해당 게시글을 스크랩에서 삭제했습니다.", Toast.LENGTH_SHORT).show();
+                                                    }
+                                                });
+                                    }
+                                });
+                    }
+                }
+                // 로그인이 안된 사용자라면,
+                else {
+                    // Toast message로 로그인 후 이용해달라는 메세지 출력
+                    Toast.makeText(ReadActivity.this, "로그인을 하셔야 스크랩이 가능합니다.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
         //--------------------------------------- 하단 및 상단 버튼 listener----------------------------------
         ImageButton backBtn = (ImageButton)findViewById(R.id.backBtn);
         ImageButton myBtn = (ImageButton)findViewById(R.id.myBtn);
