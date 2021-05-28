@@ -1,0 +1,4 @@
+com/yupodong/lins/ExampleInstrumentedTest.java
+ com.yupodong.lins.ExampleInstrumentedTest
+com/yupodong/lins/test/BuildConfig.java
+ com.yupodong.lins.test.BuildConfig

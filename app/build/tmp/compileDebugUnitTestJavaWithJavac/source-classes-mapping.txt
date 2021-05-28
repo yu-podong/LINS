@@ -1,0 +1,2 @@
+com/yupodong/lins/ExampleUnitTest.java
+ com.yupodong.lins.ExampleUnitTest
