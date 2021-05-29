@@ -4,11 +4,23 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.yupodong.lins.Community.CommuActivity;
+import com.yupodong.lins.DTO.user;
 import com.yupodong.lins.License.LicenseActivity;
 import com.yupodong.lins.MainActivity;
 import com.yupodong.lins.R;
@@ -23,7 +35,54 @@ public class SecessionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_secession);
 
+        //------------------------------ 회원탈퇴 과정 -------------------------------------
+        EditText secession_pw = (EditText)findViewById(R.id.secession_pw);
+        Button secession_Btn = (Button)findViewById(R.id.secession_Btn);
 
+        secession_Btn.setOnClickListener(new View.OnClickListener() {
+            FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+            FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+
+            @Override
+            public void onClick(View view) {
+                // 비밀번호를 입력하지 않았다면
+                if (secession_pw.getText().toString() == null) {
+                    Toast.makeText(SecessionActivity.this, "현재 로그인한 계정의 비밀번호를 입력해주세요.", Toast.LENGTH_SHORT).show();
+                }
+                // 비밀번호를 입력했다면,
+                else {
+                    // 현재 사용자의 비밀번호를 가져옴
+                    firestore.collection("User").document(currentUser.getEmail().toString())
+                        .get()
+                        .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                user user = task.getResult().toObject(user.class);
+
+                                // 입력한 비밀번호가 현재 사용자의 비밀번호와 동일하다면
+                                if(secession_pw.getText().toString() == user.getPassword()) {
+                                    // 해당 사용자의 정보를 삭제
+                                    firestore.collection("User").document(currentUser.getEmail().toString())
+                                            .delete()
+                                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                @Override
+                                                public void onSuccess(Void aVoid) {
+                                                    Toast.makeText(SecessionActivity.this, "회원탈퇴가 완료되었습니다.", Toast.LENGTH_SHORT).show();
+                                                }
+                                            });
+                                }
+                                // 동일하지 않다면
+                                else {
+                                    Toast.makeText(SecessionActivity.this, "올바른 비밀번호가 아닙니다.", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+                }
+
+                // error 메세지 출력
+                // 올바른 비밀번호를 입력했다면
+            }
+        });
         //----------------------------- 상단 및 하단 버튼들 clickListener 등록--------------------------------
         // 상단 버튼
         ImageButton backBtn = (ImageButton) findViewById(R.id.backBtn);
@@ -49,10 +108,16 @@ public class SecessionActivity extends AppCompatActivity {
         myBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(SecessionActivity.this, MyPage.class);
+
                 // 지금까지 열려있는 Activity들을 모두 종료
                 for (int i = 0; i < actList.size(); i++)
                     actList.get(i).finish();
-                setContentView(R.layout.activity_main);  //수정페이지 없어서 일단 메인으로 이동
+
+                // LicenseActivity로 이동
+                startActivity(intent);
+                // 현재 Activity 종료 후
+                finish();
             }
         });
 
