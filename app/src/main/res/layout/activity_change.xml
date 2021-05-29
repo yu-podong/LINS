@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="30dp"
+    android:gravity="center"
     android:orientation="vertical"
     android:background="@color/brightModeBack"
     tools:context=".MainActivity">
@@ -33,31 +34,31 @@
         android:layout_height="0dp"
         android:layout_weight="1"/>
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:id="@+id/changePasswordLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:orientation="vertical">
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center">
-
         <TextView
             android:id="@+id/changepw"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
             android:gravity="center"
             android:text="비밀번호 변경"
+            android:layout_marginBottom="30dp"
             android:textColor="@color/brightModeFont"
             android:textSize="35dp"
             android:textStyle="bold"
-            android:paddingTop="20dp"
-            android:paddingBottom="10dp"
             android:typeface="sans" />
-        </RelativeLayout>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="비밀번호는 다른사람에게 알려지면 안되는 \n개인정보입니다. 만약 본인이 비밀번호를 바꾸지 \n않았다면, 문의사항으로 연락주시길 바랍니다."
+            android:textSize="15dp"
+            android:gravity="center"
+            android:layout_marginBottom="20dp"/>
 
         <EditText
             android:id="@+id/c_pw"
@@ -95,29 +96,32 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:id="@+id/changeEmailLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:visibility="visible"
         android:orientation="vertical">
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/changeemail"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center">
+            android:gravity="center"
+            android:text="이메일 변경"
+            android:layout_marginBottom="30dp"
+            android:textColor="@color/brightModeFont"
+            android:textSize="35dp"
+            android:textStyle="bold"
+            android:typeface="sans" />
 
-            <TextView
-                android:id="@+id/changeemail"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:gravity="center"
-                android:text="이메일 변경"
-                android:textColor="@color/brightModeFont"
-                android:textSize="35dp"
-                android:textStyle="bold"
-                android:paddingTop="30dp"
-                android:typeface="sans" />
-        </RelativeLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="이메일은 LINS에서 아이디로 사용됩니다.\n 만약 본인이 비밀번호를 바꾸지 않았다면, \n문의사항으로 연락주시길 바랍니다."
+            android:textSize="15dp"
+            android:gravity="center"
+            android:layout_marginBottom="20dp"/>
 
 
         <EditText
@@ -136,11 +140,11 @@
             android:id="@+id/change_emailBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="변경"
-            android:textSize="18dp"
+            android:backgroundTint="@color/pastelYellow"
             android:padding="10dp"
+            android:text="변경"
             android:textColor="@color/brightModeFont"
-            android:backgroundTint="@color/pastelYellow"/>
+            android:textSize="18dp" />
     </LinearLayout>
 
 
