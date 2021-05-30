@@ -82,7 +82,7 @@ public class LicenseAdapter extends BaseAdapter{
                     scraplist.setLicenseName(licenselistArrayList.get(position).getLicenseName());
 
                     // firebase에 add
-                    firestore.collection("Scrap").document().set(scraplist).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    firestore.collection("Scrap").document(Integer.toString(licenselistArrayList.get(position).getLicenseID())).set(scraplist).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
                             Toast.makeText(context, "스크랩에 저장했습니다.", Toast.LENGTH_SHORT).show();

@@ -49,7 +49,7 @@ public class ScrapActivity extends AppCompatActivity {
         Bundle bundle = intent.getExtras();
         // 이전 액티비티에서 전달한 값을 저장
         String clickScrapType = bundle.getString("scrapType");
-
+        System.out.println(clickScrapType);
         //------------------------------------- 클릭한 카테고리에 해당하는 스크랩 정보 가져오기
         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
