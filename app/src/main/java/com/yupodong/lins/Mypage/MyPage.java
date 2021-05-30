@@ -77,7 +77,7 @@ public class MyPage extends AppCompatActivity {
         commutxt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MyPage.this, ChangeActivity.class);
+                Intent intent = new Intent(MyPage.this, ScrapActivity.class);
                 intent.putExtra("scrapType", "commu");
 
                 startActivity(intent);
@@ -87,7 +87,7 @@ public class MyPage extends AppCompatActivity {
         writecommtxt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MyPage.this, ChangeActivity.class);
+                Intent intent = new Intent(MyPage.this, ScrapActivity.class);
                 startActivity(intent);
             }
         });
@@ -95,7 +95,7 @@ public class MyPage extends AppCompatActivity {
         secessiontxt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MyPage.this, ChangeActivity.class);
+                Intent intent = new Intent(MyPage.this, SecessionActivity.class);
                 startActivity(intent);
             }
         });
