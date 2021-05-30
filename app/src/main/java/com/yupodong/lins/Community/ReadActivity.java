@@ -99,7 +99,7 @@ public class ReadActivity extends AppCompatActivity {
                     scrap.setUserID(currentUser.getEmail());
 
                     // scrap에 추가한 거라면
-                    if (scrapBtn.isClickable() == true ) {
+                    if (firestore.collection("Commu").whereEqualTo("writingID", writingID).get().getResult() == null) {
                         // 사용자에게 보여지는 scrapCount 수정
                         scrapCount.setText(Integer.toString(scrapNum + 1));
                         scrapBtn.setColorFilter(Color.parseColor("#E9C87B"));
@@ -121,8 +121,8 @@ public class ReadActivity extends AppCompatActivity {
                                     }
                         });
                     }
-                    // scrap을 취소한 거라면
-                    else {
+                    // scrap을 취소한 거라면 (이미 중복된 데이터가 들어갔다고 생각하고)
+                    else if (firestore.collection("Commu").whereEqualTo("writingID", writingID).get().getResult() != null){
                         // 사용자에게 보여지는 scrapCount 수정
                         scrapCount.setText(Integer.toString(scrapNum - 1));
                         scrapBtn.setColorFilter(Color.parseColor("#9D9D9D"));
