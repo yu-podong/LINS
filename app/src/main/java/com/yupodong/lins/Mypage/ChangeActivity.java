@@ -198,22 +198,6 @@ public class ChangeActivity extends AppCompatActivity {
             }
         });
 
-        myBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(ChangeActivity.this, MyPage.class);
-
-                // 지금까지 열려있는 Activity들을 모두 종료
-                for (int i = 0; i < actList.size(); i++)
-                    actList.get(i).finish();
-
-                // LicenseActivity로 이동
-                startActivity(intent);
-                // 현재 Activity 종료 후
-                finish();
-            }
-        });
-
         licenBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
