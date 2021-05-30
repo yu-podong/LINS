@@ -36,14 +36,13 @@ public class SchepopActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView((R.layout.activity_sche_pop));
         TextView scheDate = (TextView)findViewById(R.id.schepop_date);
-        ImageButton back = (ImageButton) findViewById(R.id.schepop_back);
 
         listView = (ListView)findViewById(R.id.sche_listview);  //리스트 구현 연결 및 객체생성
         list_itemArrayList = new ArrayList<list_item>();
 
         for(int i=0;i<5;i++){  //해당 날짜의 일정 수 만큼 반복
             list_itemArrayList.add(
-                    new list_item("1"/*시험 이름 저장*/,String.valueOf(CalendarDay.today()),R.mipmap.ic_launcher_round)  //임의로 내용 지정
+                    new list_item("1"/*시험 이름 저장*/,String.valueOf(CalendarDay.today()),R.drawable.circle)  //임의로 내용 지정
             );
         }
 //        list_itemArrayList.add(
@@ -55,33 +54,9 @@ public class SchepopActivity extends Activity {
         String mon = intent.getStringExtra("mon");
         String day = intent.getStringExtra("day");
 
-        scheDate.setText(String.format("%s년 %s월 %s일",year, mon, day));
-
-        back.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                finish();
-            }
-        });
+        scheDate.setText(String.format("%s. %s. %s",year, mon, day));
 
         myListAdapter = new MyListAdapter(SchepopActivity.this,list_itemArrayList);
         listView.setAdapter(myListAdapter);
     }
-
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        //바깥레이어 클릭시 안닫히게
-        if(event.getAction()==MotionEvent.ACTION_OUTSIDE){
-            return false;
-        }
-        return true;
-    }
-
- /*   @Override
-    public void onBackPressed() {
-        //안드로이드 백버튼 막기
-        return;
-    }*/
-
-
 }

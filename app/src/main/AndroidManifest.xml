@@ -12,12 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LINS"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Qna.QnaWriteActivity"></activity>
+        <activity android:name=".Community.commentActivity"></activity>
+        <activity android:name=".Qna.QnaWriteActivity" />
         <activity android:name=".Qna.QnaReadActivity" />
         <activity android:name=".Login.FindPwActivity" />
         <activity android:name=".Login.FindIdActivity" />
         <activity android:name=".Login.SignupActivity" />
         <activity android:name=".Scheduler.SchedulerActivity" />
+        <activity
+            android:name=".Scheduler.SchepopActivity"
+            android:theme="@android:style/Theme.Dialog" />
         <activity android:name=".License.LicenseListActivity" />
         <activity android:name=".Community.WriteActivity" />
         <activity android:name=".Community.ReadActivity" />
@@ -37,7 +41,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Scheduler.SchepopActivity" />
     </application>
 
 </manifest>
