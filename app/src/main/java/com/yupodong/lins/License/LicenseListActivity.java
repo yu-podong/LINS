@@ -89,7 +89,7 @@ public class LicenseListActivity extends AppCompatActivity {
                     licenseview.setAdapter(licenseAdapter);
                 }
                 else {
-                    Toast.makeText(LicenseListActivity.this, "TOEIC 시험일정을 가져오는데 실패했습니다.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LicenseListActivity.this, "시험일정을 가져오는데 실패했습니다.", Toast.LENGTH_SHORT).show();
                 }
             }
         });

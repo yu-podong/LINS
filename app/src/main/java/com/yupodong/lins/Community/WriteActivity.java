@@ -65,7 +65,7 @@ public class WriteActivity extends AppCompatActivity {
                 String inputContent = content.getText().toString();
                 System.out.println(inputContent);
                 // 입력하지 않은 내용이 있을 때
-                if (inputContent == "글 내용을 입력하세요" || inputTitle == "제목") {
+                if (inputContent.equals("") || inputTitle.equals("")) {
                     Toast.makeText(WriteActivity.this, "제목 또는 내용이 작성되지 않았습니다.", Toast.LENGTH_SHORT).show();
                 }
                 // 모두 입력했을 때 (정상)

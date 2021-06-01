@@ -57,7 +57,7 @@ public class QnaWriteActivity extends AppCompatActivity {
                 String inputContent = content.getText().toString();
 
                 // 입력하지 않은 내용이 있을 때
-                if (inputContent == "글 내용을 입력하세요" || inputTitle == "제목") {
+                if (inputContent.equals("") || inputTitle.equals("")) {
                     Toast.makeText(QnaWriteActivity.this, "제목 또는 내용이 작성되지 않았습니다.", Toast.LENGTH_SHORT).show();
                 }
                 else {

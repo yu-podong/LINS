@@ -60,7 +60,7 @@ public class SecessionActivity extends AppCompatActivity {
                                 user user = task.getResult().toObject(user.class);
 
                                 // 입력한 비밀번호가 현재 사용자의 비밀번호와 동일하다면
-                                if(secession_pw.getText().toString() == user.getPassword()) {
+                                if(secession_pw.getText().toString().equals(user.getPassword())) {
                                     // 해당 사용자의 정보를 삭제
                                     firestore.collection("User").document(currentUser.getEmail().toString())
                                             .delete()

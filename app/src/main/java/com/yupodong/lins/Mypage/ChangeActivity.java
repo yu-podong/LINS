@@ -49,7 +49,7 @@ public class ChangeActivity extends AppCompatActivity {
         LinearLayout changeEmailLayout = (LinearLayout)findViewById(R.id.changeEmailLayout);
 
         //----------------------------------- 비밀번호 변경을 클릭한 경우 ------------------------------------
-        if(clickChangeData == "password") {
+        if(clickChangeData.equals("password")) {
             changePasswordLayout.setVisibility(View.VISIBLE);
             changeEmailLayout.setVisibility(View.GONE);
 
@@ -70,7 +70,7 @@ public class ChangeActivity extends AppCompatActivity {
                     // 둘 다 입력했다면
                     else {
                         // 2개의 EditText에 들어있는 비밀번호가 같은지 비교
-                        if( c_pw.getText().toString() == c_check_pw.getText().toString()) {
+                        if(c_pw.getText().toString().equals(c_check_pw.getText().toString())) {
                             FirebaseFirestore firestore = FirebaseFirestore.getInstance();
                             FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -104,7 +104,7 @@ public class ChangeActivity extends AppCompatActivity {
             });
         }
         //-----------------------------------이메일 변경을 클릭한 경우 ---------------------------------------
-        else if (clickChangeData == "email") {
+        else if (clickChangeData.equals("email")) {
             changePasswordLayout.setVisibility(View.GONE);
             changeEmailLayout.setVisibility(View.VISIBLE);
 
@@ -126,7 +126,7 @@ public class ChangeActivity extends AppCompatActivity {
                         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
                         // 입력한 이메일이 새로운 이메일이 아니면
-                        if( c_email.getText().toString() == currentUser.getEmail().toString()) {
+                        if(c_email.getText().toString().equals(currentUser.getEmail().toString())) {
                             Toast.makeText(ChangeActivity.this, "이미 해당 이메일은 사용중입니다.", Toast.LENGTH_SHORT).show();
                         }
                         // 입력한 이메일이 새로운 이메일이라면,

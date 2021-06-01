@@ -205,7 +205,7 @@ public class ReadActivity extends AppCompatActivity {
                 FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
                 // 만약, 사용자가 댓글 입력란에 아무것도 작성하지 않았다면
-                if(editConmment.getText().toString() == "") {
+                if(editConmment.getText().toString().equals("")) {
                     Toast.makeText(ReadActivity.this, "댓글을 입력해주세요.", Toast.LENGTH_SHORT).show();
                 }
                 // 사용자가 댓글 입력란에 내용을 작성
