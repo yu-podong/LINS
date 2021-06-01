@@ -23,6 +23,7 @@ import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class SchepopActivity extends Activity {
     ListView listView;  //일정 리스트 구현
@@ -37,22 +38,21 @@ public class SchepopActivity extends Activity {
         setContentView((R.layout.activity_sche_pop));
         TextView scheDate = (TextView)findViewById(R.id.schepop_date);
 
-        listView = (ListView)findViewById(R.id.sche_listview);  //리스트 구현 연결 및 객체생성
-        list_itemArrayList = new ArrayList<list_item>();
-
-        for(int i=0;i<5;i++){  //해당 날짜의 일정 수 만큼 반복
-            list_itemArrayList.add(
-                    new list_item("1"/*시험 이름 저장*/,String.valueOf(CalendarDay.today()),R.drawable.circle)  //임의로 내용 지정
-            );
-        }
-//        list_itemArrayList.add(
-//                new list_item("1",new Date(CalendarDay.today()),R.mipmap.ic_launcher)  //임의로 내용 지정
-//        );
-
         Intent intent = getIntent();
         String year = intent.getStringExtra("year");
         String mon = intent.getStringExtra("mon");
         String day = intent.getStringExtra("day");
+        ArrayList<String> licenseName = intent.getStringArrayListExtra("licenseName");
+
+        listView = (ListView)findViewById(R.id.sche_listview);  //리스트 구현 연결 및 객체생성
+        list_itemArrayList = new ArrayList<list_item>();
+
+       for(int i = 0; i < licenseName.size(); i++) {
+           list_itemArrayList.add(
+                   new list_item(licenseName.get(i), String.valueOf(CalendarDay.today()), R.drawable.circle)  //임의로 내용 지정
+           );
+       }
+
 
         scheDate.setText(String.format("%s. %s. %s",year, mon, day));
 

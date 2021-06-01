@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,7 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -49,6 +51,7 @@ import com.yupodong.lins.R;
 
 import org.w3c.dom.Text;
 
+import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -59,9 +62,14 @@ import java.util.Locale;
 import java.util.Map;
 
 public class SchedulerActivity extends AppCompatActivity{
+    // firebase에서 data를 가져오기 위함
+    List<licenseScrap> temp = new ArrayList<licenseScrap>();
+    List<license> scrapList = new ArrayList<license>();
 
     private Map<CalendarDay, Integer> dayInstanceMap;
-
+    OneDayDecorator oneDayDecorator = new OneDayDecorator();
+    MaterialCalendarView materialCalendarView;   //커스텀 달력
+    
     @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,12 +84,17 @@ public class SchedulerActivity extends AppCompatActivity{
         ImageButton commBtn = (ImageButton)findViewById(R.id.commBtn);
         ImageButton chalBtn = (ImageButton)findViewById(R.id.chalBtn);
 
+        //------------------------------------- 로그인한 사용자인지 판별 -------------------------------------------------
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+
+        if(currentUser == null) {
+            Toast.makeText(this, "로그인을 한 후에 이용해주세요.", Toast.LENGTH_SHORT).show();
+            finish();
+        }
+
         //-------------------------------------- 커스텀 달력에 필요한 요소 작성 -------------------------------------------
-        MaterialCalendarView materialCalendarView;   //커스텀 달력
         materialCalendarView = findViewById(R.id.calendarView);
         materialCalendarView.setSelectedDate(CalendarDay.today());  //오늘날짜 선택하기
-
-        OneDayDecorator oneDayDecorator = new OneDayDecorator();
 
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.MONTH, -2);
@@ -95,7 +108,7 @@ public class SchedulerActivity extends AppCompatActivity{
 
         //----------------------------------------------- 사용자가 스크랩한 시험일정을 가져옴(아직 미완성) -------------------------------
         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
-        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+
 
         // 해당 사용자가 스크랩한 정보의 개수를 count
         firestore.collection("Scrap").whereEqualTo("nickName", currentUser.getEmail()).get()
@@ -103,46 +116,93 @@ public class SchedulerActivity extends AppCompatActivity{
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if(task.isSuccessful()) {
-                            List<licenseScrap> temp = new ArrayList<licenseScrap>();
-                            List<license> scrapList = new ArrayList<license>();
+
                             // 해당 사용자가 스크랩한 정보의 lite 버전을 list로 저장
                             for(QueryDocumentSnapshot documentSnapshot : task.getResult()) {
                                 temp.add(documentSnapshot.toObject(licenseScrap.class));
                             }
-                            // 가져온 스크랩 정보에 저장된 license name과 ID를 이용하여 해당 시험일정을 알맞은 DB에서 가져옴
-                            System.out.println(temp.get(0).getLicenseName());
+                            
+                            // TOEIC 시험일정을 전부 가져와서 모든 temp의 licenseID와 비교
+                            firestore.collection("TOEIC").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                @Override
+                                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                    if(task.isSuccessful()){
+                                        // TOEIC의 각 시험일정을 하나씩 가져옴
+                                        for(QueryDocumentSnapshot documentSnapshot : task.getResult()) {
+                                            license temp2 = documentSnapshot.toObject(license.class);
 
+                                            // 해당 시험일정의 ID을 temp에 들어있는 모든 ID와 비교
+                                            for(int i = 0; i < temp.size(); i++ ) {
+                                                if(temp2.getLicenseID().equals(temp.get(i).getLicenseID()) && temp2.getLicenseName().equals(temp.get(i).getLicenseName())) {
+                                                    scrapList.add(documentSnapshot.toObject(license.class));
+                                                }
+                                            }
+                                        }
 
-                            // 사용자가 스크랩한 시험 일정 개수 만큼 반복하기
-                            for (int i = 0; i < temp.size(); i++){
-                                firestore.collection(temp.get(i).getLicenseName()).whereEqualTo("licenseID", temp.get(i).getLicenseID())
-                                        .get()
-                                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                        // TOPCIT 시험일정을 전부 가져와서 모든 temp의 licenseID와 비교
+                                        firestore.collection("TOPCIT").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                                             @Override
                                             public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                                scrapList.add(task.getResult().toObjects(license.class).get(0));
+                                                if(task.isSuccessful()){
+                                                    // TOEIC의 각 시험일정을 하나씩 가져옴
+                                                    for(QueryDocumentSnapshot documentSnapshot : task.getResult()) {
+                                                        license temp2 = documentSnapshot.toObject(license.class);
+
+                                                        // 해당 시험일정의 ID을 temp에 들어있는 모든 ID와 비교
+                                                        for(int i = 0; i < temp.size(); i++ ) {
+                                                            if(temp2.getLicenseID().equals(temp.get(i).getLicenseID()) && temp2.getLicenseName().equals(temp.get(i).getLicenseName())) {
+                                                                scrapList.add(documentSnapshot.toObject(license.class));
+                                                            }
+                                                        }
+                                                    }
+                                                    // EIP 시험일정을 전부 가져와서 모든 temp의 licenseID와 비교
+                                                    firestore.collection("EIP").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                                        @Override
+                                                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                                            if(task.isSuccessful()){
+                                                                // TOEIC의 각 시험일정을 하나씩 가져옴
+                                                                for(QueryDocumentSnapshot documentSnapshot : task.getResult()) {
+                                                                    license temp2 = documentSnapshot.toObject(license.class);
+
+                                                                    // 해당 시험일정의 ID을 temp에 들어있는 모든 ID와 비교
+                                                                    for(int i = 0; i < temp.size(); i++ ) {
+                                                                        if(temp2.getLicenseID().equals(temp.get(i).getLicenseID()) && temp2.getLicenseName().equals(temp.get(i).getLicenseName())) {
+                                                                            scrapList.add(documentSnapshot.toObject(license.class));
+                                                                        }
+                                                                    }
+                                                                }
+
+                                                                // 사용자가 스크랩한 시험 일정 개수 만큼 반복하기
+                                                                for (int i = 0; i < scrapList.size(); i++){
+                                                                    // i번째 스크랩의 시험일정 정보를 년,월,일로 Integer로 변환
+                                                                    Integer year = Integer.parseInt(scrapList.get(i).getLicenseDate().substring(0,4));
+                                                                    Integer month = Integer.parseInt(scrapList.get(i).getLicenseDate().substring(5,7));
+                                                                    Integer day = Integer.parseInt(scrapList.get(i).getLicenseDate().substring(8,10));
+
+                                                                    // 위에서 년, 월, 일로 나눈 날짜를 가져와서 사용
+                                                                    CalendarDay date = CalendarDay.from(year, month-1, day);
+
+                                                                    // 시험일정이 있다는 것을 표시 (빨간 점으로)
+                                                                    EventDecorator decorator = new EventDecorator(Color.RED, 5, 1);
+                                                                    // 어느 자격증의 시험일정을 event 객체에 저장하고
+                                                                    decorator.addDate(date);
+                                                                    materialCalendarView.addDecorators(decorator);  //달력에 표시
+                                                                }
+
+                                                                materialCalendarView.addDecorators(  //달력 커스텀
+                                                                        new SundayDecorator(),
+                                                                        new SaturdayDecorator(),
+                                                                        oneDayDecorator
+                                                                );
+                                                            }
+                                                        }
+                                                    });
+                                                }
                                             }
                                         });
-                                System.out.println(scrapList.get(0).getLicenseName());
-                                // i번째 스크랩의 시험일정 정보를 년,월,일로 Integer로 변환
-                                Integer year = Integer.parseInt(scrapList.get(i).getLicenseDate().substring(0,3));
-                                Integer month = Integer.parseInt(scrapList.get(i).getLicenseDate().substring(6,6));
-                                Integer day = Integer.parseInt(scrapList.get(i).getLicenseDate().substring(8,9));
-
-                                // 위에서 년, 월, 일로 나눈 날짜를 가져와서 사용
-                                CalendarDay date = CalendarDay.from(year, month, day);
-                                // 시험일정이 있다는 것을 표시 (빨간 점으로)
-                                EventDecorator decorator = new EventDecorator(Color.RED, 5, 1);
-                                // 어느 자격증의 시험일정을 event 객체에 저장하고
-                                decorator.addDate(date);
-                                materialCalendarView.addDecorators(decorator);  //달력에 표시
-                            }
-
-                            materialCalendarView.addDecorators(  //달력 커스텀
-                                    new SundayDecorator(),
-                                    new SaturdayDecorator(),
-                                    oneDayDecorator
-                            );
+                                    }
+                                }
+                            });
                         }
                         else {
                             // nothing do.. (현재 날짜만 표시)
@@ -155,9 +215,9 @@ public class SchedulerActivity extends AppCompatActivity{
 
         Intent intent = new Intent(this, SchepopActivity.class);
         materialCalendarView.setOnDateChangedListener(new OnDateSelectedListener() {  //날짜 선택시 팝업창 띄우기
-
             @Override
             public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay date, boolean selected) {
+
 
 
                 Date CurrenTime = date.getDate();  //날짜 받아오기
@@ -171,10 +231,19 @@ public class SchedulerActivity extends AppCompatActivity{
                 String year = yearFormat.format(CurrenTime);
                 String month = monthFormat.format(CurrenTime);
                 String day = dayFormat.format(CurrenTime);
+                ArrayList<String> licenseName = new ArrayList<String>();
+
+
+                for(int i = 0; i < scrapList.size(); i++) {
+                    if(scrapList.get(i).getLicenseDate().substring(0,10).equals(year + "." + month + "." + day)) {
+                        licenseName.add(scrapList.get(i).getLicenseName());
+                    }
+                }
 
                 intent.putExtra("year", year);  //팝업창에 정보 전달
                 intent.putExtra("mon" ,month);
                 intent.putExtra("day" ,day);
+                intent.putStringArrayListExtra("licenseName", licenseName);
                 startActivityForResult(intent,3);
             }
 
