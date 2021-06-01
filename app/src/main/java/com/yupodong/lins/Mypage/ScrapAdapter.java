@@ -60,7 +60,7 @@ public class ScrapAdapter extends BaseAdapter {
         }
         
         // license를 클릭한 경우
-        if (scrapListArrayList.get(position).getWritingInfo() == "") {
+        if (scrapListArrayList.get(position).getWritingInfo().equals("")) {
             Scrap_day.setText(scrapListArrayList.get(position).getS_day());
             Scrap_applydate.setText(scrapListArrayList.get(position).getS_applydate());
             Scrap_icon.setImageResource(scrapListArrayList.get(position).getS_icon());
@@ -79,7 +79,7 @@ public class ScrapAdapter extends BaseAdapter {
         }
         
         // commu를 클릭한 경우
-        else if(scrapListArrayList.get(position).getWritingInfo() != "") {
+        else if(!scrapListArrayList.get(position).getWritingInfo().equals("")) {
             Scrap_day.setText(scrapListArrayList.get(position).getS_day());
             Scrap_applydate.setText(scrapListArrayList.get(position).getS_applydate());
             Scrap_icon.setVisibility(View.GONE);
