@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LINS"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Community.commentActivity"></activity>
+        <activity android:name=".Qna.CommentActivity"></activity>
+        <activity android:name=".Community.commentActivity" />
         <activity android:name=".Qna.QnaWriteActivity" />
         <activity android:name=".Qna.QnaReadActivity" />
         <activity android:name=".Login.FindPwActivity" />
