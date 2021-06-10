@@ -41,6 +41,10 @@ dependencies {
     // Import the Firebase BoM
     implementation platform('com.google.firebase:firebase-bom:27.1.0')
     // Declare the dependency for the Firebase SDK for Google Analytics
+    implementation 'com.google.firebase:firebase-messaging:17.3.4' // 안드로이드 푸시 라이브러리
+    implementation 'com.google.firebase:firebase-core:16.0.1'
+    implementation 'com.firebase:firebase-jobdispatcher:0.6.0'
+    implementation  'com.firebase:firebase-jobdispatcher:0.6.0@aar'
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-database'
     implementation 'com.google.firebase:firebase-auth'

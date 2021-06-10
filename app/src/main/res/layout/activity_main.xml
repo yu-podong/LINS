@@ -163,7 +163,6 @@
             android:textSize="20dp"
             app:backgroundTint="#9BABB8" />
     </LinearLayout>
-
 </LinearLayout>
 
 

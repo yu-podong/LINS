@@ -1,11 +1,18 @@
 package com.yupodong.lins;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.yupodong.lins.Crawler.EIP;
 import com.yupodong.lins.Crawler.TOEIC;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -23,10 +30,43 @@ import com.yupodong.lins.Scheduler.SchedulerActivity;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final String TAG="MainActivity";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        FirebaseMessaging.getInstance().subscribeToTopic("notice");
+
+//        Button logTokkenButton = findViewById(R.id.logTokenButton);
+//        logTokkenButton.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View v) {
+//
+//                FirebaseMessaging.getInstance().getToken()
+//                        .addOnCompleteListener(new OnCompleteListener<String>() {
+//                            @Override
+//                            public void onComplete(@NonNull Task<String> task) {
+//                                if (!task.isSuccessful()) {
+//                                    Log.w(TAG, "Fetching FCM registration token failed", task.getException());
+//                                    return;
+//                                }
+//
+//                                // Get new FCM registration token
+//                                String token = task.getResult();
+//
+//                                // Log and toast
+//                                String msg = getString(R.string.msg_token_fmt, token);
+//                                Log.d(TAG, msg);
+//                                Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
+//                            }
+//                        });
+//
+//            }
+//        });
+
 
         // 수정된 부분 : Activity 전환을 위해 사용
         // 그냥 findViewById로 4개의 button에 접근하게 되면, error 발생 (null object)
@@ -91,6 +131,10 @@ public class MainActivity extends AppCompatActivity {
         crawlingEIP();
         // TOPCIT 크롤러 실행
         crawlingTOPCIT();*/
+
+
+
+
     }
 
     public void crawlingTOEIC() {
@@ -165,4 +209,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }.start();
     }
+
+
+
 }
